@@ -4,7 +4,7 @@
   <title><![CDATA[Category: auraphp | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/auraphp/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-02-16T16:56:38+05:30</updated>
+  <updated>2013-02-16T17:33:28+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -18,7 +18,7 @@
     <link href="http://harikt.com/blog/2013/02/16/aura-dot-http-request-and-response/"/>
     <updated>2013-02-16T14:44:00+05:30</updated>
     <id>http://harikt.com/blog/2013/02/16/aura-dot-http-request-and-response</id>
-    <content type="html"><![CDATA[<p>The <code>Aura.Http</code> package provide you the you to build and send request and response.</p>
+    <content type="html"><![CDATA[<p>The <code>Aura.Http</code> package provide you the tool to build and send request and response.</p>
 
 <h1>Instantiation:</h1>
 
@@ -37,7 +37,8 @@ manually you can look into the <code>instance.php</code></p>
 either the framework does it for you, or until you need to send the correct
 response.</p>
 
-<p>For that you need to create a response object. You can get it by</p>
+<p>To create a proper http response via <code>Aura.Http</code> we need to create a
+response object.</p>
 
 <p><code>php
 $response = $http-&gt;newResponse();
@@ -145,7 +146,7 @@ method and pass the <code>response</code> object.</p>
 $http-&gt;send($response);
 </code></p>
 
-<p>The full source code for an example is</p>
+<p>The full source code of example is</p>
 
 <p><code>php
 $http = require 'path/to/Aura.Http/scripts/instance.php';
@@ -156,7 +157,10 @@ $response-&gt;setContent('&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt
 $http-&gt;send($response);
 </code></p>
 
-<p>In order to render just <code>Hello World!</code> the <code>Content-Type</code> we added should be
+<p>From terminal start the server by <code>php -S localhost:8000 example.php</code> and
+pointintg to <code>localhost:8000</code> in your browser.</p>
+
+<p>In order to render just <code>Hello World!</code> in the browser the <code>Content-Type</code> we added should be
 <code>text/html</code>.</p>
 
 <p>We can always change the header status code, content-type etc
