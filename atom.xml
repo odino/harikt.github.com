@@ -4,7 +4,7 @@
   <title><![CDATA[Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-02-16T14:21:13+05:30</updated>
+  <updated>2013-02-16T14:27:44+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -18,9 +18,7 @@
     <link href="http://harikt.com/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/"/>
     <updated>2013-02-16T13:15:00+05:30</updated>
     <id>http://harikt.com/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3</id>
-    <content type="html"><![CDATA[<h1>Domicile.FirePHP</h1>
-
-<p><a href="https://github.com/harikt/Domicile.FirePHP">Domicile.FirePHP</a> is an experiment to make <a href="https://github.com/firephp/firephp-core">FirePHP</a> works for <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md">PSR-3</a>.</p>
+    <content type="html"><![CDATA[<p><a href="https://github.com/harikt/Domicile.FirePHP">Domicile.FirePHP</a> is an experiment to make <a href="https://github.com/firephp/firephp-core">FirePHP</a> works for <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md">PSR-3</a>.</p>
 
 <p>This is not a replacement for the original <a href="https://github.com/firephp/firephp-core">FirePHP</a>. It has dependencies
 on <code>firephp/firephp-core</code>, and <code>psr/log</code></p>
@@ -75,7 +73,7 @@ instance of the <code>\FirePHP::getInstance(true)</code>.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>And you can make use of the real functionalities of the core <code>[FirePHP][]</code></p>
+<p>And you can make use of the real functionalities of the core <a href="https://github.com/firephp/firephp-core">FirePHP</a></p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
