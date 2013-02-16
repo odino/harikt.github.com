@@ -9,8 +9,8 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="Domicile.FirePHP is an experiment to make FirePHP works for PSR-3. This is not a replacement for the original FirePHP. It has dependencies
-on firephp &hellip;">
+  <meta name="description" content="The Aura.Http package provide you the you to build and send request and response. Instantiation: The easiest way is 1
+$http = require &#39;path/to/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,304 @@ on firephp &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/16/aura-dot-http-request-and-response/">Aura.Http : Request and Response</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-16T14:44:00+05:30" pubdate data-updated="true">Feb 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The <code>Aura.Http</code> package provide you the you to build and send request and response.</p>
+
+<h1>Instantiation:</h1>
+
+<p>The easiest way is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$http = require &#39;path/to/Aura.Http/scripts/instance.php&#39;;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What it gives you is an object of <code>Aura\Http\Manager</code>. If you want to create
+manually you can look into the <code>instance.php</code></p>
+
+<h1>Building your Response</h1>
+
+<p>Probably you may not have bothered too much on building the http response
+either the framework does it for you, or until you need to send the correct
+response.</p>
+
+<p>For that you need to create a response object. You can get it by</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response = $http-&gt;newResponse();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you have the response object. You can set the <code>header</code> via</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;headers-&gt;set(&#39;Header&#39;, &#39;Value&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you have an array of headers you can use <code>setAll</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;headers-&gt;setAll([</span>
+</span><span class='line'><span class="x">    &#39;Header-One&#39; =&gt; &#39;header one value&#39;,</span>
+</span><span class='line'><span class="x">    &#39;Header-Two&#39; =&gt; [</span>
+</span><span class='line'><span class="x">        &#39;header two value A&#39;,</span>
+</span><span class='line'><span class="x">        &#39;header two value B&#39;,</span>
+</span><span class='line'><span class="x">        &#39;header two value C&#39;,</span>
+</span><span class='line'><span class="x">    ],</span>
+</span><span class='line'><span class="x">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So a basic example of setting header value is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;headers-&gt;set(&#39;Content-Type&#39;, &#39;text/plain&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Setting Content</h2>
+
+<p>The header values are for the browser to understand what is coming from
+server, and how it should render etc.</p>
+
+<p>So we need to set the content. This can be achieved via <code>setContent</code> method.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;setContent(&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can always get the content via calling <code>getContent</code>.</p>
+
+<h2>Setting and Getting Cookies</h2>
+
+<p>Sometimes we may want to set the cookies. You can do it as</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;cookies-&gt;set(&#39;cookie_name&#39;, [</span>
+</span><span class='line'><span class="x">    &#39;value&#39;    =&gt; &#39;cookie value&#39;, // cookie value</span>
+</span><span class='line'><span class="x">    &#39;expire&#39;   =&gt; time() + 3600,  // expiration time in unix epoch seconds</span>
+</span><span class='line'><span class="x">    &#39;path&#39;     =&gt; &#39;/path&#39;,        // server path for the cookie</span>
+</span><span class='line'><span class="x">    &#39;domain&#39;   =&gt; &#39;example.com&#39;,  // domain for the cookie</span>
+</span><span class='line'><span class="x">    &#39;secure&#39;   =&gt; false,          // send by ssl only?</span>
+</span><span class='line'><span class="x">    &#39;httponly&#39; =&gt; true,           // send by http/https only?</span>
+</span><span class='line'><span class="x">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The array keys mimic the <a href="http://php.net/setcookies">setcookie</a> parameters. If you have an array
+you can use <code>setAll</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;cookies-&gt;setAll([</span>
+</span><span class='line'><span class="x">    &#39;cookie_foo&#39; =&gt; [</span>
+</span><span class='line'><span class="x">        &#39;value&#39; =&gt; &#39;value for cookie foo&#39;,</span>
+</span><span class='line'><span class="x">    ],</span>
+</span><span class='line'><span class="x">    &#39;cookie_bar&#39; =&gt; [</span>
+</span><span class='line'><span class="x">        &#39;value&#39; =&gt; &#39;value for cookie bar&#39;,</span>
+</span><span class='line'><span class="x">    ],</span>
+</span><span class='line'><span class="x">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can get a cookie by calling <code>get</code> method on cookies.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;cookies-&gt;get(&#39;cookie_name&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Setting and Getting Status</h2>
+
+<p>By default the status code is 200. But at some point of time
+like the one I explained earlier in <a href="http://harikt.com/blog/2012/12/16/status-code-304/">Status Code 304</a>, we don&#8217;t need to
+send the whole content. But just the status code.</p>
+
+<p>This is possible via <code>setStatusCode</code> and <code>setStatusText</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;setStatusCode(304);</span>
+</span><span class='line'><span class="x">$response-&gt;setStatusText(&#39;Same As It Ever Was&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Sending your response</h2>
+
+<p>And finally we can send the response back. We can call the <code>send</code>
+method and pass the <code>response</code> object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$http-&gt;send($response);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The full source code for an example is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$http = require &#39;path/to/Aura.Http/scripts/instance.php&#39;;</span>
+</span><span class='line'><span class="x">// send a response</span>
+</span><span class='line'><span class="x">$response = $http-&gt;newResponse();</span>
+</span><span class='line'><span class="x">$response-&gt;headers-&gt;set(&#39;Content-Type&#39;, &#39;text/plain&#39;);</span>
+</span><span class='line'><span class="x">$response-&gt;setContent(&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;);</span>
+</span><span class='line'><span class="x">$http-&gt;send($response);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In order to render just <code>Hello World!</code> the <code>Content-Type</code> we added should be
+<code>text/html</code>.</p>
+
+<p>We can always change the header status code, content-type etc
+before we call <code>send()</code> method.</p>
+
+<p>Let us modify the example at <a href="http://harikt.com/blog/2012/12/16/status-code-304/">Status Code 304</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$http = require &#39;path/to/Aura.Http/scripts/instance.php&#39;;</span>
+</span><span class='line'><span class="x">$response = $http-&gt;newResponse();</span>
+</span><span class='line'><span class="x">if ( isset($_SERVER[&#39;HTTP_IF_MODIFIED_SINCE&#39;]) &amp;&amp; </span>
+</span><span class='line'><span class="x">    $_SERVER[&#39;HTTP_IF_MODIFIED_SINCE&#39;] == &#39;Tue, 15 Jan 2011 12:00 GMT&#39; ) {</span>
+</span><span class='line'><span class="x">    $response-&gt;setStatusCode(304);</span>
+</span><span class='line'><span class="x">} else {</span>
+</span><span class='line'><span class="x">    $response-&gt;headers-&gt;set(&#39;Content-Type&#39;, &#39;text/html&#39;);</span>
+</span><span class='line'><span class="x">    $response-&gt;headers-&gt;set(&#39;Last-Modified&#39;, &#39;Tue, 15 Jan 2011 12:00 GMT&#39;);</span>
+</span><span class='line'><span class="x">    $response-&gt;setContent(&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;);</span>
+</span><span class='line'><span class="x">}</span>
+</span><span class='line'><span class="x">$http-&gt;send($response);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You would have noticed I have used <code>$_SERVER</code> variable. In <code>Aura.Http</code>,
+there is no methods to access the global server values. This is because
+the <code>$_SERVER</code> values are not the exact http requested header. The server
+modifies the request and we will be only getting the manipulated values
+if we use <code>$_SERVER</code>, <code>$_GET</code>, <code>$_POST</code> values.</p>
+
+<p><code>Aura.Http</code> only helps you to build, create, modify response and request.</p>
+
+<h1>Creating Http Request</h1>
+
+<p>We talked about response so far. What does Request actually mean?</p>
+
+<p>Client -> Request something -> Server Responds</p>
+
+<p>So that means we are trying to be a client or a browser, and making the necessary
+headers and sending to server to get the corresponding response.</p>
+
+<p>We can get all the repos of a user in github via curl.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">curl -i https://api.github.com/users/pmjones/repos</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The same can be achieved via <a href="https://github.com/auraphp/Aura.Http">Aura.Http</a>. The <a href="https://github.com/auraphp/Aura.Http">Aura.Http</a> provides a
+means to do the same with PHP. It uses <code>curl</code> if it is available or <code>stream</code>
+to make this happen.</p>
+
+<p>You need to create a Request object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$request = $http-&gt;newRequest();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Set the url via <code>setUrl</code> method and send.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$request-&gt;setUrl(&#39;https://api.github.com/users/pmjones/repos&#39;);</span>
+</span><span class='line'><span class="x">$stack = $http-&gt;send($request);</span>
+</span><span class='line'><span class="x">$repos = json_decode($stack[0]-&gt;content);</span>
+</span><span class='line'><span class="x">foreach ($repos as $repo) {</span>
+</span><span class='line'><span class="x">    echo $repo-&gt;name . PHP_EOL;</span>
+</span><span class='line'><span class="x">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There are more things to say. It can do basic authentication, post values etc.
+Browse the documentation examples, source code, tests, and api.</p>
+
+<p>Source Code : <a href="https://github.com/auraphp/Aura.Http">https://github.com/auraphp/Aura.Http</a></p>
+
+<p>Documentation : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/">http://auraphp.github.com/Aura.Http/version/1.0.0/</a></p>
+
+<p>API : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/api/">http://auraphp.github.com/Aura.Http/version/1.0.0/api/</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -190,8 +488,8 @@ instance of the <code>\FirePHP::getInstance(true)</code>.</p>
 
 <h1>Known Limitations:</h1>
 
-<p>In <a href="https://github.com/firephp/firephp-core">FirePHP</a> I didn&#8217;t noticed it is having LogLevel::ALERT, LogLevel::CRITICAL,
-LogLevel::DEBUG, LogLevel::EMERGENCY, LogLevel::NOTICE levels.</p>
+<p>In <a href="https://github.com/firephp/firephp-core">FirePHP</a> I didn&#8217;t noticed it is having <code>LogLevel::ALERT</code>, <code>LogLevel::CRITICAL</code>,
+<code>LogLevel::DEBUG</code>, <code>LogLevel::EMERGENCY</code>, <code>LogLevel::NOTICE</code> levels.</p>
 
 <p>I am not sure whether <code>trace</code> can be used for <code>DEBUG</code>.</p>
 
@@ -1142,42 +1440,6 @@ for sure the current implementation supports it.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/29/node-225/">First Stable Release for Aura Components</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-29T20:46:00+05:30" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So today @Paul M Jones officially declared the first stable release for Aura PHP components. Yes, I am really excited to see this release for it comes with a ton of great improvements for many components, bug fixes and sadly some BC breaks also. The list of packages which became stable are https://github.com/auraphp/Aura.Autoload https://github.com/auraphp/Aura.Cli https://github.com/auraphp/Aura.Di https://github.com/auraphp/Aura.Http https://github.com/auraphp/Aura.Marshal https://github.com/auraphp/Aura.Router : Yes I want to update the post at phpmaster.com for it has some breaks. I will be doing it in coming days. https://github.com/auraphp/Aura.Signal https://github.com/auraphp/Aura.Sql https://github.com/auraphp/Aura.View https://github.com/auraphp/Aura.Web https://github.com/auraphp/Aura.Uri : uri manipulation and there are some packages that are releasing the first Beta. Though these packages have been there for sometime, this is officially declared now only. Yes a bit delay from our part to declare it. https://github.com/auraphp/Aura.Filter Filter is an awesome component for Sanitizing and Validating. You guys should look into the core to learn how it works really. Its an awesome piece of work! . I will in the coming days write something about it. https://github.com/auraphp/Aura.Intl for Internationalization https://github.com/auraphp/Aura.Session : for session handling Thanks to all to make the release happen. You can read the official declaration at http://paul-m-jones.com/archives/2976 . Join our mailing list https://groups.google.com/forum/#!forum/auraphp or #auraphp at irc.freenode.net .</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1193,6 +1455,10 @@ for sure the current implementation supports it.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/16/aura-dot-http-request-and-response/">Aura.Http : Request and Response</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/">Domicile.FirePHP a way to comply PSR-3</a>
       </li>
     
@@ -1206,10 +1472,6 @@ for sure the current implementation supports it.</p>
     
       <li class="post">
         <a href="/blog/2012/12/18/aura-framework-releases-beta4/">Aura Framework releases Beta4</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/17/the-moving-from-drupal7-to-octopress/">The moving from Drupal7 to octopress</a>
       </li>
     
   </ul>

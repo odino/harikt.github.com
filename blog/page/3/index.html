@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="This video is my an attempt to help the people how to install the aura framework as a whole. Note, you can use aura libraries independently also. &hellip;">
+  <meta name="description" content="Note : First I thought of creating an issue, and it was not in github. These are not serious issues, but just my thoughts when installing ZF2 via &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/10/thoughts-on-installing-zend-frameowork-via-composer/">Thoughts on Installing Zend Framework via Composer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-10T11:04:00+05:30" pubdate data-updated="true">Sep 10<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Note : First I thought of creating an issue, and it was not in github. These are not serious issues, but just my thoughts when installing ZF2 via composer. I am not sure whether its composer related or the way the zf2 is packaged to do it via composer. Normally the composer.json will be something like {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &#8220;require&#8221;: { &#8220;zendframework/zend-form&#8221;: &#8220;2.0&#8221; } } hari@local:/var/www/composer/zf2$ php ../composer.phar install Loading composer repositories with package information Installing dependencies - Installing zendframework/zendframework (2.0.0) Downloading: 25%\<sup>C</sup> hari@local:/var/www/composer/zf2$ \<sup>C</sup> {/syntaxhighlighter} But you can see the composer tries to install the whole zend-framework. The problem is you need to add some more lines for its hosted in packages.framework.com and not in packagist.org . So your composer.json will be as below . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &#8220;repositories&#8221;: [ { &#8220;type&#8221;: &#8220;composer&#8221;, &#8220;url&#8221;: &#8220;http://packages.zendframework.com/&#8221; } ], &#8220;require&#8221;: { &#8220;zendframework/zend-form&#8221;: &#8220;2.0&#8221; } } hari@local:/var/www/composer/zf2$ php ../composer.phar install Loading composer repositories with package information Installing dependencies - Installing zendframework/zend-form (2.0.0) Downloading: 100% zendframework/zend-form suggests installing zendframework/zendservice-recaptcha (ZendService\ReCaptcha component) Writing lock file Generating autoload files {/syntaxhighlighter} Great you installed the zf2 form component. Now you can see where the form is installed . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ ls vendor/ autoload.php composer zendframework hari@local:/var/www/composer/zf2$ ls vendor/zendframework/ zend-form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/ Form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/ Annotation FieldsetInterface.php composer.json Fieldset.php Element FieldsetPrepareAwareInterface.php ElementInterface.php FormFactoryAwareInterface.php Element.php FormInterface.php ElementPrepareAwareInterface.php Form.php Exception TODO.md Factory.php View {/syntaxhighlighter} Assume you have more zf2 packages which you have added. At a later point you think of installing the framework as a whole itself than adding more packages in the composer.json . So your composer.json will be some what like {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &#8220;repositories&#8221;: [ { &#8220;type&#8221;: &#8220;composer&#8221;, &#8220;url&#8221;: &#8220;http://packages.zendframework.com/&#8221; } ], &#8220;require&#8221;: { &#8220;zendframework/zendframework&#8221;: &#8220;2.0&#8221; } } hari@local:/var/www/composer/zf2$ php ../composer.phar update Loading composer repositories with package information Updating dependencies - Removing zendframework/zend-form (2.0.0) - Installing zendframework/zendframework (2.0.0) Downloading: 100% Writing lock file Generating autoload files {/syntaxhighlighter} The form has been removed and framework is installed. Lets have a look where its installed . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ ls vendor/ autoload.php composer zendframework hari@local:/var/www/composer/zf2$ ls vendor/zendframework/ zend-form hari@local:/var/www/composer/zf2$ cat composer.json { &#8220;repositories&#8221;: [ { &#8220;type&#8221;: &#8220;composer&#8221;, &#8220;url&#8221;: &#8220;http://packages.zendframework.com/&#8221; } ], &#8220;require&#8221;: { &#8220;zendframework/zendframework&#8221;: &#8220;2.0&#8221; } } hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/ Form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/ bin INSTALL.md README-DEV.md resources composer.json library README-GIT.md tests demos LICENSE.txt README.md vendor hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/library/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/library/Zend/ Authentication Di InputFilter Mvc Stdlib Barcode Dom Json Navigation Tag Cache Escaper Ldap Paginator Text Captcha EventManager Loader Permissions Uri Code Feed Log ProgressBar Validator Config File Mail Serializer Version Console Filter Math Server View Crypt Form Memory ServiceManager XmlRpc Db Http Mime Session Debug I18n ModuleManager Soap {/syntaxhighlighter} You can notice its going on the wrong place. vendor/zendframework/zend-form . I am not sure whether every one needs to remove all the installed packages to install the framework . It seems possible with naming zendframework/package . Thus it don&#8217;t remove the installed packages. May be there are some other issues related to it for the naming of zendframework/zend-form like that.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -401,42 +437,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/13/why-you-should-write-test/">Why You Should Write Test</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-13T09:25:00+05:30" pubdate data-updated="true">Jun 13<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Recently I was reading <a href="http://sandeep.shetty.in/2012/05/when-to-use-arraymerge-and-union.html">When to use array_merge and union operator (+) in PHP?</a> . Lately working with examples I was also confused how the array_merge and union works. Really, that brings a strong thought why you should write tests. Lets see some examples . {syntaxhighlighter class=&#8221;php&#8221;} &#8216;bar&#8217;, 3, 4, &#8216;123&#8217; => 3); echo &#8216;$a = &#8216;; var_export($a); $b = array(&#8216;foo&#8217; => &#8216;baz&#8217;, 3, 6, 7, 3); echo PHP_EOL . &#8216;$b = &#8216;; var_export($b); echo PHP_EOL . &#8216;array_merge( $a, $b) = &#8216;; var_export( array_merge($a, $b)); echo PHP_EOL . &#8216;$a + $b = &#8216;; var_export( $a + $b ); {/syntaxhighlighter} Do you have any thoughts on how the result for array_merge and + comes? {syntaxhighlighter class=&#8221;php&#8221;} $a = array ( &#8216;foo&#8217; => &#8216;bar&#8217;, 0 => 3, 1 => 4, 123 => 3, ) $b = array ( &#8216;foo&#8217; => &#8216;baz&#8217;, 0 => 3, 1 => 6, 2 => 7, 3 => 3, ) array_merge( $a, $b) = array ( &#8216;foo&#8217; => &#8216;baz&#8217;, 0 => 3, 1 => 4, 2 => 3, 3 => 3, 4 => 6, 5 => 7, 6 => 3, ) $a + $b = array ( &#8216;foo&#8217; => &#8216;bar&#8217;, 0 => 3, 1 => 4, 123 => 3, 2 => 7, 3 => 3, ) {/syntaxhighlighter} Hope this makes to convince you also , why you should write tests :-) . A detailed post on the working is at http://unix0.wordpress.com/2012/01/08/php-array_merge-vs-plus-union-operator/</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -454,6 +454,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/16/aura-dot-http-request-and-response/">Aura.Http : Request and Response</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/">Domicile.FirePHP a way to comply PSR-3</a>
       </li>
     
@@ -467,10 +471,6 @@
     
       <li class="post">
         <a href="/blog/2012/12/18/aura-framework-releases-beta4/">Aura Framework releases Beta4</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/17/the-moving-from-drupal7-to-octopress/">The moving from Drupal7 to octopress</a>
       </li>
     
   </ul>

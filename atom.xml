@@ -4,7 +4,7 @@
   <title><![CDATA[Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-02-16T14:29:51+05:30</updated>
+  <updated>2013-02-16T16:56:38+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,277 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Aura.Http : Request and Response]]></title>
+    <link href="http://harikt.com/blog/2013/02/16/aura-dot-http-request-and-response/"/>
+    <updated>2013-02-16T14:44:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/02/16/aura-dot-http-request-and-response</id>
+    <content type="html"><![CDATA[<p>The <code>Aura.Http</code> package provide you the you to build and send request and response.</p>
+
+<h1>Instantiation:</h1>
+
+<p>The easiest way is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$http = require &#39;path/to/Aura.Http/scripts/instance.php&#39;;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What it gives you is an object of <code>Aura\Http\Manager</code>. If you want to create
+manually you can look into the <code>instance.php</code></p>
+
+<h1>Building your Response</h1>
+
+<p>Probably you may not have bothered too much on building the http response
+either the framework does it for you, or until you need to send the correct
+response.</p>
+
+<p>For that you need to create a response object. You can get it by</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response = $http-&gt;newResponse();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you have the response object. You can set the <code>header</code> via</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;headers-&gt;set(&#39;Header&#39;, &#39;Value&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you have an array of headers you can use <code>setAll</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;headers-&gt;setAll([</span>
+</span><span class='line'><span class="x">    &#39;Header-One&#39; =&gt; &#39;header one value&#39;,</span>
+</span><span class='line'><span class="x">    &#39;Header-Two&#39; =&gt; [</span>
+</span><span class='line'><span class="x">        &#39;header two value A&#39;,</span>
+</span><span class='line'><span class="x">        &#39;header two value B&#39;,</span>
+</span><span class='line'><span class="x">        &#39;header two value C&#39;,</span>
+</span><span class='line'><span class="x">    ],</span>
+</span><span class='line'><span class="x">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So a basic example of setting header value is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;headers-&gt;set(&#39;Content-Type&#39;, &#39;text/plain&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Setting Content</h2>
+
+<p>The header values are for the browser to understand what is coming from
+server, and how it should render etc.</p>
+
+<p>So we need to set the content. This can be achieved via <code>setContent</code> method.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;setContent(&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can always get the content via calling <code>getContent</code>.</p>
+
+<h2>Setting and Getting Cookies</h2>
+
+<p>Sometimes we may want to set the cookies. You can do it as</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;cookies-&gt;set(&#39;cookie_name&#39;, [</span>
+</span><span class='line'><span class="x">    &#39;value&#39;    =&gt; &#39;cookie value&#39;, // cookie value</span>
+</span><span class='line'><span class="x">    &#39;expire&#39;   =&gt; time() + 3600,  // expiration time in unix epoch seconds</span>
+</span><span class='line'><span class="x">    &#39;path&#39;     =&gt; &#39;/path&#39;,        // server path for the cookie</span>
+</span><span class='line'><span class="x">    &#39;domain&#39;   =&gt; &#39;example.com&#39;,  // domain for the cookie</span>
+</span><span class='line'><span class="x">    &#39;secure&#39;   =&gt; false,          // send by ssl only?</span>
+</span><span class='line'><span class="x">    &#39;httponly&#39; =&gt; true,           // send by http/https only?</span>
+</span><span class='line'><span class="x">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The array keys mimic the <a href="http://php.net/setcookies">setcookie</a> parameters. If you have an array
+you can use <code>setAll</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;cookies-&gt;setAll([</span>
+</span><span class='line'><span class="x">    &#39;cookie_foo&#39; =&gt; [</span>
+</span><span class='line'><span class="x">        &#39;value&#39; =&gt; &#39;value for cookie foo&#39;,</span>
+</span><span class='line'><span class="x">    ],</span>
+</span><span class='line'><span class="x">    &#39;cookie_bar&#39; =&gt; [</span>
+</span><span class='line'><span class="x">        &#39;value&#39; =&gt; &#39;value for cookie bar&#39;,</span>
+</span><span class='line'><span class="x">    ],</span>
+</span><span class='line'><span class="x">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can get a cookie by calling <code>get</code> method on cookies.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;cookies-&gt;get(&#39;cookie_name&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Setting and Getting Status</h2>
+
+<p>By default the status code is 200. But at some point of time
+like the one I explained earlier in <a href="http://harikt.com/blog/2012/12/16/status-code-304/">Status Code 304</a>, we don&#8217;t need to
+send the whole content. But just the status code.</p>
+
+<p>This is possible via <code>setStatusCode</code> and <code>setStatusText</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;setStatusCode(304);</span>
+</span><span class='line'><span class="x">$response-&gt;setStatusText(&#39;Same As It Ever Was&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Sending your response</h2>
+
+<p>And finally we can send the response back. We can call the <code>send</code>
+method and pass the <code>response</code> object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$http-&gt;send($response);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The full source code for an example is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$http = require &#39;path/to/Aura.Http/scripts/instance.php&#39;;</span>
+</span><span class='line'><span class="x">// send a response</span>
+</span><span class='line'><span class="x">$response = $http-&gt;newResponse();</span>
+</span><span class='line'><span class="x">$response-&gt;headers-&gt;set(&#39;Content-Type&#39;, &#39;text/plain&#39;);</span>
+</span><span class='line'><span class="x">$response-&gt;setContent(&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;);</span>
+</span><span class='line'><span class="x">$http-&gt;send($response);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In order to render just <code>Hello World!</code> the <code>Content-Type</code> we added should be
+<code>text/html</code>.</p>
+
+<p>We can always change the header status code, content-type etc
+before we call <code>send()</code> method.</p>
+
+<p>Let us modify the example at <a href="http://harikt.com/blog/2012/12/16/status-code-304/">Status Code 304</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$http = require &#39;path/to/Aura.Http/scripts/instance.php&#39;;</span>
+</span><span class='line'><span class="x">$response = $http-&gt;newResponse();</span>
+</span><span class='line'><span class="x">if ( isset($_SERVER[&#39;HTTP_IF_MODIFIED_SINCE&#39;]) &amp;&amp; </span>
+</span><span class='line'><span class="x">    $_SERVER[&#39;HTTP_IF_MODIFIED_SINCE&#39;] == &#39;Tue, 15 Jan 2011 12:00 GMT&#39; ) {</span>
+</span><span class='line'><span class="x">    $response-&gt;setStatusCode(304);</span>
+</span><span class='line'><span class="x">} else {</span>
+</span><span class='line'><span class="x">    $response-&gt;headers-&gt;set(&#39;Content-Type&#39;, &#39;text/html&#39;);</span>
+</span><span class='line'><span class="x">    $response-&gt;headers-&gt;set(&#39;Last-Modified&#39;, &#39;Tue, 15 Jan 2011 12:00 GMT&#39;);</span>
+</span><span class='line'><span class="x">    $response-&gt;setContent(&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;);</span>
+</span><span class='line'><span class="x">}</span>
+</span><span class='line'><span class="x">$http-&gt;send($response);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You would have noticed I have used <code>$_SERVER</code> variable. In <code>Aura.Http</code>,
+there is no methods to access the global server values. This is because
+the <code>$_SERVER</code> values are not the exact http requested header. The server
+modifies the request and we will be only getting the manipulated values
+if we use <code>$_SERVER</code>, <code>$_GET</code>, <code>$_POST</code> values.</p>
+
+<p><code>Aura.Http</code> only helps you to build, create, modify response and request.</p>
+
+<h1>Creating Http Request</h1>
+
+<p>We talked about response so far. What does Request actually mean?</p>
+
+<p>Client -> Request something -> Server Responds</p>
+
+<p>So that means we are trying to be a client or a browser, and making the necessary
+headers and sending to server to get the corresponding response.</p>
+
+<p>We can get all the repos of a user in github via curl.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">curl -i https://api.github.com/users/pmjones/repos</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The same can be achieved via <a href="https://github.com/auraphp/Aura.Http">Aura.Http</a>. The <a href="https://github.com/auraphp/Aura.Http">Aura.Http</a> provides a
+means to do the same with PHP. It uses <code>curl</code> if it is available or <code>stream</code>
+to make this happen.</p>
+
+<p>You need to create a Request object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$request = $http-&gt;newRequest();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Set the url via <code>setUrl</code> method and send.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$request-&gt;setUrl(&#39;https://api.github.com/users/pmjones/repos&#39;);</span>
+</span><span class='line'><span class="x">$stack = $http-&gt;send($request);</span>
+</span><span class='line'><span class="x">$repos = json_decode($stack[0]-&gt;content);</span>
+</span><span class='line'><span class="x">foreach ($repos as $repo) {</span>
+</span><span class='line'><span class="x">    echo $repo-&gt;name . PHP_EOL;</span>
+</span><span class='line'><span class="x">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There are more things to say. It can do basic authentication, post values etc.
+Browse the documentation examples, source code, tests, and api.</p>
+
+<p>Source Code : <a href="https://github.com/auraphp/Aura.Http">https://github.com/auraphp/Aura.Http</a></p>
+
+<p>Documentation : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/">http://auraphp.github.com/Aura.Http/version/1.0.0/</a></p>
+
+<p>API : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/api/">http://auraphp.github.com/Aura.Http/version/1.0.0/api/</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Domicile.FirePHP a way to comply PSR-3]]></title>
@@ -102,8 +373,8 @@ instance of the <code>\FirePHP::getInstance(true)</code>.</p>
 
 <h1>Known Limitations:</h1>
 
-<p>In <a href="https://github.com/firephp/firephp-core">FirePHP</a> I didn&#8217;t noticed it is having LogLevel::ALERT, LogLevel::CRITICAL,
-LogLevel::DEBUG, LogLevel::EMERGENCY, LogLevel::NOTICE levels.</p>
+<p>In <a href="https://github.com/firephp/firephp-core">FirePHP</a> I didn&#8217;t noticed it is having <code>LogLevel::ALERT</code>, <code>LogLevel::CRITICAL</code>,
+<code>LogLevel::DEBUG</code>, <code>LogLevel::EMERGENCY</code>, <code>LogLevel::NOTICE</code> levels.</p>
 
 <p>I am not sure whether <code>trace</code> can be used for <code>DEBUG</code>.</p>
 
@@ -1032,15 +1303,6 @@ I am planning to start a series of posts to get started with using the component
     <updated>2012-09-15T21:16:00+05:30</updated>
     <id>http://harikt.com/blog/2012/09/15/contributor-to-aura-project</id>
     <content type="html"><![CDATA[<p>When I started my career with PHP I have been hearing about PEAR and Symfony a lot. <a href="http://joseantony.com/">Jose Antony</a> was the person who introduced the names <a href="http://symfony-project.org">Symfony</a>, <a href="http://doctrine-project.org">Doctrine</a>, <a href="http://propelorm.org">Propel</a> etc. But at work I never got a chance to touch on those. But my thirst to learn and explore moved me from Cochin to Bangalore and different websites. I played with Symfony in my free time ( Jobeet ). symfony-project was having good articles and videos to move with. I was working for a client who was interested in <a href="http://framework.zend.com">Zend Framework</a> and asked me to go for a try. It was a hard time in 2009 for me that, the documentation was poor ( from a point of me ) and there wasn&#8217;t a proper structure for people doing Zend Framework before the introduction of ZF tool in 1.8 ( I guess ) . The way it works and I wasn&#8217;t either familiar with irc or how I can get some help. Yes it was mainly not the Zend Framework or the community issues. It was my problems to understand from where I can get help. There wasn&#8217;t a good source to ask how I can use irc or get more information other than search internet. I really struggled with Zend Framework. Google was the only help which can find blog posts on errors and implementation. Some will work, some will not. I still remember the autoload error thrown which mentioned about this will be deprecated in Zend Framework 2 ( IIRC ). lol I wasn&#8217;t either able to understand looking at those errors. I was having a thought that frameworks cannot be developed by people like me :) . Why I thought so was I was hearing about design patterns a lot and I never properly understood what the hell it was. I failed to find a good mentor. I wrote some blog posts on <a href="http://harikt.com/content/simple-blog-using-zend-framework-19">zend framework</a> to help people who start with it. I wasn&#8217;t either sure whether I was doing the right things. When I published the post, I did submitted a small intro to <a href="http://devzone.zend.com">devzone</a> with a note to verify whether I was doing it right. But the editor was busy that he mentioned its not possible to check. But some how it was published in <a href="http://phpdeveloper.org">phpdeveloper.org</a> . I looked for the person who submitted the article and found it was <a href="http://blog.phpdeveloper.org">Chris Cornutt</a>. I never know about him earlier, but later understood he was the person behind <a href="http://phpdeveloper.org">phpdeveloper.org</a> itself :) . In the mean time I did made some changes to the brief information at <a href="http://devzone.zend.com">devzone</a> and submitted it. The article brought lots of visitors and my 1 GB bandwidth got exceed for the 1st time in my life. My friend <a href="http://prajizworld.com">Prajith</a> who was in charge of the server quickly increased the limit when he got my call. This article brought me some opportunity to work with <a href="http://packtpub.com">Packt publishers</a>. Around 2009 or 2010 I came to know about a project called <a href="http://lithify.me">lithium</a> via a podcast. I was interested to learn how the frameworks are build. It was using the awesome PHP 5.3 , so I thought of looking into it. At osidays <a href="https://twitter.com/davidcoallier">David Coallier</a> gave an awesome talk on PHP 5.3 . I was able to meet <a href="http://fabien.potencier.org">Fabien Potencier</a> and get an autograph signed. I did meet some awesome PHP gurus at osidays. I started to look more closely into lithium which was in development. I wasn&#8217;t able to help for I was not that much strong on the concepts. They were using their own git server hosted at <a href="http://dev.lithify.me">dev.lithify.me</a> . I was not comfortable with <a href="http://git-scm.org">git</a>, but when we search for git related help, it will be from <a href="https://github.com">github.com</a> docs. So I asked about switching the lithium to github for the leaders were having their own reasons to host it there. As I told I was starting with git, I pushed to master in my fork which I wasn&#8217;t either sure how I can send Pull Request . Again not the problem with the leaders. <a href="https://twitter.com/nateabele">Nate</a> , <a href="https://twitter.com/gwoo">Gwoo</a> etc helped me a lot when I got stuck with cloning the repo and errors. I learned some of the git commands, PHP 5.3 etc. I tried to help with testing the mysql stuffs which was done by <a href="https://github.com/Howard3">Howard</a>. Though I tried to contribute stuffs it didn&#8217;t happened for I failed to understand the process completely. I also looked closely <a href="http://symfony.com">Symfony2</a>, but was a bit hard for me. In the early 2011 I got introduced to <a href="https://github.com/auraphp">aura project for php</a> via the blog post of <a href="http://paul-m-jones.com">Paul M Jones</a>. I have earlier looked <a href="http://solarphp.com">SolarPHP</a> , so he was a familiar face. I started to play with it. I also understood the design principles were clearly <a href="http://groups.google.com/forum/#!forum/auraphp">mailed in the group</a>, so I found the real mentor whom I was searching. IIRC I forked the <a href="https://github.com/auraphp/auraphp.github.com">auraphp.github.com</a> and made some changes to the style from that of <a href="http://friendsofsymfony.github.com">friendsofsymfony.github.com</a> , and probably that was my first commit to an opensource project . I started to talk on irc and give some patches and bug reports and slowly I became a member of the organization <a href="https://github.com/auraphp">auraphp</a> . I know my earlier commits were not going on the right way( I mean the git workflow ), but Paul did merged than closing it or gave suggestions what to do and why you should not go that way etc. He do gave credits for the bugs or suggestions we share in group. Yes it was real joy for people when your commits to an open-source is merged and when you get credits for the work you do. I have noticed people who do just close the PR for there was some error the way the PR is given or if its not the way its expected. I encourage leaders to at-least correct the mistakes than closing the PR with another commit which is already waiting for merge. People who come to open-source are interested to share and learn, not just download the code and use what you are building. They loved to hear why you choose the particular design pattern than blindly using with it, at-least me love it. Note : There is no hatred to any of the projects or leaders. Every one has tried to help me learn various stuffs. It was my failures, to understand it. I fear sometimes the way we think to express may not be read between words. That is the main reason I have kept this note. I know I have not covered everyone and many of the stuffs have been missed. But its not intentionally . But I would like to Thank all for the various helps you have provided via irc, twitter, facebook, mails etc. I did had a great time learning new stuffs. Thanks once again, lets share and learn.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Thoughts on installing Zend Framework via composer]]></title>
-    <link href="http://harikt.com/blog/2012/09/10/thoughts-on-installing-zend-frameowork-via-composer/"/>
-    <updated>2012-09-10T11:04:00+05:30</updated>
-    <id>http://harikt.com/blog/2012/09/10/thoughts-on-installing-zend-frameowork-via-composer</id>
-    <content type="html"><![CDATA[<p>Note : First I thought of creating an issue, and it was not in github. These are not serious issues, but just my thoughts when installing ZF2 via composer. I am not sure whether its composer related or the way the zf2 is packaged to do it via composer. Normally the composer.json will be something like {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &#8220;require&#8221;: { &#8220;zendframework/zend-form&#8221;: &#8220;2.0&#8221; } } hari@local:/var/www/composer/zf2$ php ../composer.phar install Loading composer repositories with package information Installing dependencies - Installing zendframework/zendframework (2.0.0) Downloading: 25%\<sup>C</sup> hari@local:/var/www/composer/zf2$ \<sup>C</sup> {/syntaxhighlighter} But you can see the composer tries to install the whole zend-framework. The problem is you need to add some more lines for its hosted in packages.framework.com and not in packagist.org . So your composer.json will be as below . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &#8220;repositories&#8221;: [ { &#8220;type&#8221;: &#8220;composer&#8221;, &#8220;url&#8221;: &#8220;http://packages.zendframework.com/&#8221; } ], &#8220;require&#8221;: { &#8220;zendframework/zend-form&#8221;: &#8220;2.0&#8221; } } hari@local:/var/www/composer/zf2$ php ../composer.phar install Loading composer repositories with package information Installing dependencies - Installing zendframework/zend-form (2.0.0) Downloading: 100% zendframework/zend-form suggests installing zendframework/zendservice-recaptcha (ZendService\ReCaptcha component) Writing lock file Generating autoload files {/syntaxhighlighter} Great you installed the zf2 form component. Now you can see where the form is installed . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ ls vendor/ autoload.php composer zendframework hari@local:/var/www/composer/zf2$ ls vendor/zendframework/ zend-form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/ Form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/ Annotation FieldsetInterface.php composer.json Fieldset.php Element FieldsetPrepareAwareInterface.php ElementInterface.php FormFactoryAwareInterface.php Element.php FormInterface.php ElementPrepareAwareInterface.php Form.php Exception TODO.md Factory.php View {/syntaxhighlighter} Assume you have more zf2 packages which you have added. At a later point you think of installing the framework as a whole itself than adding more packages in the composer.json . So your composer.json will be some what like {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &#8220;repositories&#8221;: [ { &#8220;type&#8221;: &#8220;composer&#8221;, &#8220;url&#8221;: &#8220;http://packages.zendframework.com/&#8221; } ], &#8220;require&#8221;: { &#8220;zendframework/zendframework&#8221;: &#8220;2.0&#8221; } } hari@local:/var/www/composer/zf2$ php ../composer.phar update Loading composer repositories with package information Updating dependencies - Removing zendframework/zend-form (2.0.0) - Installing zendframework/zendframework (2.0.0) Downloading: 100% Writing lock file Generating autoload files {/syntaxhighlighter} The form has been removed and framework is installed. Lets have a look where its installed . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ ls vendor/ autoload.php composer zendframework hari@local:/var/www/composer/zf2$ ls vendor/zendframework/ zend-form hari@local:/var/www/composer/zf2$ cat composer.json { &#8220;repositories&#8221;: [ { &#8220;type&#8221;: &#8220;composer&#8221;, &#8220;url&#8221;: &#8220;http://packages.zendframework.com/&#8221; } ], &#8220;require&#8221;: { &#8220;zendframework/zendframework&#8221;: &#8220;2.0&#8221; } } hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/ Form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/ bin INSTALL.md README-DEV.md resources composer.json library README-GIT.md tests demos LICENSE.txt README.md vendor hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/library/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/library/Zend/ Authentication Di InputFilter Mvc Stdlib Barcode Dom Json Navigation Tag Cache Escaper Ldap Paginator Text Captcha EventManager Loader Permissions Uri Code Feed Log ProgressBar Validator Config File Mail Serializer Version Console Filter Math Server View Crypt Form Memory ServiceManager XmlRpc Db Http Mime Session Debug I18n ModuleManager Soap {/syntaxhighlighter} You can notice its going on the wrong place. vendor/zendframework/zend-form . I am not sure whether every one needs to remove all the installed packages to install the framework . It seems possible with naming zendframework/package . Thus it don&#8217;t remove the installed packages. May be there are some other issues related to it for the naming of zendframework/zend-form like that.</p>
 ]]></content>
   </entry>
   

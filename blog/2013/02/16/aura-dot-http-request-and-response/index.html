@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Aura.Http : Request and Response - Random thoughts | Hari KT</title>
+  <meta name="author" content="Hari K T">
+
+  
+  <meta name="description" content="The Aura.Http package provide you the you to build and send request and response. Instantiation: The easiest way is 1
+$http = require &#39;path/to/ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://harikt.com/blog/2013/02/16/aura-dot-http-request-and-response/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/harikt/YKAJ" rel="alternate" title="Random thoughts | Hari KT" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5998889-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Random thoughts | Hari KT</a></h1>
+  
+    <h2>On programming</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/harikt/YKAJ" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:harikt.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Aura.Http : Request and Response</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-16T14:44:00+05:30" pubdate data-updated="true">Feb 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The <code>Aura.Http</code> package provide you the you to build and send request and response.</p>
+
+<h1>Instantiation:</h1>
+
+<p>The easiest way is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$http = require &#39;path/to/Aura.Http/scripts/instance.php&#39;;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What it gives you is an object of <code>Aura\Http\Manager</code>. If you want to create
+manually you can look into the <code>instance.php</code></p>
+
+<h1>Building your Response</h1>
+
+<p>Probably you may not have bothered too much on building the http response
+either the framework does it for you, or until you need to send the correct
+response.</p>
+
+<p>For that you need to create a response object. You can get it by</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response = $http-&gt;newResponse();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you have the response object. You can set the <code>header</code> via</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;headers-&gt;set(&#39;Header&#39;, &#39;Value&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you have an array of headers you can use <code>setAll</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;headers-&gt;setAll([</span>
+</span><span class='line'><span class="x">    &#39;Header-One&#39; =&gt; &#39;header one value&#39;,</span>
+</span><span class='line'><span class="x">    &#39;Header-Two&#39; =&gt; [</span>
+</span><span class='line'><span class="x">        &#39;header two value A&#39;,</span>
+</span><span class='line'><span class="x">        &#39;header two value B&#39;,</span>
+</span><span class='line'><span class="x">        &#39;header two value C&#39;,</span>
+</span><span class='line'><span class="x">    ],</span>
+</span><span class='line'><span class="x">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So a basic example of setting header value is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;headers-&gt;set(&#39;Content-Type&#39;, &#39;text/plain&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Setting Content</h2>
+
+<p>The header values are for the browser to understand what is coming from
+server, and how it should render etc.</p>
+
+<p>So we need to set the content. This can be achieved via <code>setContent</code> method.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;setContent(&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can always get the content via calling <code>getContent</code>.</p>
+
+<h2>Setting and Getting Cookies</h2>
+
+<p>Sometimes we may want to set the cookies. You can do it as</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;cookies-&gt;set(&#39;cookie_name&#39;, [</span>
+</span><span class='line'><span class="x">    &#39;value&#39;    =&gt; &#39;cookie value&#39;, // cookie value</span>
+</span><span class='line'><span class="x">    &#39;expire&#39;   =&gt; time() + 3600,  // expiration time in unix epoch seconds</span>
+</span><span class='line'><span class="x">    &#39;path&#39;     =&gt; &#39;/path&#39;,        // server path for the cookie</span>
+</span><span class='line'><span class="x">    &#39;domain&#39;   =&gt; &#39;example.com&#39;,  // domain for the cookie</span>
+</span><span class='line'><span class="x">    &#39;secure&#39;   =&gt; false,          // send by ssl only?</span>
+</span><span class='line'><span class="x">    &#39;httponly&#39; =&gt; true,           // send by http/https only?</span>
+</span><span class='line'><span class="x">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The array keys mimic the <a href="http://php.net/setcookies">setcookie</a> parameters. If you have an array
+you can use <code>setAll</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;cookies-&gt;setAll([</span>
+</span><span class='line'><span class="x">    &#39;cookie_foo&#39; =&gt; [</span>
+</span><span class='line'><span class="x">        &#39;value&#39; =&gt; &#39;value for cookie foo&#39;,</span>
+</span><span class='line'><span class="x">    ],</span>
+</span><span class='line'><span class="x">    &#39;cookie_bar&#39; =&gt; [</span>
+</span><span class='line'><span class="x">        &#39;value&#39; =&gt; &#39;value for cookie bar&#39;,</span>
+</span><span class='line'><span class="x">    ],</span>
+</span><span class='line'><span class="x">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can get a cookie by calling <code>get</code> method on cookies.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;cookies-&gt;get(&#39;cookie_name&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Setting and Getting Status</h2>
+
+<p>By default the status code is 200. But at some point of time
+like the one I explained earlier in <a href="http://harikt.com/blog/2012/12/16/status-code-304/">Status Code 304</a>, we don&#8217;t need to
+send the whole content. But just the status code.</p>
+
+<p>This is possible via <code>setStatusCode</code> and <code>setStatusText</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$response-&gt;setStatusCode(304);</span>
+</span><span class='line'><span class="x">$response-&gt;setStatusText(&#39;Same As It Ever Was&#39;);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Sending your response</h2>
+
+<p>And finally we can send the response back. We can call the <code>send</code>
+method and pass the <code>response</code> object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$http-&gt;send($response);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The full source code for an example is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$http = require &#39;path/to/Aura.Http/scripts/instance.php&#39;;</span>
+</span><span class='line'><span class="x">// send a response</span>
+</span><span class='line'><span class="x">$response = $http-&gt;newResponse();</span>
+</span><span class='line'><span class="x">$response-&gt;headers-&gt;set(&#39;Content-Type&#39;, &#39;text/plain&#39;);</span>
+</span><span class='line'><span class="x">$response-&gt;setContent(&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;);</span>
+</span><span class='line'><span class="x">$http-&gt;send($response);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In order to render just <code>Hello World!</code> the <code>Content-Type</code> we added should be
+<code>text/html</code>.</p>
+
+<p>We can always change the header status code, content-type etc
+before we call <code>send()</code> method.</p>
+
+<p>Let us modify the example at <a href="http://harikt.com/blog/2012/12/16/status-code-304/">Status Code 304</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$http = require &#39;path/to/Aura.Http/scripts/instance.php&#39;;</span>
+</span><span class='line'><span class="x">$response = $http-&gt;newResponse();</span>
+</span><span class='line'><span class="x">if ( isset($_SERVER[&#39;HTTP_IF_MODIFIED_SINCE&#39;]) &amp;&amp; </span>
+</span><span class='line'><span class="x">    $_SERVER[&#39;HTTP_IF_MODIFIED_SINCE&#39;] == &#39;Tue, 15 Jan 2011 12:00 GMT&#39; ) {</span>
+</span><span class='line'><span class="x">    $response-&gt;setStatusCode(304);</span>
+</span><span class='line'><span class="x">} else {</span>
+</span><span class='line'><span class="x">    $response-&gt;headers-&gt;set(&#39;Content-Type&#39;, &#39;text/html&#39;);</span>
+</span><span class='line'><span class="x">    $response-&gt;headers-&gt;set(&#39;Last-Modified&#39;, &#39;Tue, 15 Jan 2011 12:00 GMT&#39;);</span>
+</span><span class='line'><span class="x">    $response-&gt;setContent(&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;);</span>
+</span><span class='line'><span class="x">}</span>
+</span><span class='line'><span class="x">$http-&gt;send($response);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You would have noticed I have used <code>$_SERVER</code> variable. In <code>Aura.Http</code>,
+there is no methods to access the global server values. This is because
+the <code>$_SERVER</code> values are not the exact http requested header. The server
+modifies the request and we will be only getting the manipulated values
+if we use <code>$_SERVER</code>, <code>$_GET</code>, <code>$_POST</code> values.</p>
+
+<p><code>Aura.Http</code> only helps you to build, create, modify response and request.</p>
+
+<h1>Creating Http Request</h1>
+
+<p>We talked about response so far. What does Request actually mean?</p>
+
+<p>Client -> Request something -> Server Responds</p>
+
+<p>So that means we are trying to be a client or a browser, and making the necessary
+headers and sending to server to get the corresponding response.</p>
+
+<p>We can get all the repos of a user in github via curl.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">curl -i https://api.github.com/users/pmjones/repos</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The same can be achieved via <a href="https://github.com/auraphp/Aura.Http">Aura.Http</a>. The <a href="https://github.com/auraphp/Aura.Http">Aura.Http</a> provides a
+means to do the same with PHP. It uses <code>curl</code> if it is available or <code>stream</code>
+to make this happen.</p>
+
+<p>You need to create a Request object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$request = $http-&gt;newRequest();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Set the url via <code>setUrl</code> method and send.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$request-&gt;setUrl(&#39;https://api.github.com/users/pmjones/repos&#39;);</span>
+</span><span class='line'><span class="x">$stack = $http-&gt;send($request);</span>
+</span><span class='line'><span class="x">$repos = json_decode($stack[0]-&gt;content);</span>
+</span><span class='line'><span class="x">foreach ($repos as $repo) {</span>
+</span><span class='line'><span class="x">    echo $repo-&gt;name . PHP_EOL;</span>
+</span><span class='line'><span class="x">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There are more things to say. It can do basic authentication, post values etc.
+Browse the documentation examples, source code, tests, and api.</p>
+
+<p>Source Code : <a href="https://github.com/auraphp/Aura.Http">https://github.com/auraphp/Aura.Http</a></p>
+
+<p>Documentation : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/">http://auraphp.github.com/Aura.Http/version/1.0.0/</a></p>
+
+<p>API : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/api/">http://auraphp.github.com/Aura.Http/version/1.0.0/api/</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Hari K T</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-16T14:44:00+05:30" pubdate data-updated="true">Feb 16<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/auraphp/'>auraphp</a>, <a class='category' href='/blog/categories/php/'>php</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://harikt.com/blog/2013/02/16/aura-dot-http-request-and-response/" data-via="harikt" data-counturl="http://harikt.com/blog/2013/02/16/aura-dot-http-request-and-response/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/" title="Previous Post: Domicile.FirePHP a way to comply PSR-3">&laquo; Domicile.FirePHP a way to comply PSR-3</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/16/aura-dot-http-request-and-response/">Aura.Http : Request and Response</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/">Domicile.FirePHP a way to comply PSR-3</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/09/our-awesome-php-people/">Our awesome php people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/04/thoughts-on-package-or-component/">Thoughts on Package/Component Structure</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/18/aura-framework-releases-beta4/">Aura Framework releases Beta4</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/harikt">@harikt</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'harikt',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("harikt", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/harikt" class="twitter-follow-button" data-show-count="false">Follow @harikt</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Hari K T -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'harikt';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://harikt.com/blog/2013/02/16/aura-dot-http-request-and-response/';
+        var disqus_url = 'http://harikt.com/blog/2013/02/16/aura-dot-http-request-and-response/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: auraphp | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/auraphp/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-02-16T14:29:51+05:30</updated>
+  <updated>2013-02-16T16:56:38+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,235 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Aura.Http : Request and Response]]></title>
+    <link href="http://harikt.com/blog/2013/02/16/aura-dot-http-request-and-response/"/>
+    <updated>2013-02-16T14:44:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/02/16/aura-dot-http-request-and-response</id>
+    <content type="html"><![CDATA[<p>The <code>Aura.Http</code> package provide you the you to build and send request and response.</p>
+
+<h1>Instantiation:</h1>
+
+<p>The easiest way is</p>
+
+<p><code>php
+$http = require 'path/to/Aura.Http/scripts/instance.php';
+</code></p>
+
+<p>What it gives you is an object of <code>Aura\Http\Manager</code>. If you want to create
+manually you can look into the <code>instance.php</code></p>
+
+<h1>Building your Response</h1>
+
+<p>Probably you may not have bothered too much on building the http response
+either the framework does it for you, or until you need to send the correct
+response.</p>
+
+<p>For that you need to create a response object. You can get it by</p>
+
+<p><code>php
+$response = $http-&gt;newResponse();
+</code></p>
+
+<p>Now you have the response object. You can set the <code>header</code> via</p>
+
+<p><code>php
+$response-&gt;headers-&gt;set('Header', 'Value');
+</code>
+If you have an array of headers you can use <code>setAll</code></p>
+
+<p>```php
+$response->headers->setAll([</p>
+
+<pre><code>'Header-One' =&gt; 'header one value',
+'Header-Two' =&gt; [
+    'header two value A',
+    'header two value B',
+    'header two value C',
+],
+</code></pre>
+
+<p>]);
+```</p>
+
+<p>So a basic example of setting header value is</p>
+
+<p><code>php
+$response-&gt;headers-&gt;set('Content-Type', 'text/plain');
+</code></p>
+
+<h2>Setting Content</h2>
+
+<p>The header values are for the browser to understand what is coming from
+server, and how it should render etc.</p>
+
+<p>So we need to set the content. This can be achieved via <code>setContent</code> method.</p>
+
+<p><code>php
+$response-&gt;setContent('&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;');
+</code></p>
+
+<p>You can always get the content via calling <code>getContent</code>.</p>
+
+<h2>Setting and Getting Cookies</h2>
+
+<p>Sometimes we may want to set the cookies. You can do it as</p>
+
+<p>```php
+$response->cookies->set('cookie_name', [</p>
+
+<pre><code>'value'    =&gt; 'cookie value', // cookie value
+'expire'   =&gt; time() + 3600,  // expiration time in unix epoch seconds
+'path'     =&gt; '/path',        // server path for the cookie
+'domain'   =&gt; 'example.com',  // domain for the cookie
+'secure'   =&gt; false,          // send by ssl only?
+'httponly' =&gt; true,           // send by http/https only?
+</code></pre>
+
+<p>]);
+<code>``
+The array keys mimic the [setcookie][] parameters. If you have an array
+you can use</code>setAll`.</p>
+
+<p>```php
+$response->cookies->setAll([</p>
+
+<pre><code>'cookie_foo' =&gt; [
+    'value' =&gt; 'value for cookie foo',
+],
+'cookie_bar' =&gt; [
+    'value' =&gt; 'value for cookie bar',
+],
+</code></pre>
+
+<p>]);
+```</p>
+
+<p>You can get a cookie by calling <code>get</code> method on cookies.</p>
+
+<p><code>php
+$response-&gt;cookies-&gt;get('cookie_name');
+</code></p>
+
+<h2>Setting and Getting Status</h2>
+
+<p>By default the status code is 200. But at some point of time
+like the one I explained earlier in <a href="http://harikt.com/blog/2012/12/16/status-code-304/">Status Code 304</a>, we don't need to
+send the whole content. But just the status code.</p>
+
+<p>This is possible via <code>setStatusCode</code> and <code>setStatusText</code></p>
+
+<p><code>php
+$response-&gt;setStatusCode(304);
+$response-&gt;setStatusText('Same As It Ever Was');
+</code></p>
+
+<h2>Sending your response</h2>
+
+<p>And finally we can send the response back. We can call the <code>send</code>
+method and pass the <code>response</code> object.</p>
+
+<p><code>php
+$http-&gt;send($response);
+</code></p>
+
+<p>The full source code for an example is</p>
+
+<p><code>php
+$http = require 'path/to/Aura.Http/scripts/instance.php';
+// send a response
+$response = $http-&gt;newResponse();
+$response-&gt;headers-&gt;set('Content-Type', 'text/plain');
+$response-&gt;setContent('&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;');
+$http-&gt;send($response);
+</code></p>
+
+<p>In order to render just <code>Hello World!</code> the <code>Content-Type</code> we added should be
+<code>text/html</code>.</p>
+
+<p>We can always change the header status code, content-type etc
+before we call <code>send()</code> method.</p>
+
+<p>Let us modify the example at <a href="http://harikt.com/blog/2012/12/16/status-code-304/">Status Code 304</a></p>
+
+<p>```php
+$http = require 'path/to/Aura.Http/scripts/instance.php';
+$response = $http->newResponse();
+if ( isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) &amp;&amp;</p>
+
+<pre><code>$_SERVER['HTTP_IF_MODIFIED_SINCE'] == 'Tue, 15 Jan 2011 12:00 GMT' ) {
+$response-&gt;setStatusCode(304);
+</code></pre>
+
+<p>} else {</p>
+
+<pre><code>$response-&gt;headers-&gt;set('Content-Type', 'text/html');
+$response-&gt;headers-&gt;set('Last-Modified', 'Tue, 15 Jan 2011 12:00 GMT');
+$response-&gt;setContent('&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;');
+</code></pre>
+
+<p>}
+$http->send($response);
+```</p>
+
+<p>You would have noticed I have used <code>$_SERVER</code> variable. In <code>Aura.Http</code>,
+there is no methods to access the global server values. This is because
+the <code>$_SERVER</code> values are not the exact http requested header. The server
+modifies the request and we will be only getting the manipulated values
+if we use <code>$_SERVER</code>, <code>$_GET</code>, <code>$_POST</code> values.</p>
+
+<p><code>Aura.Http</code> only helps you to build, create, modify response and request.</p>
+
+<h1>Creating Http Request</h1>
+
+<p>We talked about response so far. What does Request actually mean?</p>
+
+<p>Client -> Request something -> Server Responds</p>
+
+<p>So that means we are trying to be a client or a browser, and making the necessary
+headers and sending to server to get the corresponding response.</p>
+
+<p>We can get all the repos of a user in github via curl.</p>
+
+<p><code>
+curl -i https://api.github.com/users/pmjones/repos
+</code></p>
+
+<p>The same can be achieved via <a href="https://github.com/auraphp/Aura.Http">Aura.Http</a>. The <a href="https://github.com/auraphp/Aura.Http">Aura.Http</a> provides a
+means to do the same with PHP. It uses <code>curl</code> if it is available or <code>stream</code>
+to make this happen.</p>
+
+<p>You need to create a Request object.</p>
+
+<p><code>php
+$request = $http-&gt;newRequest();
+</code></p>
+
+<p>Set the url via <code>setUrl</code> method and send.</p>
+
+<p>```php
+$request->setUrl('https://api.github.com/users/pmjones/repos');
+$stack = $http->send($request);
+$repos = json_decode($stack[0]->content);
+foreach ($repos as $repo) {</p>
+
+<pre><code>echo $repo-&gt;name . PHP_EOL;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>There are more things to say. It can do basic authentication, post values etc.
+Browse the documentation examples, source code, tests, and api.</p>
+
+<p>Source Code : <a href="https://github.com/auraphp/Aura.Http">https://github.com/auraphp/Aura.Http</a></p>
+
+<p>Documentation : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/">http://auraphp.github.com/Aura.Http/version/1.0.0/</a></p>
+
+<p>API : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/api/">http://auraphp.github.com/Aura.Http/version/1.0.0/api/</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Aura Framework releases Beta4]]></title>
@@ -134,15 +363,6 @@ The nice thing is with composer for I don't need to keep everything in the tests
 
 <p>By the way as <a href="https://github.com/auraphp">auraphp</a> is getting closer and closer for the next release
 I am planning to start a series of posts to get started with using the components. Stay tuned :) .</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Aura T-Shirts]]></title>
-    <link href="http://harikt.com/blog/2012/10/04/node-217/"/>
-    <updated>2012-10-04T10:44:00+05:30</updated>
-    <id>http://harikt.com/blog/2012/10/04/node-217</id>
-    <content type="html"><![CDATA[<p>So today I got the custom designed T-Shirts with Aura Logo. Its time to brand :)  <img src="https://pbs.twimg.com/media/A4V654qCAAEudRT.jpg" title="Aura T-Shirt with github url" alt="Aura T-Shirt with github url" />  T-shirts with logo is here ..... Yey @<a href="https://twitter.com/auraphp">auraphp</a>:) .  <img src="https://pbs.twimg.com/media/A4V7Dv3CUAAIp8U.jpg" title="Aura T-Shirt with logo" alt="Aura T-Shirt with logo" />  A closer look into the logo, made with embroidery  <img src="https://pbs.twimg.com/media/A4V7SHhCYAAt6x-.jpg" title="Closer look at logo" alt="Closer look at logo" />  I have designed thes from ilogo.in .  Status : https://twitter.com/harikt/status/253744088891916288 , https://twitter.com/harikt/status/253744258329235456, https://twitter.com/harikt/status/253744505197584384</p>
 ]]></content>
   </entry>
   
