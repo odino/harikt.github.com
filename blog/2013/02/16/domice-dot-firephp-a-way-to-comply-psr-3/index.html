@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Domice.FirePHP a way to comply PSR-3 - Random thoughts | Hari KT</title>
+  <meta name="author" content="Hari K T">
+
+  
+  <meta name="description" content="Domicile.FirePHP Domicile.FirePHP is an experiment to make FirePHP works for PSR-3. This is not a replacement for the original FirePHP. It has &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://harikt.com/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/harikt/YKAJ" rel="alternate" title="Random thoughts | Hari KT" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5998889-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Random thoughts | Hari KT</a></h1>
+  
+    <h2>On programming</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/harikt/YKAJ" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:harikt.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Domice.FirePHP a Way to Comply PSR-3</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-16T13:15:00+05:30" pubdate data-updated="true">Feb 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h1>Domicile.FirePHP</h1>
+
+<p><a href="https://github.com/harikt/Domicile.FirePHP">Domicile.FirePHP</a> is an experiment to make <a href="https://github.com/firephp/firephp-core">FirePHP</a> works for <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md">PSR-3</a>.</p>
+
+<p>This is not a replacement for the original <a href="https://github.com/firephp/firephp-core">FirePHP</a>. It has dependencies
+on <code>firephp/firephp-core</code>, and <code>psr/log</code></p>
+
+<p>The package is compliant with  <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md">PSR-0</a>, <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md">PSR-1</a>, <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md">PSR-2</a>. If you notice
+compliance oversights, please send a patch via pull request.</p>
+
+<h1>Installation:</h1>
+
+<p>You can install it via composer. Add <code>domicile/firephp</code> in your require</p>
+
+<pre><code>{
+    "require": {
+        "domicile/firephp": "dev-master"
+    }
+}
+</code></pre>
+
+<p>And run <code>composer update</code></p>
+
+<h1>Instantiation and Usage:</h1>
+
+<p>Create an object of <code>Domicile\FirePHP\FirePHP</code>, which will give you, an
+instance of the <code>\FirePHP::getInstance(true)</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="nv">$firephp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Domicile\FirePHP\FirePHP</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you can use</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="nv">$firephp</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$firephp</span><span class="o">-&gt;</span><span class="na">warn</span><span class="p">(</span><span class="s2">&quot;Trying to make it PSR-3&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$firephp</span><span class="o">-&gt;</span><span class="na">error</span><span class="p">(</span><span class="s2">&quot;This is still not fully PSR-3&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or you can get the <code>FirePHP</code> object by calling</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="nv">$object</span> <span class="o">=</span> <span class="nv">$firephp</span><span class="o">-&gt;</span><span class="na">getFirePHP</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And you can make use of the real functionalities of the core <code>[FirePHP][]</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">log</span><span class="p">(</span>
+</span><span class='line'>    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;2 SQL queries took 0.06 seconds&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>            <span class="k">array</span><span class="p">(</span><span class="s1">&#39;SQL Statement&#39;</span><span class="p">,</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span><span class="s1">&#39;Result&#39;</span><span class="p">),</span>
+</span><span class='line'>            <span class="k">array</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Foo&#39;</span><span class="p">,</span><span class="s1">&#39;0.02&#39;</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;row1&#39;</span><span class="p">,</span><span class="s1">&#39;row2&#39;</span><span class="p">)),</span>
+</span><span class='line'>            <span class="k">array</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Bar&#39;</span><span class="p">,</span><span class="s1">&#39;0.04&#39;</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;row1&#39;</span><span class="p">,</span><span class="s1">&#39;row2&#39;</span><span class="p">))</span>
+</span><span class='line'>        <span class="p">)</span>
+</span><span class='line'>    <span class="p">),</span>
+</span><span class='line'>    <span class="nx">\FirePHP</span><span class="o">::</span><span class="na">TABLE</span>
+</span><span class='line'><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Known Limitations:</h1>
+
+<p>In <a href="https://github.com/firephp/firephp-core">FirePHP</a> I didn&#8217;t noticed it is having LogLevel::ALERT, LogLevel::CRITICAL,
+LogLevel::DEBUG, LogLevel::EMERGENCY, LogLevel::NOTICE levels.</p>
+
+<p>I am not sure whether <code>trace</code> can be used for <code>DEBUG</code>.</p>
+
+<p>Also the <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md">PSR-3</a> states that</p>
+
+<p>Calling this method with a level not defined by this specification MUST
+throw a <code>Psr\Log\InvalidArgumentException</code> if the implementation does not
+know about the level. Users SHOULD NOT use a custom level without knowing
+for sure the current implementation supports it.</p>
+
+<p>But the current way is logging it to console with the corresponding level.</p>
+
+<p>If you have any suggestions please let me know what we can do for this.</p>
+
+<h1>To Rethink:</h1>
+
+<p>Do we need to add a <code>getInstance()</code> method?</p>
+
+<p>What are your thoughts on the same?</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Hari K T</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-16T13:15:00+05:30" pubdate data-updated="true">Feb 16<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://harikt.com/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/" data-via="harikt" data-counturl="http://harikt.com/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/01/09/our-awesome-php-people/" title="Previous Post: Our awesome php people">&laquo; Our awesome php people</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/">Domice.FirePHP a way to comply PSR-3</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/09/our-awesome-php-people/">Our awesome php people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/04/thoughts-on-package-or-component/">Thoughts on Package/Component Structure</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/18/aura-framework-releases-beta4/">Aura Framework releases Beta4</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/the-moving-from-drupal7-to-octopress/">The moving from Drupal7 to octopress</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/harikt">@harikt</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'harikt',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("harikt", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/harikt" class="twitter-follow-button" data-show-count="false">Follow @harikt</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Hari K T -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'harikt';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://harikt.com/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/';
+        var disqus_url = 'http://harikt.com/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
