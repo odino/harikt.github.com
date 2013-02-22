@@ -4,7 +4,7 @@
   <title><![CDATA[Category: auraphp | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/auraphp/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-02-16T17:33:28+05:30</updated>
+  <updated>2013-02-22T23:59:06+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,119 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Aura turns 2]]></title>
+    <link href="http://harikt.com/blog/2013/02/22/aura-turns-2/"/>
+    <updated>2013-02-22T23:07:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/02/22/aura-turns-2</id>
+    <content type="html"><![CDATA[<p>Looking over <a href="https://github.com/auraphp/Aura.Router/commit/8de403dc49bf803a1fd641f55726079853716ab7">the commits on Aura.Router</a>, <a href="https://github.com/auraphp/Aura.Signal">Aura.Signal</a> etc you will
+notice, <a href="https://github.com/auraphp">aura project</a> has turned 2.</p>
+
+<p>And today, I would like to introduce you, the new born baby still under active
+development and refactoring based on user feedback, the
+<a href="https://github.com/auraphp/Aura.Input">form library for php, Aura.Input</a>.</p>
+
+<p>The <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>, doesn't have a rendering functionality. But you can always
+use Aura.View or create your own helpers.</p>
+
+<p>A basic filtering based on closure exists in <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>. But you are
+not limited, you can use your own filtering components or
+integrate <a href="https://github.com/auraphp/Aura.Filter">Aura.Filter</a>.</p>
+
+<p>Let us look at some code.</p>
+
+<p>```php
+&lt;?php
+// use composer or require '/path/to/Aura.Input/src.php';</p>
+
+<p>use Aura\Input\Filter;
+use Aura\Input\Form;
+use Aura\Input\FieldCollection;
+use Aura\Input\FieldFactory;
+use Aura\Input\Options;</p>
+
+<p>$filter = new Aura\Input\Filter();</p>
+
+<p>// validate
+$filter->setRule('name', 'Name should be alpha only', function ($value) {</p>
+
+<pre><code>return ctype_alpha($value);
+</code></pre>
+
+<p>});</p>
+
+<p>$filter->setRule('email', 'Enter a valid email address', function ($value) {</p>
+
+<pre><code>return filter_var($value, FILTER_VALIDATE_EMAIL);
+</code></pre>
+
+<p>});</p>
+
+<p>$filter->setRule('url', 'Enter a valid url', function ($value) {</p>
+
+<pre><code>return filter_var($value, FILTER_VALIDATE_URL);
+</code></pre>
+
+<p>});</p>
+
+<p>$filter->setRule('message', 'Message should be more than 7 characters', function ($value) {</p>
+
+<pre><code>if (strlen($value) &gt; 7) {
+    return true;
+}
+return false;
+</code></pre>
+
+<p>});</p>
+
+<p>class ContactForm extends Form
+{</p>
+
+<pre><code>public function init()
+{
+    $name    = $this-&gt;setField('name');
+    $email   = $this-&gt;setField('email');
+    $url     = $this-&gt;setField('url');
+    $message = $this-&gt;setField('message', 'textarea');
+}
+</code></pre>
+
+<p>}</p>
+
+<p>$form = new ContactForm(new FieldCollection(new FieldFactory), new Options, $filter);</p>
+
+<p>$values = [</p>
+
+<pre><code>'name' =&gt; 'Hari K T',
+'email' =&gt; 'oh will it works!',
+'url' =&gt; 'google.com',
+'message' =&gt; 'Aweso'
+</code></pre>
+
+<p>];</p>
+
+<p>$form->setValues($values);</p>
+
+<p>$passed = $form->filter();</p>
+
+<p>// 'foo' is invalid
+if (! $passed) {</p>
+
+<pre><code>// get all messages
+$actual = $form-&gt;getMessages();
+var_dump($actual);
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Try it out, we have some more documentation for the <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>. I warn
+the api is still not stable for <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a> and is not yet released a Beta.</p>
+
+<p>But it is a good start!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Aura.Http : Request and Response]]></title>
@@ -319,54 +432,6 @@ $options = array( PDO::MYSQL_ATTR_INIT_COMMAND =&gt; 'SET NAMES utf8', )
     <updated>2012-11-29T20:46:00+05:30</updated>
     <id>http://harikt.com/blog/2012/11/29/node-225</id>
     <content type="html"><![CDATA[<p>So today @Paul M Jones officially declared the first stable release for Aura PHP components. Yes, I am really excited to see this release for it comes with a ton of great improvements for many components, bug fixes and sadly some BC breaks also. The list of packages which became stable are https://github.com/auraphp/Aura.Autoload https://github.com/auraphp/Aura.Cli https://github.com/auraphp/Aura.Di https://github.com/auraphp/Aura.Http https://github.com/auraphp/Aura.Marshal https://github.com/auraphp/Aura.Router : Yes I want to update the post at phpmaster.com for it has some breaks. I will be doing it in coming days. https://github.com/auraphp/Aura.Signal https://github.com/auraphp/Aura.Sql https://github.com/auraphp/Aura.View https://github.com/auraphp/Aura.Web https://github.com/auraphp/Aura.Uri : uri manipulation and there are some packages that are releasing the first Beta. Though these packages have been there for sometime, this is officially declared now only. Yes a bit delay from our part to declare it. https://github.com/auraphp/Aura.Filter Filter is an awesome component for Sanitizing and Validating. You guys should look into the core to learn how it works really. Its an awesome piece of work! . I will in the coming days write something about it. https://github.com/auraphp/Aura.Intl for Internationalization https://github.com/auraphp/Aura.Session : for session handling Thanks to all to make the release happen. You can read the official declaration at http://paul-m-jones.com/archives/2976 . Join our mailing list https://groups.google.com/forum/#!forum/auraphp or #auraphp at irc.freenode.net .</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The making of Hari.Extras]]></title>
-    <link href="http://harikt.com/blog/2012/11/24/node-224/"/>
-    <updated>2012-11-24T21:22:00+05:30</updated>
-    <id>http://harikt.com/blog/2012/11/24/node-224</id>
-    <content type="html"><![CDATA[<p>If you have read my earlier posts, you know I started to love templating
-library like Twig, Mustache etc. So I was interested to in-corporate Twig
-or PhlyMustache or any sort of templating library to auraphp.</p>
-
-<p><a href="https://github.com/auraphp/Aura.Web">Aura.Web</a> makes it easy to do
-without much hassle. What you want to do is create the class which
-extends the <code>Aura\Web\Renderer\AbstractRenderer</code> and have a exec() method.
-For more details checkout <a href="https://github.com/auraphp/Aura.Web/tree/develop#data-and-rendering">Data and Rendering</a></p>
-
-<pre><code>&lt;?php
-namespace Vendor\Package\Web\Renderer;
-
-use Aura\Web\Renderer\AbstractRenderer;
-
-class YourRender extends AbstractRenderer
-{
-    public function exec()
-    {
-    }
-}
-</code></pre>
-
-<p>And you should pass an object of Vendor\Package\Web\Renderer\YourRender to your controller.</p>
-
-<p>Currently I have added support for <a href="http://twig.sensiolabs.org">Twig</a> in <a href="http://github.com/harikt/Hari.Extras">Hari.Extras</a> . I will be adding support for
-PhlyMustache in the coming days. Hari.Extras comes with unit tests.</p>
-
-<p>Running unit tests :
-To run tests you should first install the dependencies. You can run
-{syntaxhighlighter class="php"}composer.phar install --dev{/syntaxhighlighter}
-This will install the dependencies like Aura.Web, Aura.Framework, Twig, vfsstream etc in vendor folder.
-Now you can run the phpunit from tests folder.</p>
-
-<p>A big Thanks to @Paul M Jones and Chris Hartjes and all who have supported
-one way or the other giving me tips and tricks, motivation to make this happen.
-The nice thing is with composer for I don't need to keep everything in the tests folder.
- Thanks to @Jordi</p>
-
-<p>By the way as <a href="https://github.com/auraphp">auraphp</a> is getting closer and closer for the next release
-I am planning to start a series of posts to get started with using the components. Stay tuned :) .</p>
 ]]></content>
   </entry>
   

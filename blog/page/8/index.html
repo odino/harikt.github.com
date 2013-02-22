@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="When I started learning PHP framework I started with symfony-project . Doctrine was one of the coolest feature I loved. So I thought of learning &hellip;">
+  <meta name="description" content="I thought of playing with mongodb, one among the No SQL movement. I am using Ubuntu 10.04 . Installed via synaptic , installed some GUI admin tools &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/09/05/install-mongodb-aptitude-and-not-synaptic/">Install MongoDb via Aptitude and Not via Synaptic</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-05T14:38:00+05:30" pubdate data-updated="true">Sep 5<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/harikt/4959237021/"><img src="%20http://farm5.static.flickr.com/4154/4959237021_38f1029ac5.jpg" alt="Mongo Db" /></a>  I thought of playing with <a href="http://www.mongodb.org">mongodb</a>, one among the No SQL movement. I am using Ubuntu 10.04 . Installed via <strong>synaptic</strong> , installed some GUI admin tools like <a href="http://www.phpmoadmin.com/">phpmoadmin</a> , <a href="http://www.icmfinland.fi/oss/opricot/">opricot</a> (Both these tools are not necessary , just installed those to see how it works on browser ) . Opened my favourite terminal , just typed $<strong>mongod</strong>  mongod: error while loading shared libraries: libmozjs.so: cannot open shared object file: No such file or directory  Wow got some nice errors . I was stuck with it and googled and moved through various blgs and forums . From <a href="http://groups.google.com/group/mongodb-user/browse_thread/thread/7e7fd7fa0313c326?tvc=2&amp;pli=1">one of the group posts</a> I recognised the ubuntu package is broken and you need to install via the <a href="http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages">aptitude after adding the repository</a> . But I have another one which I have not tried , I feel it will work , so you can have a look into <a href="http://dracoater.blogspot.com/2010/08/mongodb-with-c-in-ubuntu.html">JuriTallinn&#8217;s blog</a> before trying the below one, if you have already installed via synaptic.  So I just edited the <strong>/etc/apt/sources.list</strong> file . You can use either vi or gedit , and add the line      deb http://downloads.mongodb.org/distros/ubuntu 10.4 10gen  Save it and run  $ aptitude update  You may get some error like W: GPG error: http://downloads.mongodb.org 10.4 Release: The following signatures couldn&#8217;t be verified because the public key is not available: NO_PUBKEY 9ECBEC467F0CEB10 . If you get something like this just run  $ apt-key adv &#8211;keyserver keyserver.ubuntu.com &#8211;recv 7F0CEB10  And once again run  $ aptitude update   Hope everything works fine . Just run aptitude install and install stable , development or what ever version you love. I am installing a stable one .  $ aptitude install mongodb-stable  Now you can run your favorite mongodb from cmd line via  $mongo  And have fun . I also downloaded the <a href="http://www.php.net/manual/en/mongo.installation.php">PECL driver for PHP</a> which is explained below.  You need to download the php5-dev package before you run . You can use aptitude or synaptic. After the php5-dev installation run  $ pecl install mongo  and adding the line in php.ini . You may be having 2 php.ini if you have installed cli interface also . It will be located at /etc/php5/apache2/php.ini , /etc/php5/cli/php.ini . If you are unsure where it is just use locate command.  $ locate php.ini  Add the below line in php.ini      extension=mongo.so  Restart your apache ;) . Done and have fun with Mongo .</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -401,42 +437,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/04/06/kerala-google-technology-users-group-and-adobe-launch-event/">Kerala Google Technology Users Group and Adobe Launch Event</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-04-06T19:23:00+05:30" pubdate data-updated="true">Apr 6<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This Saturday April 10th 2010 , two big events are going to happen in Kerala . If you were following me in twitter you may have noticed it . 1 ) Google Technology User&#8217;s Group and 2 ) The Adobe Users Group launch event .   <a href="http://www.flickr.com/photos/harikt/4497299898/"><img src="http://farm3.static.flickr.com/2739/4497299898_9872bb6922.jpg" alt="Google Technology Users Group Launch Event at Technopark" /></a>  I am Happy that kerala is also getting some user groups . Previously Bangalore was the hub and now we can see small groups peeping here and there all over kerala. The GTUG event venue is UST Global6th Floor (Zentith Hall) ,Bhavani,Technopark , Trivandrum. Timing is between 10 AM to 1 PM .   <a href="http://www.flickr.com/photos/harikt/4497302818/"><img src="http://farm5.static.flickr.com/4070/4497302818_ffcec8241d.jpg" alt="Adobe Kerla Users Group Launch Event at Cochin" /></a>  Adobe Users Group Launch event is at Woods Manor Hotel , Cochin. I loved to attend both the events , but both on the same day at different locations . Though I am at cochin I will be moving to technopark , Trivandrum for the GTUG launch event. If you was following me , you may have seen my tweet some days back. I am little late to post in my blog due to certain reasons. The seats for both the events are limited and for the GTUG I think its almost finished . I am not sure about the Adobe event . So you guys can look both the events and can be part of your loving group . You can get more details about Adobe Users Group from <a href="http://godsowndevelopers.com/kad/launchevent/">http://godsowndevelopers.com/kad/launchevent/</a> and the Kerala Google Technology Users group from <a href="http://www.kerala-gtug.org/30/launch-event/">http://www.kerala-gtug.org/30/launch-event/</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -454,6 +454,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/22/aura-turns-2/">Aura turns 2</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/16/aura-dot-http-request-and-response/">Aura.Http : Request and Response</a>
       </li>
     
@@ -467,10 +471,6 @@
     
       <li class="post">
         <a href="/blog/2013/01/04/thoughts-on-package-or-component/">Thoughts on Package/Component Structure</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/18/aura-framework-releases-beta4/">Aura Framework releases Beta4</a>
       </li>
     
   </ul>

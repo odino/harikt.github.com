@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="By coolris we can use the preview of a website when we search in google. I have tried it and it was a wonderful tool. Recently I found another search &hellip;">
+  <meta name="description" content="I have updated my Ubuntu 8.10 to 9.04 in the previous month . After the update I was facing a problem when playing videos . When we plays a video the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/21/playing-video-ubuntu-904-jaunty-ends-session-fixed/">Playing Video in Ubuntu 9.04 ( Jaunty ) Ends Session Fixed</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-21T11:49:00+05:30" pubdate data-updated="true">Jun 21<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have updated my Ubuntu 8.10 to 9.04 in the previous month . After the update I was facing a problem when playing videos . When we plays a video the user is being logged out . It was a strange one . I looked the forum , yes many have reported the bug. As I will not be using mainly to view video I thought of not considering the issue much .  But today I was forced to fix for I want to play a movie . What to do with the bug ?  <img src="http://www.harikt.com/sites/all/modules/fckeditor/fckeditor/editor/images/smiley/msn/omg_smile.gif" alt="image" /> . As every one do I go for a google <img src="http://www.harikt.com/sites/all/modules/fckeditor/fckeditor/editor/images/smiley/msn/whatchutalkingabout_smile.gif" alt="image" /> . Yes I got the solution and its working fine .  These are the things you must do .  Edit the /etc/apt/sources.list and add the lines ( You must be root to do this . Eg: From terminal $ sudo vim /etc/apt/sources.lst ) You can use either vim or gedit or your favourite editor . I am using terminal .  deb http://ppa.launchpad.net/siretart/ppa/ubuntu jaunty main deb-src http://ppa.launchpad.net/siretart/ppa/ubuntu jaunty main  $ sudo apt-key adv &#8211;recv-keys &#8211;keyserver keyserver.ubuntu.com 0xce90d8983e731f79  $ sudo apt-get update $ sudo apt-get install xserver-xorg-video-intel-2.4  Just restart your system . Hope it will work for you too .  For a better understanding of the following please do look the source from where I got the information .  <a href="https://bugs.launchpad.net/ubuntu/+source/xserver-xorg-video-intel/+bug/354889" title="Playing video logs out">https://bugs.launchpad.net/ubuntu/+source/xserver-xorg-video-intel/+bug/354889</a>  <a href="https://wiki.ubuntu.com/ReinhardTartler/X/RevertingIntelDriverTo2.4" title="Fix for the end session playing video in ubuntu">https://wiki.ubuntu.com/ReinhardTartler/X/RevertingIntelDriverTo2.4</a>  *Do at your own risk . Don&#8217;t blame me if it doesn&#8217;t works for you .</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -401,42 +437,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/05/20/57-getting-value-of-objects-inside-a-multidimensional-array-in-php/">Getting Value of Objects Inside a Multidimensional Array in Php</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-05-20T09:23:00+05:30" pubdate data-updated="true">May 20<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is some what interesting post to many of you . I have tried some time to make this correct for one of my friend Jaisenan . I like debugging, so spend some time to make this working. We was looking to get the value in a multidimensional array . One of the value in the array was an object. And this was the big problem , and was looking to solve it . Here is the array  $x = Array ( [#theme] => content_multiple_values [#title] => Face to Face Time [#required] => 0 [#description] => [0] => Array ( [#type] => duration_combo [#default_value] => Duration Object ( [duration] => Array ( [years] => 0 [months] => 0 [days] => 0 [hours] => 0 [minutes] => 0 [seconds] => 0 )  [is_negative] => [is_valid] => 1 [conversion_factors] => Array ( [seconds/minutes] => 60 [minutes/hours] => 60 [hours/days] => 24 [days/weeks] => 7 [days/months] => 30 [weeks/years] => 52.142857142857 [months/years] => 12 )  )  [#largest_metric] => hours [#smallest_metric] => minutes [#element_validate] => Array ( [0] => duration_combo_validate )  [#title] => Face to Face Time [#description] => [#required] => [#weight] => 0 [#delta] => 0 [#columns] => Array ( [0] => iso8601 [1] => approx_seconds )  [#field_name] => field_pn_ff_time_1 [#type_name] => progress_note )  [#field_name] => field_pn_ff_time_1 [#tree] => 1 [#weight] => 4 [#access] => 1 [#count] => 5 )  Let the array name be x . Now let me walk through this associative array in PHP . $x[&#8216;#theme&#8217;] , $x[&#8216;#title&#8217;] etc . Now we where looking to get the value of hours , minutes etc of the array duration . The &#8216;#default_value&#8217; was a Duration object .  So here comes the solution for you .  <strong>$x[0][&#8216;#default_value&#8217;]->duration[&#8216;hours&#8217;]</strong> . You can assign values or get values of this array . I spend some hours to make this small code work. So thought of publishing this for some one who is in search for an example like this . This was a small debugging from Drupal .   $x[&#8216;#tree&#8217;] , $x[&#8216;0&#8217;][&#8216;#type&#8217;] are some other example to retrieve value from this multidimensional array . The example above is used to get the value from the object . Cheers guys and Have a great day .</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/17/">&larr; Older</a>
@@ -454,6 +454,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/22/aura-turns-2/">Aura turns 2</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/16/aura-dot-http-request-and-response/">Aura.Http : Request and Response</a>
       </li>
     
@@ -467,10 +471,6 @@
     
       <li class="post">
         <a href="/blog/2013/01/04/thoughts-on-package-or-component/">Thoughts on Package/Component Structure</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/18/aura-framework-releases-beta4/">Aura Framework releases Beta4</a>
       </li>
     
   </ul>

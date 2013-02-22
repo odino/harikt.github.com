@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="Integrated Development Environment or IDE in short . I am some what an active user in the php classes group . Recently an editor was the talk . He &hellip;">
+  <meta name="description" content="This is some what interesting post to many of you . I have tried some time to make this correct for one of my friend Jaisenan . I like debugging, so &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/20/57-getting-value-of-objects-inside-a-multidimensional-array-in-php/">Getting Value of Objects Inside a Multidimensional Array in Php</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-20T09:23:00+05:30" pubdate data-updated="true">May 20<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is some what interesting post to many of you . I have tried some time to make this correct for one of my friend Jaisenan . I like debugging, so spend some time to make this working. We was looking to get the value in a multidimensional array . One of the value in the array was an object. And this was the big problem , and was looking to solve it . Here is the array  $x = Array ( [#theme] => content_multiple_values [#title] => Face to Face Time [#required] => 0 [#description] => [0] => Array ( [#type] => duration_combo [#default_value] => Duration Object ( [duration] => Array ( [years] => 0 [months] => 0 [days] => 0 [hours] => 0 [minutes] => 0 [seconds] => 0 )  [is_negative] => [is_valid] => 1 [conversion_factors] => Array ( [seconds/minutes] => 60 [minutes/hours] => 60 [hours/days] => 24 [days/weeks] => 7 [days/months] => 30 [weeks/years] => 52.142857142857 [months/years] => 12 )  )  [#largest_metric] => hours [#smallest_metric] => minutes [#element_validate] => Array ( [0] => duration_combo_validate )  [#title] => Face to Face Time [#description] => [#required] => [#weight] => 0 [#delta] => 0 [#columns] => Array ( [0] => iso8601 [1] => approx_seconds )  [#field_name] => field_pn_ff_time_1 [#type_name] => progress_note )  [#field_name] => field_pn_ff_time_1 [#tree] => 1 [#weight] => 4 [#access] => 1 [#count] => 5 )  Let the array name be x . Now let me walk through this associative array in PHP . $x[&#8216;#theme&#8217;] , $x[&#8216;#title&#8217;] etc . Now we where looking to get the value of hours , minutes etc of the array duration . The &#8216;#default_value&#8217; was a Duration object .  So here comes the solution for you .  <strong>$x[0][&#8216;#default_value&#8217;]->duration[&#8216;hours&#8217;]</strong> . You can assign values or get values of this array . I spend some hours to make this small code work. So thought of publishing this for some one who is in search for an example like this . This was a small debugging from Drupal .   $x[&#8216;#tree&#8217;] , $x[&#8216;0&#8217;][&#8216;#type&#8217;] are some other example to retrieve value from this multidimensional array . The example above is used to get the value from the object . Cheers guys and Have a great day .</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -401,42 +437,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/04/28/41-google-maps-yahoo-maps-and-open-street-maps/">Google Maps, Yahoo Maps and Open Street Maps</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-04-28T09:08:00+05:30" pubdate data-updated="true">Apr 28<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Every one may have heard about the Google maps , Yahoo maps and have used atleast once or may have seen once . Now a days every web page too is using the maps to show their location and all . You will be getting a google maps api key in-order to show in your web page. I have used to show the IP location of the user&#8217;s in my previous site . Found another open source maps called the open street maps promoted by the GNU .     <img src="http://farm4.static.flickr.com/3664/3490762953_defeb72c4c.jpg?v=0" title="Screen shot of open street map " alt="Screen shot of open street map " />    The places are not marked completely , but in the future , it defnitely will be one of the best maps as its open source . You can have a look into the site http://www.openstreetmap.org/ and also you can edit the places , which you are familiar, so it will help others . I don&#8217;t know from which server it&#8217;s getting the data&#8217;s. But the Yahoo logo seems to be on the right side when editing .  I want to investigate into the matter , and will add more details . Thanks for reading .</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/18/">&larr; Older</a>
@@ -454,6 +454,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/22/aura-turns-2/">Aura turns 2</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/16/aura-dot-http-request-and-response/">Aura.Http : Request and Response</a>
       </li>
     
@@ -467,10 +471,6 @@
     
       <li class="post">
         <a href="/blog/2013/01/04/thoughts-on-package-or-component/">Thoughts on Package/Component Structure</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/18/aura-framework-releases-beta4/">Aura Framework releases Beta4</a>
       </li>
     
   </ul>

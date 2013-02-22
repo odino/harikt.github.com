@@ -4,7 +4,7 @@
   <title><![CDATA[Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-02-16T17:33:28+05:30</updated>
+  <updated>2013-02-22T23:59:06+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,159 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Aura turns 2]]></title>
+    <link href="http://harikt.com/blog/2013/02/22/aura-turns-2/"/>
+    <updated>2013-02-22T23:07:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/02/22/aura-turns-2</id>
+    <content type="html"><![CDATA[<p>Looking over <a href="https://github.com/auraphp/Aura.Router/commit/8de403dc49bf803a1fd641f55726079853716ab7">the commits on Aura.Router</a>, <a href="https://github.com/auraphp/Aura.Signal">Aura.Signal</a> etc you will
+notice, <a href="https://github.com/auraphp">aura project</a> has turned 2.</p>
+
+<p>And today, I would like to introduce you, the new born baby still under active
+development and refactoring based on user feedback, the
+<a href="https://github.com/auraphp/Aura.Input">form library for php, Aura.Input</a>.</p>
+
+<p>The <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>, doesn&#8217;t have a rendering functionality. But you can always
+use Aura.View or create your own helpers.</p>
+
+<p>A basic filtering based on closure exists in <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>. But you are
+not limited, you can use your own filtering components or
+integrate <a href="https://github.com/auraphp/Aura.Filter">Aura.Filter</a>.</p>
+
+<p>Let us look at some code.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="c1">// use composer or require &#39;/path/to/Aura.Input/src.php&#39;;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Filter</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Form</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\FieldCollection</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\FieldFactory</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Options</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Aura\Input\Filter</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// validate</span>
+</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Name should be alpha only&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nb">ctype_alpha</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;Enter a valid email address&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;Enter a valid url&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_URL</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;Message should be more than 7 characters&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ContactForm</span> <span class="k">extends</span> <span class="nx">Form</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$name</span>    <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$email</span>   <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$url</span>     <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$message</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContactForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">FieldCollection</span><span class="p">(</span><span class="k">new</span> <span class="nx">FieldFactory</span><span class="p">),</span> <span class="k">new</span> <span class="nx">Options</span><span class="p">,</span> <span class="nv">$filter</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$values</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hari K T&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;oh will it works!&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;google.com&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Aweso&#39;</span>
+</span><span class='line'><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">setValues</span><span class="p">(</span><span class="nv">$values</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$passed</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// &#39;foo&#39; is invalid</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$passed</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// get all messages</span>
+</span><span class='line'>    <span class="nv">$actual</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getMessages</span><span class="p">();</span>
+</span><span class='line'>    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$actual</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Try it out, we have some more documentation for the <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>. I warn
+the api is still not stable for <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a> and is not yet released a Beta.</p>
+
+<p>But it is a good start!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Aura.Http : Request and Response]]></title>
@@ -1298,15 +1451,6 @@ I am planning to start a series of posts to get started with using the component
     <updated>2012-09-23T14:37:00+05:30</updated>
     <id>http://harikt.com/blog/2012/09/23/workshop-on-aura-project-for-php</id>
     <content type="html"><![CDATA[<p>I am really excited and at the same time a bit nervous, that I will be giving a workshop on <a href="https://github.com/auraphp">aura project for PHP</a> at <a href="http://www.osidays.com/">osidays</a>, which will be held at NIMHANS convention center Bangalore on 12-14 th of October 2012. I have received only the confirmation call, but not any mail as of now. If you have never heard of osidays, its one of the Asia&#8217;s largest open-source conference held. The workshop will be for around 3 Hours. I will be walking you through different components of aura and finally to show how you can use the individual libraries as a framework. If you have never heard about the aura project, its an independent library which can be dropped at any codebase. You can find the source code and more information of the project at <a href="https://github.com/auraphp">https://github.com/auraphp</a> . I know 3 Hours of continuous speech is a huge challenge. I will try my level best to make the workshop interesting. I will be also discussing with <a href="http://paul-m-jones.com">Paul M Jones</a> how I can make it more informative. In-order to attend the workshop I feel you need to grab the platinum pass. Looking forward meeting you guys at osidays :) .</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How I became a contributor to aura project]]></title>
-    <link href="http://harikt.com/blog/2012/09/15/contributor-to-aura-project/"/>
-    <updated>2012-09-15T21:16:00+05:30</updated>
-    <id>http://harikt.com/blog/2012/09/15/contributor-to-aura-project</id>
-    <content type="html"><![CDATA[<p>When I started my career with PHP I have been hearing about PEAR and Symfony a lot. <a href="http://joseantony.com/">Jose Antony</a> was the person who introduced the names <a href="http://symfony-project.org">Symfony</a>, <a href="http://doctrine-project.org">Doctrine</a>, <a href="http://propelorm.org">Propel</a> etc. But at work I never got a chance to touch on those. But my thirst to learn and explore moved me from Cochin to Bangalore and different websites. I played with Symfony in my free time ( Jobeet ). symfony-project was having good articles and videos to move with. I was working for a client who was interested in <a href="http://framework.zend.com">Zend Framework</a> and asked me to go for a try. It was a hard time in 2009 for me that, the documentation was poor ( from a point of me ) and there wasn&#8217;t a proper structure for people doing Zend Framework before the introduction of ZF tool in 1.8 ( I guess ) . The way it works and I wasn&#8217;t either familiar with irc or how I can get some help. Yes it was mainly not the Zend Framework or the community issues. It was my problems to understand from where I can get help. There wasn&#8217;t a good source to ask how I can use irc or get more information other than search internet. I really struggled with Zend Framework. Google was the only help which can find blog posts on errors and implementation. Some will work, some will not. I still remember the autoload error thrown which mentioned about this will be deprecated in Zend Framework 2 ( IIRC ). lol I wasn&#8217;t either able to understand looking at those errors. I was having a thought that frameworks cannot be developed by people like me :) . Why I thought so was I was hearing about design patterns a lot and I never properly understood what the hell it was. I failed to find a good mentor. I wrote some blog posts on <a href="http://harikt.com/content/simple-blog-using-zend-framework-19">zend framework</a> to help people who start with it. I wasn&#8217;t either sure whether I was doing the right things. When I published the post, I did submitted a small intro to <a href="http://devzone.zend.com">devzone</a> with a note to verify whether I was doing it right. But the editor was busy that he mentioned its not possible to check. But some how it was published in <a href="http://phpdeveloper.org">phpdeveloper.org</a> . I looked for the person who submitted the article and found it was <a href="http://blog.phpdeveloper.org">Chris Cornutt</a>. I never know about him earlier, but later understood he was the person behind <a href="http://phpdeveloper.org">phpdeveloper.org</a> itself :) . In the mean time I did made some changes to the brief information at <a href="http://devzone.zend.com">devzone</a> and submitted it. The article brought lots of visitors and my 1 GB bandwidth got exceed for the 1st time in my life. My friend <a href="http://prajizworld.com">Prajith</a> who was in charge of the server quickly increased the limit when he got my call. This article brought me some opportunity to work with <a href="http://packtpub.com">Packt publishers</a>. Around 2009 or 2010 I came to know about a project called <a href="http://lithify.me">lithium</a> via a podcast. I was interested to learn how the frameworks are build. It was using the awesome PHP 5.3 , so I thought of looking into it. At osidays <a href="https://twitter.com/davidcoallier">David Coallier</a> gave an awesome talk on PHP 5.3 . I was able to meet <a href="http://fabien.potencier.org">Fabien Potencier</a> and get an autograph signed. I did meet some awesome PHP gurus at osidays. I started to look more closely into lithium which was in development. I wasn&#8217;t able to help for I was not that much strong on the concepts. They were using their own git server hosted at <a href="http://dev.lithify.me">dev.lithify.me</a> . I was not comfortable with <a href="http://git-scm.org">git</a>, but when we search for git related help, it will be from <a href="https://github.com">github.com</a> docs. So I asked about switching the lithium to github for the leaders were having their own reasons to host it there. As I told I was starting with git, I pushed to master in my fork which I wasn&#8217;t either sure how I can send Pull Request . Again not the problem with the leaders. <a href="https://twitter.com/nateabele">Nate</a> , <a href="https://twitter.com/gwoo">Gwoo</a> etc helped me a lot when I got stuck with cloning the repo and errors. I learned some of the git commands, PHP 5.3 etc. I tried to help with testing the mysql stuffs which was done by <a href="https://github.com/Howard3">Howard</a>. Though I tried to contribute stuffs it didn&#8217;t happened for I failed to understand the process completely. I also looked closely <a href="http://symfony.com">Symfony2</a>, but was a bit hard for me. In the early 2011 I got introduced to <a href="https://github.com/auraphp">aura project for php</a> via the blog post of <a href="http://paul-m-jones.com">Paul M Jones</a>. I have earlier looked <a href="http://solarphp.com">SolarPHP</a> , so he was a familiar face. I started to play with it. I also understood the design principles were clearly <a href="http://groups.google.com/forum/#!forum/auraphp">mailed in the group</a>, so I found the real mentor whom I was searching. IIRC I forked the <a href="https://github.com/auraphp/auraphp.github.com">auraphp.github.com</a> and made some changes to the style from that of <a href="http://friendsofsymfony.github.com">friendsofsymfony.github.com</a> , and probably that was my first commit to an opensource project . I started to talk on irc and give some patches and bug reports and slowly I became a member of the organization <a href="https://github.com/auraphp">auraphp</a> . I know my earlier commits were not going on the right way( I mean the git workflow ), but Paul did merged than closing it or gave suggestions what to do and why you should not go that way etc. He do gave credits for the bugs or suggestions we share in group. Yes it was real joy for people when your commits to an open-source is merged and when you get credits for the work you do. I have noticed people who do just close the PR for there was some error the way the PR is given or if its not the way its expected. I encourage leaders to at-least correct the mistakes than closing the PR with another commit which is already waiting for merge. People who come to open-source are interested to share and learn, not just download the code and use what you are building. They loved to hear why you choose the particular design pattern than blindly using with it, at-least me love it. Note : There is no hatred to any of the projects or leaders. Every one has tried to help me learn various stuffs. It was my failures, to understand it. I fear sometimes the way we think to express may not be read between words. That is the main reason I have kept this note. I know I have not covered everyone and many of the stuffs have been missed. But its not intentionally . But I would like to Thank all for the various helps you have provided via irc, twitter, facebook, mails etc. I did had a great time learning new stuffs. Thanks once again, lets share and learn.</p>
 ]]></content>
   </entry>
   
