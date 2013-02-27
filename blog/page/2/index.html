@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="Before going to speak at osidays, the first thing I did was read the book Paid to Speak. It gave me lots of insights how I can improve. The book was &hellip;">
+  <meta name="description" content="Aura.Sql can now make use of an existing PDO connection with the recent commit here . This all came after a short discussion with Stan Lemon. A big &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,106 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/06/node-227/">Aura.Sql Can Now Make Use of Existing PDO Connection</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-06T19:27:00+05:30" pubdate data-updated="true">Dec 6<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Aura.Sql can now make use of an existing PDO connection with the recent <a href="https://github.com/auraphp/Aura.Sql/commit/79284382ef6351d81719376063076c7e511c28fd">commit here</a> . This all came after a short discussion with Stan Lemon. A big Thanks to him for making a featured request like this.     > @<a href="https://twitter.com/harikt">harikt</a> can I inject an existing Pdo > object? > > — Stan Lemon (@stanlemon) > <a href="https://twitter.com/stanlemon/status/274708971217100800">December 1, 2012</a>     How to make use of an existing PDO?  You want to get a connection object and set the instance of pdo. Note : In this way you are eager loading the PDO. Else Aura.Sql knows when to do the connection. Example of how to make use of it is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">use Aura\Sql\ConnectionFactory; </span>
+</span><span class='line'><span class="x">$connection_factory = new ConnectionFactory; </span>
+</span><span class='line'><span class="x">$connection = $connection_factory-&gt;newInstance( </span>
+</span><span class='line'><span class="x">    // connection name </span>
+</span><span class='line'><span class="x">    &#39;mysql&#39;, </span>
+</span><span class='line'><span class="x">    // DSN elements for PDO; this can also be </span>
+</span><span class='line'><span class="x">    // an array of key-value pairs </span>
+</span><span class='line'><span class="x">    // host=127.0.0.1;dbname=database-name </span>
+</span><span class='line'><span class="x">    &#39;&#39;, </span>
+</span><span class='line'><span class="x">    // username for the connection </span>
+</span><span class='line'><span class="x">    &#39;&#39;, </span>
+</span><span class='line'><span class="x">    // password for the connection </span>
+</span><span class='line'><span class="x">    &#39;&#39; </span>
+</span><span class='line'><span class="x">); </span>
+</span><span class='line'><span class="x">$connection-&gt;setPdo($pdo); </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Normally you need to pass the dsn as a string or array. But if you are having the PDO object and you don&#8217;t love to do, you can pass it as null. Then to the connection object set the pdo instance. Now you can make use of the Aura.Sql insert ,update , delete queries. For a detailed information of how to do check the docs at <a href="https://github.com/auraphp/Aura.Sql">Aura.Sql</a> .  Assuming you have a PDO object created something like the one below</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$params = array( </span>
+</span><span class='line'><span class="x">    &#39;driver&#39; =&gt; &#39;pdo_mysql&#39;, </span>
+</span><span class='line'><span class="x">    &#39;user&#39; =&gt; &#39;username&#39;, </span>
+</span><span class='line'><span class="x">    &#39;password&#39; =&gt; &#39;password&#39;, </span>
+</span><span class='line'><span class="x">    &#39;dbname&#39; =&gt; &#39;database-name&#39; </span>
+</span><span class='line'><span class="x">); </span>
+</span><span class='line'><span class="x">$dsn = &#39;mysql:host=localhost;dbname=&#39; . $params[&#39;dbname&#39;]; </span>
+</span><span class='line'><span class="x">$pdo = new Pdo(</span>
+</span><span class='line'><span class="x">    $dsn, </span>
+</span><span class='line'><span class="x">    $params[&#39;user&#39;], </span>
+</span><span class='line'><span class="x">    $params[&#39;password&#39;], </span>
+</span><span class='line'><span class="x">    $options = array( PDO::MYSQL_ATTR_INIT_COMMAND =&gt; &#39;SET NAMES utf8&#39;, ) </span>
+</span><span class='line'><span class="x">); </span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -512,42 +612,6 @@ I am planning to start a series of posts to get started with using the component
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/23/workshop-on-aura-project-for-php/">Workshop on Aura Project for PHP at OSI Days</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-23T14:37:00+05:30" pubdate data-updated="true">Sep 23<span>rd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I am really excited and at the same time a bit nervous, that I will be giving a workshop on <a href="https://github.com/auraphp">aura project for PHP</a> at <a href="http://www.osidays.com/">osidays</a>, which will be held at NIMHANS convention center Bangalore on 12-14 th of October 2012. I have received only the confirmation call, but not any mail as of now. If you have never heard of osidays, its one of the Asia&#8217;s largest open-source conference held. The workshop will be for around 3 Hours. I will be walking you through different components of aura and finally to show how you can use the individual libraries as a framework. If you have never heard about the aura project, its an independent library which can be dropped at any codebase. You can find the source code and more information of the project at <a href="https://github.com/auraphp">https://github.com/auraphp</a> . I know 3 Hours of continuous speech is a huge challenge. I will try my level best to make the workshop interesting. I will be also discussing with <a href="http://paul-m-jones.com">Paul M Jones</a> how I can make it more informative. In-order to attend the workshop I feel you need to grab the platinum pass. Looking forward meeting you guys at osidays :) .</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -565,6 +629,10 @@ I am planning to start a series of posts to get started with using the component
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/27/seriously-tab-vs-spaces/">Seriously? Tab Vs Spaces</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/22/aura-turns-2/">Aura turns 2</a>
       </li>
     
@@ -578,10 +646,6 @@ I am planning to start a series of posts to get started with using the component
     
       <li class="post">
         <a href="/blog/2013/01/09/our-awesome-php-people/">Our awesome php people</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/04/thoughts-on-package-or-component/">Thoughts on Package/Component Structure</a>
       </li>
     
   </ul>
