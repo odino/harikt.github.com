@@ -793,10 +793,6 @@
         <lastmod>2012-12-18T07:42:19+05:30</lastmod>
     </url>
     <url>
-        <loc>http://harikt.com/blog/2012/05/27/bored-seeing-php-as-templating-language/</loc>
-        <lastmod>2012-12-18T07:42:19+05:30</lastmod>
-    </url>
-    <url>
         <loc>http://harikt.com/blog/2012/06/01/standalone-menu-and-breadcrumb-in-php/</loc>
         <lastmod>2012-12-18T07:42:19+05:30</lastmod>
     </url>
@@ -928,11 +924,15 @@
     </url>
     <url>
         <loc>http://harikt.com/blog/2013/02/22/aura-turns-2/</loc>
-        <lastmod>2013-02-22T23:58:42+05:30</lastmod>
+        <lastmod>2013-05-21T19:59:31+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/blog/2013/02/27/seriously-tab-vs-spaces/</loc>
         <lastmod>2013-02-27T07:48:39+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://harikt.com/blog/2013/05/21/standalone-forms-and-validation/</loc>
+        <lastmod>2013-05-21T21:02:47+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/who-am-i/</loc>
@@ -940,10 +940,10 @@
     </url>
     <url>
         <loc>http://harikt.com/</loc>
-        <lastmod>2013-02-27T07:48:39+05:30</lastmod>
+        <lastmod>2013-05-21T21:02:47+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/blog/archives/</loc>
-        <lastmod>2013-02-27T07:48:39+05:30</lastmod>
+        <lastmod>2013-05-21T21:02:47+05:30</lastmod>
     </url>
 </urlset>

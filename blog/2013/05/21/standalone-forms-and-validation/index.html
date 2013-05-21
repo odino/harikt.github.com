@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Standalone Forms and Validation - Random thoughts | Hari KT</title>
+  <meta name="author" content="Hari K T">
+
+  
+  <meta name="description" content="Recently Aura.Input was tagged Beta1. I would like to show you how you
+can use Aura.Input, Aura.Filter and Aura.View to create form. The Aura.Input &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://harikt.com/blog/2013/05/21/standalone-forms-and-validation/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/harikt/YKAJ" rel="alternate" title="Random thoughts | Hari KT" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5998889-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Random thoughts | Hari KT</a></h1>
+  
+    <h2>On programming</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/harikt/YKAJ" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:harikt.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Standalone Forms and Validation</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-21T20:15:00+05:30" pubdate data-updated="true">May 21<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Recently <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> was tagged Beta1. I would like to show you how you
+can use <a href="http://auraphp.com/Aura.Input/">Aura.Input</a>, <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a> and <a href="http://auraphp.com/Aura.View/">Aura.View</a> to create form.</p>
+
+<p>The <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> itself contains a basic filter implementation. As shown
+in earlier post <a href="http://harikt.com/blog/2013/02/22/aura-turns-2/">Aura Turns 2</a></p>
+
+<p>But in this post let us use the power of <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a>. As <a href="http://auraphp.com/Aura.Input/">Aura.Input</a>
+doesn&#8217;t have a rendering capability you may need to use either <a href="http://auraphp.com/Aura.View/">Aura.View</a>
+or create your own helper classes to render the same.</p>
+
+<p>The whole example is in <a href="https://github.com/harikt/form-example">https://github.com/harikt/form-example</a> repo.
+If you don&#8217;t have composer, you can download it from <a href="http://getcomposer.org">http://getcomposer.org</a>
+and install the dependencies via composer.</p>
+
+<h2>In a nut shell</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone https://github.com/harikt/form-example
+</span><span class='line'>cd form-example
+</span><span class='line'>php composer.phar install
+</span><span class='line'>php -S localhost:8000 web/index.php</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Point your browser to the url http://localhost:8000</p>
+
+<h2>Let us look into some details</h2>
+
+<p>Inorder to use <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a> with <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> we need to implement the
+<code>Aura\Input\FilterInterface</code>.</p>
+
+<p>This is just extending the <code>Aura\Filter\RuleCollection</code> and implementing
+the <code>Aura\Input\FilterInterface</code> as below.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">Domicile\Example</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Filter\RuleCollection</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\FilterInterface</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Filter</span> <span class="k">extends</span> <span class="nx">RuleCollection</span> <span class="k">implements</span> <span class="nx">FilterInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let us create the form class.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">Domicile\Example</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Form</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ContactForm</span> <span class="k">extends</span> <span class="nx">Form</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;cols&#39;</span> <span class="o">=&gt;</span> <span class="mi">40</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;rows&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="s1">&#39;submit&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span><span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;send&#39;</span><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$filter</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFilter</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;strlenMin&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;strlenMin&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create the filter object and pass it on instantiation of form.</p>
+
+<p>Please note that the $rootpath in this example is just above the vendor
+folder of the composer.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$filter = new Domicile\Example\Filter(</span>
+</span><span class='line'><span class="x">    new RuleLocator(array_merge(</span>
+</span><span class='line'><span class="x">        require $rootpath . &#39;/vendor/aura/filter/scripts/registry.php&#39;,</span>
+</span><span class='line'><span class="x">        [&#39;any&#39; =&gt; function () {</span>
+</span><span class='line'><span class="x">            $rule = new \Aura\Filter\Rule\Any;</span>
+</span><span class='line'><span class="x">            $rule-&gt;setRuleLocator(new RuleLocator(</span>
+</span><span class='line'><span class="x">                require $rootpath . &#39;/vendor/aura/filter/scripts/registry.php&#39;</span>
+</span><span class='line'><span class="x">            ));</span>
+</span><span class='line'><span class="x">            return $rule;</span>
+</span><span class='line'><span class="x">        }]</span>
+</span><span class='line'><span class="x">    )),</span>
+</span><span class='line'><span class="x">    new Translator(require $rootpath . &#39;/vendor/aura/filter/intl/en_US.php&#39;)</span>
+</span><span class='line'><span class="x">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">$form = new Domicile\Example\ContactForm(new Builder, $filter);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> has two methods we can make use.</p>
+
+<p>1 ) fill() method helps us to fill the data values</p>
+
+<p>2 ) filter() method which helps to filter and validate data according to
+the rules specified in the form.</p>
+
+<p>The code will looks like</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">if ($_POST &amp;&amp; $_POST[&#39;submit&#39;] == &#39;send&#39;) {</span>
+</span><span class='line'><span class="x">    $data = $_POST;</span>
+</span><span class='line'><span class="x">    $form-&gt;fill($data);</span>
+</span><span class='line'><span class="x">    if ($form-&gt;filter()) {</span>
+</span><span class='line'><span class="x">        //</span>
+</span><span class='line'><span class="x">        echo &quot;Yes successfully validated and filtered&quot;;</span>
+</span><span class='line'><span class="x">        var_dump($data);</span>
+</span><span class='line'><span class="x">        exit;</span>
+</span><span class='line'><span class="x">    }</span>
+</span><span class='line'><span class="x">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you are not using <a href="http://auraphp.com/Aura.View/">Aura.View</a> you can make use of your own helper.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">// get the hints for the name field</span>
+</span><span class='line'><span class="x">$hints = $form-&gt;get(&#39;name&#39;);</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">// the hints array looks like this:</span>
+</span><span class='line'><span class="x">$hints = array (</span>
+</span><span class='line'><span class="x">  &#39;type&#39; =&gt; &#39;text&#39;,</span>
+</span><span class='line'><span class="x">  &#39;name&#39; =&gt; &#39;name&#39;,</span>
+</span><span class='line'><span class="x">  &#39;attribs&#39; =&gt; </span>
+</span><span class='line'><span class="x">  array (</span>
+</span><span class='line'><span class="x">    &#39;id&#39; =&gt; &#39;name&#39;,</span>
+</span><span class='line'><span class="x">    &#39;type&#39; =&gt; NULL,</span>
+</span><span class='line'><span class="x">    &#39;name&#39; =&gt; NULL,</span>
+</span><span class='line'><span class="x">    &#39;size&#39; =&gt; 20,</span>
+</span><span class='line'><span class="x">    &#39;maxlength&#39; =&gt; 20,</span>
+</span><span class='line'><span class="x">  ),</span>
+</span><span class='line'><span class="x">  &#39;options&#39; =&gt; </span>
+</span><span class='line'><span class="x">  array (</span>
+</span><span class='line'><span class="x">  ),</span>
+</span><span class='line'><span class="x">  &#39;value&#39; =&gt; NULL,</span>
+</span><span class='line'><span class="x">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But you can use <a href="http://auraphp.com/Aura.View/">Aura.View</a> to render it nicely. An example is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">field</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">));</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can still look more closely on the <a href="https://github.com/harikt/form-example/blob/master/templates/default.php">templates</a> to see how it is used
+in the example.</p>
+
+<p>If you have any problems or confusions, let me know by comments.
+I will try to address the same.</p>
+
+<p>Happy PhPing!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Hari K T</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-21T20:15:00+05:30" pubdate data-updated="true">May 21<span>st</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/auraphp/'>auraphp</a>, <a class='category' href='/blog/categories/filter/'>filter</a>, <a class='category' href='/blog/categories/form/'>form</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://harikt.com/blog/2013/05/21/standalone-forms-and-validation/" data-via="harikt" data-counturl="http://harikt.com/blog/2013/05/21/standalone-forms-and-validation/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/02/27/seriously-tab-vs-spaces/" title="Previous Post: Seriously? Tab Vs Spaces">&laquo; Seriously? Tab Vs Spaces</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/05/21/standalone-forms-and-validation/">Standalone Forms and Validation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/27/seriously-tab-vs-spaces/">Seriously? Tab Vs Spaces</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/22/aura-turns-2/">Aura turns 2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/16/aura-dot-http-request-and-response/">Aura.Http : Request and Response</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/">Domicile.FirePHP a way to comply PSR-3</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/harikt">@harikt</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'harikt',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("harikt", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/harikt" class="twitter-follow-button" data-show-count="false">Follow @harikt</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Hari K T -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'harikt';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://harikt.com/blog/2013/05/21/standalone-forms-and-validation/';
+        var disqus_url = 'http://harikt.com/blog/2013/05/21/standalone-forms-and-validation/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

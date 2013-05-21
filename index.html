@@ -9,8 +9,8 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="I have created a repo seriously, and have 3 commits as of now . It has a file hell.php. I have created it by logging into user X
-and with vim as the &hellip;">
+  <meta name="description" content="Recently Aura.Input was tagged Beta1. I would like to show you how you
+can use Aura.Input, Aura.Filter and Aura.View to create form. The Aura.Input &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,322 @@ and with vim as the &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/21/standalone-forms-and-validation/">Standalone Forms and Validation</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-21T20:15:00+05:30" pubdate data-updated="true">May 21<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> was tagged Beta1. I would like to show you how you
+can use <a href="http://auraphp.com/Aura.Input/">Aura.Input</a>, <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a> and <a href="http://auraphp.com/Aura.View/">Aura.View</a> to create form.</p>
+
+<p>The <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> itself contains a basic filter implementation. As shown
+in earlier post <a href="http://harikt.com/blog/2013/02/22/aura-turns-2/">Aura Turns 2</a></p>
+
+<p>But in this post let us use the power of <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a>. As <a href="http://auraphp.com/Aura.Input/">Aura.Input</a>
+doesn&#8217;t have a rendering capability you may need to use either <a href="http://auraphp.com/Aura.View/">Aura.View</a>
+or create your own helper classes to render the same.</p>
+
+<p>The whole example is in <a href="https://github.com/harikt/form-example">https://github.com/harikt/form-example</a> repo.
+If you don&#8217;t have composer, you can download it from <a href="http://getcomposer.org">http://getcomposer.org</a>
+and install the dependencies via composer.</p>
+
+<h2>In a nut shell</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone https://github.com/harikt/form-example
+</span><span class='line'>cd form-example
+</span><span class='line'>php composer.phar install
+</span><span class='line'>php -S localhost:8000 web/index.php</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Point your browser to the url http://localhost:8000</p>
+
+<h2>Let us look into some details</h2>
+
+<p>Inorder to use <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a> with <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> we need to implement the
+<code>Aura\Input\FilterInterface</code>.</p>
+
+<p>This is just extending the <code>Aura\Filter\RuleCollection</code> and implementing
+the <code>Aura\Input\FilterInterface</code> as below.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">Domicile\Example</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Filter\RuleCollection</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\FilterInterface</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Filter</span> <span class="k">extends</span> <span class="nx">RuleCollection</span> <span class="k">implements</span> <span class="nx">FilterInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let us create the form class.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">Domicile\Example</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Form</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ContactForm</span> <span class="k">extends</span> <span class="nx">Form</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;cols&#39;</span> <span class="o">=&gt;</span> <span class="mi">40</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;rows&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="s1">&#39;submit&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span><span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;send&#39;</span><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$filter</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFilter</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;strlenMin&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;strlenMin&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create the filter object and pass it on instantiation of form.</p>
+
+<p>Please note that the $rootpath in this example is just above the vendor
+folder of the composer.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$filter = new Domicile\Example\Filter(</span>
+</span><span class='line'><span class="x">    new RuleLocator(array_merge(</span>
+</span><span class='line'><span class="x">        require $rootpath . &#39;/vendor/aura/filter/scripts/registry.php&#39;,</span>
+</span><span class='line'><span class="x">        [&#39;any&#39; =&gt; function () {</span>
+</span><span class='line'><span class="x">            $rule = new \Aura\Filter\Rule\Any;</span>
+</span><span class='line'><span class="x">            $rule-&gt;setRuleLocator(new RuleLocator(</span>
+</span><span class='line'><span class="x">                require $rootpath . &#39;/vendor/aura/filter/scripts/registry.php&#39;</span>
+</span><span class='line'><span class="x">            ));</span>
+</span><span class='line'><span class="x">            return $rule;</span>
+</span><span class='line'><span class="x">        }]</span>
+</span><span class='line'><span class="x">    )),</span>
+</span><span class='line'><span class="x">    new Translator(require $rootpath . &#39;/vendor/aura/filter/intl/en_US.php&#39;)</span>
+</span><span class='line'><span class="x">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">$form = new Domicile\Example\ContactForm(new Builder, $filter);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> has two methods we can make use.</p>
+
+<p>1 ) fill() method helps us to fill the data values</p>
+
+<p>2 ) filter() method which helps to filter and validate data according to
+the rules specified in the form.</p>
+
+<p>The code will looks like</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">if ($_POST &amp;&amp; $_POST[&#39;submit&#39;] == &#39;send&#39;) {</span>
+</span><span class='line'><span class="x">    $data = $_POST;</span>
+</span><span class='line'><span class="x">    $form-&gt;fill($data);</span>
+</span><span class='line'><span class="x">    if ($form-&gt;filter()) {</span>
+</span><span class='line'><span class="x">        //</span>
+</span><span class='line'><span class="x">        echo &quot;Yes successfully validated and filtered&quot;;</span>
+</span><span class='line'><span class="x">        var_dump($data);</span>
+</span><span class='line'><span class="x">        exit;</span>
+</span><span class='line'><span class="x">    }</span>
+</span><span class='line'><span class="x">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you are not using <a href="http://auraphp.com/Aura.View/">Aura.View</a> you can make use of your own helper.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">// get the hints for the name field</span>
+</span><span class='line'><span class="x">$hints = $form-&gt;get(&#39;name&#39;);</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">// the hints array looks like this:</span>
+</span><span class='line'><span class="x">$hints = array (</span>
+</span><span class='line'><span class="x">  &#39;type&#39; =&gt; &#39;text&#39;,</span>
+</span><span class='line'><span class="x">  &#39;name&#39; =&gt; &#39;name&#39;,</span>
+</span><span class='line'><span class="x">  &#39;attribs&#39; =&gt; </span>
+</span><span class='line'><span class="x">  array (</span>
+</span><span class='line'><span class="x">    &#39;id&#39; =&gt; &#39;name&#39;,</span>
+</span><span class='line'><span class="x">    &#39;type&#39; =&gt; NULL,</span>
+</span><span class='line'><span class="x">    &#39;name&#39; =&gt; NULL,</span>
+</span><span class='line'><span class="x">    &#39;size&#39; =&gt; 20,</span>
+</span><span class='line'><span class="x">    &#39;maxlength&#39; =&gt; 20,</span>
+</span><span class='line'><span class="x">  ),</span>
+</span><span class='line'><span class="x">  &#39;options&#39; =&gt; </span>
+</span><span class='line'><span class="x">  array (</span>
+</span><span class='line'><span class="x">  ),</span>
+</span><span class='line'><span class="x">  &#39;value&#39; =&gt; NULL,</span>
+</span><span class='line'><span class="x">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But you can use <a href="http://auraphp.com/Aura.View/">Aura.View</a> to render it nicely. An example is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">field</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">));</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can still look more closely on the <a href="https://github.com/harikt/form-example/blob/master/templates/default.php">templates</a> to see how it is used
+in the example.</p>
+
+<p>If you have any problems or confusions, let me know by comments.
+I will try to address the same.</p>
+
+<p>Happy PhPing!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -252,16 +568,12 @@ integrate <a href="https://github.com/auraphp/Aura.Filter">Aura.Filter</a>.</p>
 <span class='line-number'>57</span>
 <span class='line-number'>58</span>
 <span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
 </span><span class='line'><span class="c1">// use composer or require &#39;/path/to/Aura.Input/src.php&#39;;</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Filter</span><span class="p">;</span>
 </span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Form</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\FieldCollection</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\FieldFactory</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Options</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Builder</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Filter</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Aura\Input\Filter</span><span class="p">();</span>
 </span><span class='line'>
@@ -296,7 +608,7 @@ integrate <a href="https://github.com/auraphp/Aura.Filter">Aura.Filter</a>.</p>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'><span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContactForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">FieldCollection</span><span class="p">(</span><span class="k">new</span> <span class="nx">FieldFactory</span><span class="p">),</span> <span class="k">new</span> <span class="nx">Options</span><span class="p">,</span> <span class="nv">$filter</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContactForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">,</span> <span class="nv">$filter</span><span class="p">);</span>
 </span><span class='line'>
 </span><span class='line'><span class="nv">$values</span> <span class="o">=</span> <span class="p">[</span>
 </span><span class='line'>    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hari K T&#39;</span><span class="p">,</span>
@@ -1324,241 +1636,6 @@ for sure the current implementation supports it.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/12/16/status-code-304/">Status Code 304</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-16T23:03:00+05:30" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Everyone knows Http is the underlying concept of Web. The base concept is a request is initiated by a browser or web-client and you get a response back. Some day&#8217;s back I noticed some interesting slides from Alessandro Nadalin&#8217;s talk <a href="http://odino.org/mixing-the-history-of-http-spdy-and-http-slash-2-dot-0/">Mixing the history of HTTP, SPDY and HTTP/2.0</a></p>
-
-<p>It really inspired me to look more into the Http. I also understood a fact that I was missing many basic stuffs. I thought of playing with it.</p>
-
-<p>Note : This is just experimental stuffs which I tried to learn looking at various sources. Things can be wrong also, feel free to correct if you think so.</p>
-
-<p>Normally you don&#8217;t care about the underlying http headers. There are status codes which are passed before an actual content is send. So the browser knows the state whether the content is available in server, what content-type is coming, for eg like html, json, xml etc. The content-length, accept-language, etc. You can see a list of http request and response headers at http://en.wikipedia.org/wiki/List_of_HTTP_header_fields.</p>
-
-<p>So we are going to create the headers other than the normal apache header. By default the status is 200 OK.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">header(&#39;Content-Type: text/html&#39;);</span>
-</span><span class='line'><span class="x">echo &#39;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hello World&lt;/body&gt;&lt;/html&gt;&#39;;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you notice the broswer headers you can see something like</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">Request URL:http://localhost:8000/</span>
-</span><span class='line'><span class="x">Request Method:GET</span>
-</span><span class='line'><span class="x">Status Code:200 OK</span>
-</span><span class='line'>
-</span><span class='line'><span class="x">Request Headers</span>
-</span><span class='line'>
-</span><span class='line'><span class="x">Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span>
-</span><span class='line'><span class="x">Accept-Charset:ISO-8859-1,utf-8;q=0.7,*;q=0.3</span>
-</span><span class='line'><span class="x">Accept-Encoding:gzip,deflate,sdch</span>
-</span><span class='line'><span class="x">Accept-Language:en-US,en;q=0.8</span>
-</span><span class='line'><span class="x">Cache-Control:max-age=0</span>
-</span><span class='line'><span class="x">Connection:keep-alive</span>
-</span><span class='line'><span class="x">Host:localhost:8000</span>
-</span><span class='line'><span class="x">User-Agent:Mozilla/5.0 (X11; Linux i686) AppleWebKit/535.19 (KHTML, like Gecko) Ubuntu/11.10 Chromium/18.0.1025.168 Chrome/18.0.1025.168 Safari/535.19</span>
-</span><span class='line'>
-</span><span class='line'><span class="x">Response Headers</span>
-</span><span class='line'>
-</span><span class='line'><span class="x">HTTP/1.1 200 OK</span>
-</span><span class='line'><span class="x">Host: localhost:8000</span>
-</span><span class='line'><span class="x">Connection: close</span>
-</span><span class='line'><span class="x">X-Powered-By: PHP/5.4.4-1~oneiric+1</span>
-</span><span class='line'><span class="x">Content-Type: text/html</span>
-</span><span class='line'><span class="x">Last-Modified: Tue, 15 Jan 2011 12:00</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and the respose source as</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;</span>Hello World<span class="nt">&lt;/body&gt;&lt;/html&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Http Caching:</p>
-
-<p>So you may not have seen any benefict in the above for its what you normally get. Now lets enter to the world of http caching.</p>
-
-<p>You may have heard about Expires, Cache-Control, Last-Modified, Etag headers. Yes with the help of these we can make use of http caching. Let&#8217;s see a base example.</p>
-
-<p>What will happen when you request the same url? It reloads the page. So the base concept is same, the client requests to server and server responds. But the scenario changes, if the browser is asking with some additional headers like If-Modified-Since or If-None-Match.</p>
-
-<p>If the response from server has set Last-Modified header value, then the request initiated by broswer will be having If-Modified-Since header.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">header(&#39;Content-Type: text/html&#39;);</span>
-</span><span class='line'><span class="x">header(&#39;Last-Modified: Tue, 15 Jan 2011 12:00 GMT&#39;);</span>
-</span><span class='line'><span class="x">echo &#39;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hello World&lt;/body&gt;&lt;/html&gt;&#39;;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now if you look into the Request Headers, you can notice the If-Modified-Since is send.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'>Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-</span><span class='line'>Accept-Charset:ISO-8859-1,utf-8;q=0.7,*;q=0.3
-</span><span class='line'>Accept-Encoding:gzip,deflate,sdch
-</span><span class='line'>Accept-Language:en-US,en;q=0.8
-</span><span class='line'>Cache-Control:max-age=0
-</span><span class='line'>Connection:keep-alive
-</span><span class='line'>Host:localhost:8000
-</span><span class='line'>If-Modified-Since:Tue, 15 Jan 2011 12:00
-</span><span class='line'>User-Agent:Mozilla/5.0 (X11; Linux i686) AppleWebKit/535.19 (KHTML, like Gecko) Ubuntu/11.10 Chromium/18.0.1025.168 Chrome/18.0.1025.168 Safari/535.19
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>But we weren&#8217;t validating the data to make use of caching. What we need to do is check whether the server variable HTTP_IF_MODIFIED_SINCE is set. If its set, we need to validate whether its being modified. If both are same we just need to send a 304 status code which means not modified with out any content. I am hard coding for demonstration purpose.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">if ( isset($_SERVER[&#39;HTTP_IF_MODIFIED_SINCE&#39;]) &amp;&amp; </span>
-</span><span class='line'><span class="x">    $_SERVER[&#39;HTTP_IF_MODIFIED_SINCE&#39;] == &#39;Tue, 15 Jan 2011 12:00 GMT&#39; ) {</span>
-</span><span class='line'><span class="x">    http_response_code(304);</span>
-</span><span class='line'><span class="x">} else {</span>
-</span><span class='line'><span class="x">    header(&#39;Content-Type: text/html&#39;);</span>
-</span><span class='line'><span class="x">    header(&#39;Last-Modified: Tue, 15 Jan 2011 12:00 GMT&#39;);</span>
-</span><span class='line'><span class="x">    echo &#39;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hello World&lt;/body&gt;&lt;/html&gt;&#39;;</span>
-</span><span class='line'><span class="x">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>So in this case if you reload the page, it will send a 304 not modified header. Getting the 304 header browser knows its not modified. This is too fast and we save a huge band width and server processing. Isn&#8217;t it too good? I recall his slides 21 years of http which still not used very nicely :-/</p>
-
-<p>Let&#8217;s move on to E-tag. As you have noticed the problem with Last-Modified and Expires is it uses GMT time. If the server and the client are not sync, then its hard. Thus the E-tag is introduced. You can create a md5 hash and set the E-tag header.</p>
-
-<p>If you are setting a E-tag, then you can use the server variable HTTP_IF_NONE_MATCH to validate it and send a status of 304.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">if ( isset($_SERVER[&#39;HTTP_IF_MODIFIED_SINCE&#39;]) &amp;&amp; </span>
-</span><span class='line'><span class="x">    $_SERVER[&#39;HTTP_IF_MODIFIED_SINCE&#39;] == &#39;Tue, 15 Jan 2011 12:00 GMT&#39; ) {</span>
-</span><span class='line'><span class="x">    http_response_code(304);</span>
-</span><span class='line'><span class="x">} elseif ( isset($_SERVER[&#39;HTTP_IF_NONE_MATCH&#39;]) &amp;&amp; </span>
-</span><span class='line'><span class="x">    $_SERVER[&#39;HTTP_IF_NONE_MATCH&#39;] == md5(&#39;Hello&#39;) ) {</span>
-</span><span class='line'><span class="x">    http_response_code(304);</span>
-</span><span class='line'><span class="x">} else {</span>
-</span><span class='line'><span class="x">    header(&#39;Content-Type: text/html&#39;);</span>
-</span><span class='line'><span class="x">    header(&#39;Last-Modified: Tue, 15 Jan 2011 12:00 GMT&#39;);</span>
-</span><span class='line'><span class="x">    header(&#39;ETag: &#39; . md5(&#39;Hello&#39;));</span>
-</span><span class='line'><span class="x">    echo &#39;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hello World&lt;/body&gt;&lt;/html&gt;&#39;;</span>
-</span><span class='line'><span class="x">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Note : In the above examples I have hard coded the time and md5 hash. But in the real world you should use file modified time or something like that depending on the use case.</p>
-
-<p>References :</p>
-
-<p>Status Code : <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</a></p>
-
-<p><a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol</a></p>
-
-<p>Response : <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html</a></p>
-
-<p>Caching in Http : <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</a></p>
-
-<p><a href="http://en.wikipedia.org/wiki/List_of_HTTP_header_fields">http://en.wikipedia.org/wiki/List_of_HTTP_header_fields</a></p>
-
-<p><a href="http://en.wikipedia.org/wiki/HTTP_ETag">http://en.wikipedia.org/wiki/HTTP_ETag</a></p>
-
-<p><a href="http://stackoverflow.com/questions/691318/what-headers-do-i-want-to-send-together-with-a-304-response">http://stackoverflow.com/questions/691318/what-headers-do-i-want-to-send-together-with-a-304-response</a></p>
-
-<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19</a></p>
-
-<p><a href="http://tomayko.com/writings/things-caches-do">http://tomayko.com/writings/things-caches-do</a></p>
-
-<p><a href="http://www.peej.co.uk/articles/http-caching.html">http://www.peej.co.uk/articles/http-caching.html</a></p>
-
-<p><a href="http://www.mnot.net/cache_docs/">http://www.mnot.net/cache_docs/</a></p>
-
-<p><a href="https://developers.google.com/storage/docs/reference-headers#cachecontrol">https://developers.google.com/storage/docs/reference-headers#cachecontrol</a></p>
-
-<p><a href="https://developers.google.com/speed/docs/best-practices/caching#LeverageBrowserCaching">https://developers.google.com/speed/docs/best-practices/caching#LeverageBrowserCaching</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1574,6 +1651,10 @@ for sure the current implementation supports it.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/05/21/standalone-forms-and-validation/">Standalone Forms and Validation</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/27/seriously-tab-vs-spaces/">Seriously? Tab Vs Spaces</a>
       </li>
     
@@ -1587,10 +1668,6 @@ for sure the current implementation supports it.</p>
     
       <li class="post">
         <a href="/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/">Domicile.FirePHP a way to comply PSR-3</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/09/our-awesome-php-people/">Our awesome php people</a>
       </li>
     
   </ul>
