@@ -4,7 +4,7 @@
   <title><![CDATA[Category: filter | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/filter/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-05-21T21:03:37+05:30</updated>
+  <updated>2013-05-21T23:16:20+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -168,7 +168,7 @@ if ($form-&gt;filter()) {
 <p>}
 ```</p>
 
-<p>If you are not using <a href="http://auraphp.com/Aura.View/">Aura.View</a> you can make use of your own helper.</p>
+<p>The form element gives you hints for the view. An example from the above</p>
 
 <p>```php
 // get the hints for the name field
@@ -196,6 +196,63 @@ $hints = array (
 )
 ```</p>
 
+<h2>Without using Aura.View completely</h2>
+
+<p>If you are not planning to use Aura.View entirely as templating, you can
+make use of <a href="http://auraphp.com/Aura.View/">Aura.View</a> helpers which can render to make the form.</p>
+
+<p>For that you need to instantiate <code>Aura\View\HelperLocator</code> and get the
+field object as below.</p>
+
+<p>```php
+$helper = new Aura\View\HelperLocator([</p>
+
+<pre><code>'anchor'        =&gt; function () { return new Aura\View\Helper\Anchor; },
+'attribs'       =&gt; function () { return new Aura\View\Helper\Attribs; },
+'base'          =&gt; function () { return new Aura\View\Helper\Base; },
+'datetime'      =&gt; function () { return new Aura\View\Helper\Datetime; },
+'escape'        =&gt; function () { return new Aura\View\Helper\Escape(new Aura\View\EscaperFactory); },
+'field'         =&gt; function () { 
+    return new Aura\View\Helper\Form\Field(
+        require dirname(__DIR__) . '/vendor/aura/view/scripts/field_registry.php'
+    ); 
+},
+'image'         =&gt; function () { return new Aura\View\Helper\Image; },
+'input'         =&gt; function () { return new Aura\View\Helper\Form\Input(
+        require dirname(__DIR__) . '/vendor/aura/view/scripts/input_registry.php'
+    ); 
+},
+'links'         =&gt; function () { return new Aura\View\Helper\Links; },
+'metas'         =&gt; function () { return new Aura\View\Helper\Metas; },
+'ol'            =&gt; function () { return new Aura\View\Helper\Ol; },
+'radios'        =&gt; function () { return new Aura\View\Helper\Form\Radios(new Aura\View\Helper\Form\Input\Checked); },
+'repeat'         =&gt; function () { return new Aura\View\Helper\Form\Repeat(
+        require dirname(__DIR__) . '/vendor/aura/view/scripts/repeat_registry.php'
+    ); 
+},
+'scripts'       =&gt; function () { return new Aura\View\Helper\Scripts; },
+'scriptsFoot'   =&gt; function () { return new Aura\View\Helper\Scripts; },
+'select'        =&gt; function () { return new Aura\View\Helper\Form\Select; },
+'styles'        =&gt; function () { return new Aura\View\Helper\Styles; },
+'tag'           =&gt; function () { return new Aura\View\Helper\Tag; },
+'title'         =&gt; function () { return new Aura\View\Helper\Title; },
+'textarea'      =&gt; function () { return new Aura\View\Helper\Form\Textarea; },
+'ul'            =&gt; function () { return new Aura\View\Helper\Ul; },
+</code></pre>
+
+<p>]);</p>
+
+<p>$field = $helper->get('field');
+echo $field($form->get('name'));</p>
+
+<p>```</p>
+
+<p>The above will output something like</p>
+
+<p><code>&lt;input id="name" type="text" name="name" size="20" maxlength="20" /&gt;</code></p>
+
+<h2>Using Aura.View</h2>
+
 <p>But you can use <a href="http://auraphp.com/Aura.View/">Aura.View</a> to render it nicely. An example is</p>
 
 <p>```php
@@ -211,6 +268,9 @@ in the example.</p>
 
 <p>If you have any problems or confusions, let me know by comments.
 I will try to address the same.</p>
+
+<p>I would like to express huge Thanks to Paul M Jones for spending his
+valuable time on the project, giving valuable feedback on the implementations.</p>
 
 <p>Happy PhPing!</p>
 ]]></content>

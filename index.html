@@ -324,7 +324,7 @@ the rules specified in the form.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>If you are not using <a href="http://auraphp.com/Aura.View/">Aura.View</a> you can make use of your own helper.</p>
+<p>The form element gives you hints for the view. An example from the above</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -369,6 +369,95 @@ the rules specified in the form.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
+<h2>Without using Aura.View completely</h2>
+
+<p>If you are not planning to use Aura.View entirely as templating, you can
+make use of <a href="http://auraphp.com/Aura.View/">Aura.View</a> helpers which can render to make the form.</p>
+
+<p>For that you need to instantiate <code>Aura\View\HelperLocator</code> and get the
+field object as below.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$helper = new Aura\View\HelperLocator([</span>
+</span><span class='line'><span class="x">    &#39;anchor&#39;        =&gt; function () { return new Aura\View\Helper\Anchor; },</span>
+</span><span class='line'><span class="x">    &#39;attribs&#39;       =&gt; function () { return new Aura\View\Helper\Attribs; },</span>
+</span><span class='line'><span class="x">    &#39;base&#39;          =&gt; function () { return new Aura\View\Helper\Base; },</span>
+</span><span class='line'><span class="x">    &#39;datetime&#39;      =&gt; function () { return new Aura\View\Helper\Datetime; },</span>
+</span><span class='line'><span class="x">    &#39;escape&#39;        =&gt; function () { return new Aura\View\Helper\Escape(new Aura\View\EscaperFactory); },</span>
+</span><span class='line'><span class="x">    &#39;field&#39;         =&gt; function () { </span>
+</span><span class='line'><span class="x">        return new Aura\View\Helper\Form\Field(</span>
+</span><span class='line'><span class="x">            require dirname(__DIR__) . &#39;/vendor/aura/view/scripts/field_registry.php&#39;</span>
+</span><span class='line'><span class="x">        ); </span>
+</span><span class='line'><span class="x">    },</span>
+</span><span class='line'><span class="x">    &#39;image&#39;         =&gt; function () { return new Aura\View\Helper\Image; },</span>
+</span><span class='line'><span class="x">    &#39;input&#39;         =&gt; function () { return new Aura\View\Helper\Form\Input(</span>
+</span><span class='line'><span class="x">            require dirname(__DIR__) . &#39;/vendor/aura/view/scripts/input_registry.php&#39;</span>
+</span><span class='line'><span class="x">        ); </span>
+</span><span class='line'><span class="x">    },</span>
+</span><span class='line'><span class="x">    &#39;links&#39;         =&gt; function () { return new Aura\View\Helper\Links; },</span>
+</span><span class='line'><span class="x">    &#39;metas&#39;         =&gt; function () { return new Aura\View\Helper\Metas; },</span>
+</span><span class='line'><span class="x">    &#39;ol&#39;            =&gt; function () { return new Aura\View\Helper\Ol; },</span>
+</span><span class='line'><span class="x">    &#39;radios&#39;        =&gt; function () { return new Aura\View\Helper\Form\Radios(new Aura\View\Helper\Form\Input\Checked); },</span>
+</span><span class='line'><span class="x">    &#39;repeat&#39;         =&gt; function () { return new Aura\View\Helper\Form\Repeat(</span>
+</span><span class='line'><span class="x">            require dirname(__DIR__) . &#39;/vendor/aura/view/scripts/repeat_registry.php&#39;</span>
+</span><span class='line'><span class="x">        ); </span>
+</span><span class='line'><span class="x">    },</span>
+</span><span class='line'><span class="x">    &#39;scripts&#39;       =&gt; function () { return new Aura\View\Helper\Scripts; },</span>
+</span><span class='line'><span class="x">    &#39;scriptsFoot&#39;   =&gt; function () { return new Aura\View\Helper\Scripts; },</span>
+</span><span class='line'><span class="x">    &#39;select&#39;        =&gt; function () { return new Aura\View\Helper\Form\Select; },</span>
+</span><span class='line'><span class="x">    &#39;styles&#39;        =&gt; function () { return new Aura\View\Helper\Styles; },</span>
+</span><span class='line'><span class="x">    &#39;tag&#39;           =&gt; function () { return new Aura\View\Helper\Tag; },</span>
+</span><span class='line'><span class="x">    &#39;title&#39;         =&gt; function () { return new Aura\View\Helper\Title; },</span>
+</span><span class='line'><span class="x">    &#39;textarea&#39;      =&gt; function () { return new Aura\View\Helper\Form\Textarea; },</span>
+</span><span class='line'><span class="x">    &#39;ul&#39;            =&gt; function () { return new Aura\View\Helper\Ul; },</span>
+</span><span class='line'><span class="x">]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">$field = $helper-&gt;get(&#39;field&#39;);</span>
+</span><span class='line'><span class="x">echo $field($form-&gt;get(&#39;name&#39;));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The above will output something like</p>
+
+<p><code>&lt;input id="name" type="text" name="name" size="20" maxlength="20" /&gt;</code></p>
+
+<h2>Using Aura.View</h2>
+
 <p>But you can use <a href="http://auraphp.com/Aura.View/">Aura.View</a> to render it nicely. An example is</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -385,6 +474,9 @@ in the example.</p>
 
 <p>If you have any problems or confusions, let me know by comments.
 I will try to address the same.</p>
+
+<p>I would like to express huge Thanks to Paul M Jones for spending his
+valuable time on the project, giving valuable feedback on the implementations.</p>
 
 <p>Happy PhPing!</p>
 </div>
