@@ -4,7 +4,7 @@
   <title><![CDATA[Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-05-21T23:41:57+05:30</updated>
+  <updated>2013-05-22T23:56:58+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -840,119 +840,6 @@ Browse the documentation examples, source code, tests, and api.</p>
 <p>Documentation : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/">http://auraphp.github.com/Aura.Http/version/1.0.0/</a></p>
 
 <p>API : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/api/">http://auraphp.github.com/Aura.Http/version/1.0.0/api/</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Domicile.FirePHP a way to comply PSR-3]]></title>
-    <link href="http://harikt.com/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3/"/>
-    <updated>2013-02-16T13:15:00+05:30</updated>
-    <id>http://harikt.com/blog/2013/02/16/domice-dot-firephp-a-way-to-comply-psr-3</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/harikt/Domicile.FirePHP">Domicile.FirePHP</a> is an experiment to make <a href="https://github.com/firephp/firephp-core">FirePHP</a> works for <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md">PSR-3</a>.</p>
-
-<p>This is not a replacement for the original <a href="https://github.com/firephp/firephp-core">FirePHP</a>. It has dependencies
-on <code>firephp/firephp-core</code>, and <code>psr/log</code></p>
-
-<p>The package is compliant with  <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md">PSR-0</a>, <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md">PSR-1</a>, <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md">PSR-2</a>. If you notice
-compliance oversights, please send a patch via pull request.</p>
-
-<h1>Installation:</h1>
-
-<p>You can install it via composer. Add <code>domicile/firephp</code> in your require</p>
-
-<pre><code>{
-    "require": {
-        "domicile/firephp": "dev-master"
-    }
-}
-</code></pre>
-
-<p>And run <code>composer update</code></p>
-
-<h1>Instantiation and Usage:</h1>
-
-<p>Create an object of <code>Domicile\FirePHP\FirePHP</code>, which will give you, an
-instance of the <code>\FirePHP::getInstance(true)</code>.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
-</span><span class='line'><span class="nv">$firephp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Domicile\FirePHP\FirePHP</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now you can use</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
-</span><span class='line'><span class="nv">$firephp</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$firephp</span><span class="o">-&gt;</span><span class="na">warn</span><span class="p">(</span><span class="s2">&quot;Trying to make it PSR-3&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$firephp</span><span class="o">-&gt;</span><span class="na">error</span><span class="p">(</span><span class="s2">&quot;This is still not fully PSR-3&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Or you can get the <code>FirePHP</code> object by calling</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
-</span><span class='line'><span class="nv">$object</span> <span class="o">=</span> <span class="nv">$firephp</span><span class="o">-&gt;</span><span class="na">getFirePHP</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And you can make use of the real functionalities of the core <a href="https://github.com/firephp/firephp-core">FirePHP</a></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
-</span><span class='line'><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">log</span><span class="p">(</span>
-</span><span class='line'>    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;2 SQL queries took 0.06 seconds&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="k">array</span><span class="p">(</span>
-</span><span class='line'>            <span class="k">array</span><span class="p">(</span><span class="s1">&#39;SQL Statement&#39;</span><span class="p">,</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span><span class="s1">&#39;Result&#39;</span><span class="p">),</span>
-</span><span class='line'>            <span class="k">array</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Foo&#39;</span><span class="p">,</span><span class="s1">&#39;0.02&#39;</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;row1&#39;</span><span class="p">,</span><span class="s1">&#39;row2&#39;</span><span class="p">)),</span>
-</span><span class='line'>            <span class="k">array</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Bar&#39;</span><span class="p">,</span><span class="s1">&#39;0.04&#39;</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;row1&#39;</span><span class="p">,</span><span class="s1">&#39;row2&#39;</span><span class="p">))</span>
-</span><span class='line'>        <span class="p">)</span>
-</span><span class='line'>    <span class="p">),</span>
-</span><span class='line'>    <span class="nx">\FirePHP</span><span class="o">::</span><span class="na">TABLE</span>
-</span><span class='line'><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>Known Limitations:</h1>
-
-<p>In <a href="https://github.com/firephp/firephp-core">FirePHP</a> I didn&#8217;t noticed it is having <code>LogLevel::ALERT</code>, <code>LogLevel::CRITICAL</code>,
-<code>LogLevel::DEBUG</code>, <code>LogLevel::EMERGENCY</code>, <code>LogLevel::NOTICE</code> levels.</p>
-
-<p>I am not sure whether <code>trace</code> can be used for <code>DEBUG</code>.</p>
-
-<p>Also the <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md">PSR-3</a> states that</p>
-
-<p>Calling this method with a level not defined by this specification MUST
-throw a <code>Psr\Log\InvalidArgumentException</code> if the implementation does not
-know about the level. Users SHOULD NOT use a custom level without knowing
-for sure the current implementation supports it.</p>
-
-<p>But the current way is logging it to console with the corresponding level.</p>
-
-<p>If you have any suggestions please let me know what we can do for this.</p>
-
-<h1>To Rethink:</h1>
-
-<p>Do we need to add a <code>getInstance()</code> method?</p>
-
-<p>What are your thoughts on the same?</p>
 ]]></content>
   </entry>
   
@@ -1835,6 +1722,15 @@ I am planning to start a series of posts to get started with using the component
     <updated>2012-10-17T19:41:00+05:30</updated>
     <id>http://harikt.com/blog/2012/10/17/node-218</id>
     <content type="html"><![CDATA[<p>Probably you may have already heard about the full day workshop on HTML5 and Upcoming Web Technologies by <a href="https://twitter.com/shwetank">Shwetank Dixit</a> of Opera at <a href="http://interface-tech.in/">Interface</a> which will be held on 3rd November 2012 . Where ? The Woods Manor, Cochin . Why you should participate? HTML5 is the future of internet. Why not learn from the leader? Who should attend ? Are you a web developer? A person who works on android, iphone or any device ? If you said yes, then its for you. What is the cost? This time we are charging 500 INR. The money is used to give you tea/coffee and snacks plus an awesome lunch during the event and to cover the event expenses. I don&#8217;t think its a huge amount for I have been spending more than 500 INR to travel from Cochin to Bangalore to participate in such awesome workshops. You are only spending a 500 INR in a year which will be a worth in your career. There is also discounts available for group registration for companies, please contact Sofie Holmberg via sofie.holmberg at interface-tech dot in or 0484 4433638 . There is only limited seats available , so be there and don&#8217;t loose the best chance attending the workshop and interacting with <a href="https://twitter.com/shwetank">Shwetank Dixit</a>. Register and get your tickets from : http://interface-tech.in/register</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Aura T-Shirts]]></title>
+    <link href="http://harikt.com/blog/2012/10/04/node-217/"/>
+    <updated>2012-10-04T10:44:00+05:30</updated>
+    <id>http://harikt.com/blog/2012/10/04/node-217</id>
+    <content type="html"><![CDATA[<p>So today I got the custom designed T-Shirts with Aura Logo. Its time to brand :)  <img src="https://pbs.twimg.com/media/A4V654qCAAEudRT.jpg" title="Aura T-Shirt with github url" alt="Aura T-Shirt with github url" />  T-shirts with logo is here &#8230;.. Yey @<a href="https://twitter.com/auraphp">auraphp</a>:) .  <img src="https://pbs.twimg.com/media/A4V7Dv3CUAAIp8U.jpg" title="Aura T-Shirt with logo" alt="Aura T-Shirt with logo" />  A closer look into the logo, made with embroidery  <img src="https://pbs.twimg.com/media/A4V7SHhCYAAt6x-.jpg" title="Closer look at logo" alt="Closer look at logo" />  I have designed thes from ilogo.in .  Status : https://twitter.com/harikt/status/253744088891916288 , https://twitter.com/harikt/status/253744258329235456, https://twitter.com/harikt/status/253744505197584384</p>
 ]]></content>
   </entry>
   
