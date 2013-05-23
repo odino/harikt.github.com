@@ -307,12 +307,10 @@ or bind your favourite components which does the validation <a href="https://git
 <span class='line-number'>161</span>
 <span class='line-number'>162</span>
 <span class='line-number'>163</span>
-<span class='line-number'>164</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Builder</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Filter\RuleLocator</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Filter\Translator</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Builder</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Filter</span><span class="p">;</span>
 </span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Form</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'><span class="nv">$loader</span> <span class="o">=</span> <span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>

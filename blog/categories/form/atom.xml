@@ -4,7 +4,7 @@
   <title><![CDATA[Category: form | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/form/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-05-23T07:30:24+05:30</updated>
+  <updated>2013-05-23T07:36:27+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -51,11 +51,10 @@ or bind your favourite components which does the validation <a href="https://git
 <p>The page which you need to bring the form.</p>
 
 <p>```php
-&lt;?php
-use Aura\Input\Builder;</p>
+&lt;?php</p>
 
-<p>use Aura\Filter\RuleLocator;
-use Aura\Filter\Translator;
+<p>use Aura\Input\Builder;
+use Aura\Input\Filter;
 use Aura\Input\Form;</p>
 
 <p>$loader = require <strong>DIR</strong> . '/vendor/autoload.php';</p>
