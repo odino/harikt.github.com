@@ -4,7 +4,7 @@
   <title><![CDATA[Category: filter | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/filter/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-05-23T00:53:19+05:30</updated>
+  <updated>2013-05-23T07:30:24+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -18,7 +18,9 @@
     <link href="http://harikt.com/blog/2013/05/21/standalone-forms-and-validation/"/>
     <updated>2013-05-21T20:15:00+05:30</updated>
     <id>http://harikt.com/blog/2013/05/21/standalone-forms-and-validation</id>
-    <content type="html"><![CDATA[<p>Recently <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> was tagged Beta1. I would like to show you how you
+    <content type="html"><![CDATA[<p>Update : I wrote a very minimal approach <a href="http://harikt.com/blog/2013/05/23/standalone-form-for-php/">here</a></p>
+
+<p>Recently <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> was tagged Beta1. I would like to show you how you
 can use <a href="http://auraphp.com/Aura.Input/">Aura.Input</a>, <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a> and <a href="http://auraphp.com/Aura.View/">Aura.View</a> to create form.</p>
 
 <p>The <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> itself contains a basic filter implementation. As shown
