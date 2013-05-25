@@ -393,6 +393,10 @@
         <lastmod>2012-12-18T07:42:19+05:30</lastmod>
     </url>
     <url>
+        <loc>http://harikt.com/blog/2009/09/11/simple-blog-using-zend-framework-19/</loc>
+        <lastmod>2013-05-25T12:35:45+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://harikt.com/blog/2009/09/13/windows7-not-released-windows7sinsorg-active/</loc>
         <lastmod>2012-12-18T07:42:19+05:30</lastmod>
     </url>
@@ -400,13 +404,13 @@
         <loc>
             http://harikt.com/blog/2009/09/15/complete-working-example-pagination-using-zendpaginator/
         </loc>
-        <lastmod>2012-12-18T07:42:19+05:30</lastmod>
+        <lastmod>2013-05-25T12:38:42+05:30</lastmod>
     </url>
     <url>
         <loc>
             http://harikt.com/blog/2009/09/17/add-wysiwyg-ckeditor-zendtextarea-element-zendform/
         </loc>
-        <lastmod>2012-12-18T07:42:19+05:30</lastmod>
+        <lastmod>2013-05-25T12:40:26+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/blog/2009/09/18/google-acquires-recaptcha/</loc>
@@ -940,10 +944,10 @@
     </url>
     <url>
         <loc>http://harikt.com/</loc>
-        <lastmod>2013-05-25T12:12:45+05:30</lastmod>
+        <lastmod>2013-05-25T12:40:26+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/blog/archives/</loc>
-        <lastmod>2013-05-25T12:12:45+05:30</lastmod>
+        <lastmod>2013-05-25T12:40:26+05:30</lastmod>
     </url>
 </urlset>
