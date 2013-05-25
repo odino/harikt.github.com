@@ -9,7 +9,9 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="Recently I was reading When to use array_merge and union operator (+) in PHP? . Lately working with examples I was also confused how the array_merge &hellip;">
+  <meta name="description" content="Recently I was reading When to use array_merge and union operator (+)
+in PHP? . Lately working with examples I was also confused how the
+array_merge &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,7 +105,109 @@
   </header>
 
 
-<div class="entry-content"><p>Recently I was reading <a href="http://sandeep.shetty.in/2012/05/when-to-use-arraymerge-and-union.html">When to use array_merge and union operator (+) in PHP?</a> . Lately working with examples I was also confused how the array_merge and union works. Really, that brings a strong thought why you should write tests. Lets see some examples . {syntaxhighlighter class=&#8221;php&#8221;} &#8216;bar&#8217;, 3, 4, &#8216;123&#8217; => 3); echo &#8216;$a = &#8216;; var_export($a); $b = array(&#8216;foo&#8217; => &#8216;baz&#8217;, 3, 6, 7, 3); echo PHP_EOL . &#8216;$b = &#8216;; var_export($b); echo PHP_EOL . &#8216;array_merge( $a, $b) = &#8216;; var_export( array_merge($a, $b)); echo PHP_EOL . &#8216;$a + $b = &#8216;; var_export( $a + $b ); {/syntaxhighlighter} Do you have any thoughts on how the result for array_merge and + comes? {syntaxhighlighter class=&#8221;php&#8221;} $a = array ( &#8216;foo&#8217; => &#8216;bar&#8217;, 0 => 3, 1 => 4, 123 => 3, ) $b = array ( &#8216;foo&#8217; => &#8216;baz&#8217;, 0 => 3, 1 => 6, 2 => 7, 3 => 3, ) array_merge( $a, $b) = array ( &#8216;foo&#8217; => &#8216;baz&#8217;, 0 => 3, 1 => 4, 2 => 3, 3 => 3, 4 => 6, 5 => 7, 6 => 3, ) $a + $b = array ( &#8216;foo&#8217; => &#8216;bar&#8217;, 0 => 3, 1 => 4, 123 => 3, 2 => 7, 3 => 3, ) {/syntaxhighlighter} Hope this makes to convince you also , why you should write tests :-) . A detailed post on the working is at http://unix0.wordpress.com/2012/01/08/php-array_merge-vs-plus-union-operator/</p>
+<div class="entry-content"><p>Recently I was reading <a href="http://sandeep.shetty.in/2012/05/when-to-use-arraymerge-and-union.html">When to use array_merge and union operator (+)
+in PHP?</a> . Lately working with examples I was also confused how the
+array_merge and union works. Really, that brings a strong thought why
+you should write tests. Lets see some examples .</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="nv">$a</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;123&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="s1">&#39;$a = &#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nb">var_export</span><span class="p">(</span><span class="nv">$a</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$b</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="s1">&#39;$b = &#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nb">var_export</span><span class="p">(</span><span class="nv">$b</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="s1">&#39;array_merge( $a, $b) = &#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nb">var_export</span><span class="p">(</span> <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">));</span>
+</span><span class='line'><span class="k">echo</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="s1">&#39;$a + $b = &#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nb">var_export</span><span class="p">(</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Do you have any thoughts on how the result for array_merge and + comes?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$a = array (</span>
+</span><span class='line'><span class="x">  &#39;foo&#39; =&gt; &#39;bar&#39;,</span>
+</span><span class='line'><span class="x">  0 =&gt; 3,</span>
+</span><span class='line'><span class="x">  1 =&gt; 4,</span>
+</span><span class='line'><span class="x">  123 =&gt; 3,</span>
+</span><span class='line'><span class="x">)</span>
+</span><span class='line'><span class="x">$b = array (</span>
+</span><span class='line'><span class="x">  &#39;foo&#39; =&gt; &#39;baz&#39;,</span>
+</span><span class='line'><span class="x">  0 =&gt; 3,</span>
+</span><span class='line'><span class="x">  1 =&gt; 6,</span>
+</span><span class='line'><span class="x">  2 =&gt; 7,</span>
+</span><span class='line'><span class="x">  3 =&gt; 3,</span>
+</span><span class='line'><span class="x">)</span>
+</span><span class='line'><span class="x">array_merge( $a, $b) = array (</span>
+</span><span class='line'><span class="x">  &#39;foo&#39; =&gt; &#39;baz&#39;,</span>
+</span><span class='line'><span class="x">  0 =&gt; 3,</span>
+</span><span class='line'><span class="x">  1 =&gt; 4,</span>
+</span><span class='line'><span class="x">  2 =&gt; 3,</span>
+</span><span class='line'><span class="x">  3 =&gt; 3,</span>
+</span><span class='line'><span class="x">  4 =&gt; 6,</span>
+</span><span class='line'><span class="x">  5 =&gt; 7,</span>
+</span><span class='line'><span class="x">  6 =&gt; 3,</span>
+</span><span class='line'><span class="x">)</span>
+</span><span class='line'><span class="x">$a + $b = array (</span>
+</span><span class='line'><span class="x">  &#39;foo&#39; =&gt; &#39;bar&#39;,</span>
+</span><span class='line'><span class="x">  0 =&gt; 3,</span>
+</span><span class='line'><span class="x">  1 =&gt; 4,</span>
+</span><span class='line'><span class="x">  123 =&gt; 3,</span>
+</span><span class='line'><span class="x">  2 =&gt; 7,</span>
+</span><span class='line'><span class="x">  3 =&gt; 3,</span>
+</span><span class='line'><span class="x">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Hope this makes to convince you also , why you should write tests :-) .
+A detailed post on the working is at
+<a href="">http://unix0.wordpress.com/2012/01/08/php-array_merge-vs-plus-union-operator/</a></p>
+
+<pre><code>http://unix0.wordpress.com/2012/01/08/php-array_merge-vs-plus-union-operator/
+</code></pre>
 </div>
 
 

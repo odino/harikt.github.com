@@ -4,7 +4,7 @@
   <title><![CDATA[Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-05-23T07:36:27+05:30</updated>
+  <updated>2013-05-25T12:13:11+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -280,7 +280,7 @@ or bind your favourite components which does the validation <a href="https://git
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'><span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContactForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">Aura\Input\Filter</span><span class="p">());</span>
+</span><span class='line'><span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContactForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">Filter</span><span class="p">());</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span> <span class="o">&amp;&amp;</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;submit&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;send&#39;</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">;</span>
