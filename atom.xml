@@ -4,7 +4,7 @@
   <title><![CDATA[Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-05-25T12:40:42+05:30</updated>
+  <updated>2013-05-26T12:28:45+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Aura System released beta5]]></title>
+    <link href="http://harikt.com/blog/2013/05/25/aura-system-released-beta5/"/>
+    <updated>2013-05-25T21:44:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/05/25/aura-system-released-beta5</id>
+    <content type="html"><![CDATA[<p>Yesterday Paul M Jones tagged the beta5 for the system repo.</p>
+
+<p>So you can download the system from <a href="http://auraphp.com/system/downloads">http://auraphp.com/system/downloads/</a></p>
+
+<h2>via composer</h2>
+
+<p>Creating aura framework based projects has been made easy with composer. You can run</p>
+
+<pre><code>php composer.phar create-project -s dev aura/system your-directory
+</code></pre>
+
+<p>What it does is almost similar to git clone and installing via git as below</p>
+
+<p>via git</p>
+
+<pre><code>git clone https://github.com/auraphp/system
+cd system
+php update.php
+</code></pre>
+
+<p>you can also skip php update.php with</p>
+
+<pre><code>php composer.phar install
+</code></pre>
+
+<p>You can read some basic introduction from <a href="http://auraphp.com/system">http://auraphp.com/system/</a></p>
+
+<p>NB : If you haven&#8217;t heard about composer you can read it from <a href="http://getcomposer.org">getcomposer.org</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Standalone form for PHP]]></title>
@@ -2090,15 +2126,6 @@ I am planning to start a series of posts to get started with using the component
     <updated>2012-10-20T22:03:00+05:30</updated>
     <id>http://harikt.com/blog/2012/10/20/node-219</id>
     <content type="html"><![CDATA[<p>I have been working with different open-source projects for a while. Most of them utilizes phpdocumentator2 . I liked it for a while. But I have been looking at apigen, swami etc. Recently I started to make use of apigen extensively. What made me comfortable with apigen than phpdocumentator ? Certain times we may want to look into the code also to see the implementation . I am not sure may be there is an option in phpdocumentator that it can show the code when we click on a function / method. The code highlighting and is shown once we click on it. I like this feature the most. If you haven&#8217;t yet checked how the apigen generated api looks have a look into the one for the <a href="https://github.com/auraphp">aura project</a> which is at <a href="http://harikt.github.com/api">http://harikt.github.com/api</a> More information on a href=&#8221;http://apigen.org>apigen.org</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[HTML5 and Upcoming Web Technologies]]></title>
-    <link href="http://harikt.com/blog/2012/10/17/node-218/"/>
-    <updated>2012-10-17T19:41:00+05:30</updated>
-    <id>http://harikt.com/blog/2012/10/17/node-218</id>
-    <content type="html"><![CDATA[<p>Probably you may have already heard about the full day workshop on HTML5 and Upcoming Web Technologies by <a href="https://twitter.com/shwetank">Shwetank Dixit</a> of Opera at <a href="http://interface-tech.in/">Interface</a> which will be held on 3rd November 2012 . Where ? The Woods Manor, Cochin . Why you should participate? HTML5 is the future of internet. Why not learn from the leader? Who should attend ? Are you a web developer? A person who works on android, iphone or any device ? If you said yes, then its for you. What is the cost? This time we are charging 500 INR. The money is used to give you tea/coffee and snacks plus an awesome lunch during the event and to cover the event expenses. I don&#8217;t think its a huge amount for I have been spending more than 500 INR to travel from Cochin to Bangalore to participate in such awesome workshops. You are only spending a 500 INR in a year which will be a worth in your career. There is also discounts available for group registration for companies, please contact Sofie Holmberg via sofie.holmberg at interface-tech dot in or 0484 4433638 . There is only limited seats available , so be there and don&#8217;t loose the best chance attending the workshop and interacting with <a href="https://twitter.com/shwetank">Shwetank Dixit</a>. Register and get your tickets from : http://interface-tech.in/register</p>
 ]]></content>
   </entry>
   
