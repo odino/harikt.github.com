@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\View\AbstractTemplate</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?1794506513"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.View.html">View<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.View.Escaper.html">Escaper</a>
+						</li>
+				<li><a href="namespace-Aura.View.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Aura.View.Helper.html">Helper<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.View.Helper.Form.html">Form<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.View.Helper.Form.Input.html">Input</a>
+						</li>
+							</ul></li></ul></li></ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Aura.View.AbstractTemplate.html">AbstractTemplate</a></li>
+				<li><a href="class-Aura.View.EscaperFactory.html">EscaperFactory</a></li>
+				<li><a href="class-Aura.View.FormatTypes.html">FormatTypes</a></li>
+				<li><a href="class-Aura.View.HelperLocator.html">HelperLocator</a></li>
+				<li><a href="class-Aura.View.Template.html">Template</a></li>
+				<li><a href="class-Aura.View.TemplateFinder.html">TemplateFinder</a></li>
+				<li><a href="class-Aura.View.TwoStep.html">TwoStep</a></li>
+			</ul>
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Aura.View.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.View.html" title="Summary of Aura\View"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AbstractTemplate</h1>
+
+
+	<div class="description">
+	
+<p>Provides an abstract TemplateView pattern implementation. We use an abstract
+so that the extended "real" Template class does not have access to the private
+support properties herein.</p>
+
+	</div>
+
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Aura.View.Template.html">Aura\View\Template</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br />
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.View.html">View</a><br />
+		<b>Package:</b> Aura\View<br />
+
+		<b>Located at</b> <a href="source-class-Aura.View.AbstractTemplate.html#13-331" title="Go to source code">Aura/View/AbstractTemplate.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#70-91" title="Go to source code">__construct</a>( <span><code><a href="class-Aura.View.EscaperFactory.html">Aura\View\EscaperFactory</a></code> <var>$escaper_factory</var></span>, <span><code><a href="class-Aura.View.TemplateFinder.html">Aura\View\TemplateFinder</a></code> <var>$template_finder</var></span>, <span><code><a href="class-Aura.View.HelperLocator.html">Aura\View\HelperLocator</a></code> <var>$helper_locator</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$escaper_factory</var></dt>
+					<dd><code><code><a href="class-Aura.View.EscaperFactory.html">Aura\View\EscaperFactory</a></code></code><br>$escaper_factory An escaper factory.</dd>
+					<dt><var>$template_finder</var></dt>
+					<dd><code><code><a href="class-Aura.View.TemplateFinder.html">Aura\View\TemplateFinder</a></code></code><br>$template_finder A template finder.</dd>
+					<dt><var>$helper_locator</var></dt>
+					<dd><code><code><a href="class-Aura.View.HelperLocator.html">Aura\View\HelperLocator</a></code></code><br>$helper_locator A Service Locator for helpers attached to this template.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__get" id="___get">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___get">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#93-105" title="Go to source code">__get</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Magic read access to template data.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key The template variable name.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__set" id="___set">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___set">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#107-121" title="Go to source code">__set</a>( <span>string <var>$key</var></span>, <span>string <var>$val</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Magic write access to template data.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key The template variable name.</dd>
+					<dt><var>$val</var></dt>
+					<dd><code>string</code><br>$val The template variable value.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__isset" id="___isset">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___isset">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#123-135" title="Go to source code">__isset</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Magic isset() checks on template data.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key The template variable name.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__unset" id="___unset">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___unset">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#137-149" title="Go to source code">__unset</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Magic unset() for template data.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key The template variable name.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__call" id="___call">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___call">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#151-166" title="Go to source code">__call</a>( <span>string <var>$name</var></span>, <span>array <var>$args</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Magic call to provide shared helpers as template methods.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The helper name.</dd>
+					<dt><var>$args</var></dt>
+					<dd><code>array</code><br>$args The arguments to pass to the helper.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setPaths" id="_setPaths">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setPaths">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#168-180" title="Go to source code">setPaths</a>( <span>array <var>$paths</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the search paths for templates; paths are searched in FIFO order.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$paths</var></dt>
+					<dd><code>array</code><br>$paths An array of directory paths where templates are.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addData" id="_addData">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addData">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#182-196" title="Go to source code">addData</a>( <span>array <var>$data</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Merges new data with the existing template data.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data An array of key-value pairs where the keys are template variable names,
+and the values are the variable values.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setData" id="_setData">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setData">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#198-213" title="Go to source code">setData</a>( <span>array <var>$data</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Replaces all template data at once; this will remove all previous data.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data An array of key-value pairs where the keys are template variable names,
+and the values are the variable values.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getData" id="_getData">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getData">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#215-226" title="Go to source code">getData</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets all template variables.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>An array of key-value pairs where the keys are template variable names, and the
+values are the variable values.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__raw" id="___raw">
+
+		<td class="attributes"><code>
+			 public 
+			StdClass
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___raw">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#228-238" title="Go to source code">__raw</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the raw data object.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>StdClass</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getHelperLocator" id="_getHelperLocator">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.View.HelperLocator.html">Aura\View\HelperLocator</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getHelperLocator">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#240-250" title="Go to source code">getHelperLocator</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the helper locator object.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.View.HelperLocator.html">Aura\View\HelperLocator</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="find" id="_find">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_find">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#252-277" title="Go to source code">find</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the path to the requested template script; searches through
+$this-&gt;paths to find the first matching template.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The template name to look for in the template path.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The full path to the template script.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getTemplateFinder" id="_getTemplateFinder">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.View.TemplateFinder.html">Aura\View\TemplateFinder</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getTemplateFinder">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#279-289" title="Go to source code">getTemplateFinder</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the TemplateFinder object.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.View.TemplateFinder.html">Aura\View\TemplateFinder</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getHelper" id="_getHelper">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getHelper">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#291-303" title="Go to source code">getHelper</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Retrieves a shared helper from the helper container.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The helper to retrieve.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetch" id="_fetch">
+
+		<td class="attributes"><code>
+			abstract public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetch">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#305-314" title="Go to source code">fetch</a>( <span>string <var>$__name__</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Fetches the output from a template.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$__name__</var></dt>
+					<dd><code>string</code><br>$__name__ The template name to use.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="partial" id="_partial">
+
+		<td class="attributes"><code>
+			abstract public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_partial">#</a>
+		<code><a href="source-class-Aura.View.AbstractTemplate.html#316-330" title="Go to source code">partial</a>( <span>string <var>$name</var></span>, <span>array <var>$data</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Fetches the output from a partial. The partial will be executed in isolation
+from the rest of the template, which means <code>$this</code> refers to the
+<em>partial</em> data, not the original template data. However, helper objects
+are shared.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The partial to use.</dd>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data Data to use for the partial.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

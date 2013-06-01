@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\View\Escaper\Object</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?1794506513"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.View.html">View<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.View.Escaper.html">Escaper</a>
+						</li>
+				<li><a href="namespace-Aura.View.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Aura.View.Helper.html">Helper<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.View.Helper.Form.html">Form<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.View.Helper.Form.Input.html">Input</a>
+						</li>
+							</ul></li></ul></li></ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Aura.View.Escaper.Iterator.html">Iterator</a></li>
+				<li><a href="class-Aura.View.Escaper.IteratorAggregate.html">IteratorAggregate</a></li>
+				<li class="active"><a href="class-Aura.View.Escaper.Object.html">Object</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.View.Escaper.html" title="Summary of Aura\View\Escaper"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Object</h1>
+
+
+	<div class="description">
+	
+<p>A decorator to return escaped values from objects/arrays/etc.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Aura\View\Escaper\Object</span></b>			
+			 implements 
+				<a href="class-ArrayAccess.html"><span>ArrayAccess</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Aura.View.Escaper.Iterator.html">Aura\View\Escaper\Iterator</a>, 
+			<a href="class-Aura.View.Escaper.IteratorAggregate.html">Aura\View\Escaper\IteratorAggregate</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.View.html">View</a>\<a href="namespace-Aura.View.Escaper.html">Escaper</a><br />
+		<b>Package:</b> Aura\View<br />
+
+		<b>Located at</b> <a href="source-class-Aura.View.Escaper.Object.html#15-268" title="Go to source code">Aura/View/Escaper/Object.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.View.Escaper.Object.html#60-79" title="Go to source code">__construct</a>( <span><code><a href="class-Aura.View.EscaperFactory.html">Aura\View\EscaperFactory</a></code> <var>$factory</var></span>, <span>object <var>$object</var></span>, <span>string <var>$quotes</var></span>, <span>string <var>$charset</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$factory</var></dt>
+					<dd><code><code><a href="class-Aura.View.EscaperFactory.html">Aura\View\EscaperFactory</a></code></code><br>$factory A factory for escaper objects.</dd>
+					<dt><var>$object</var></dt>
+					<dd><code>object</code><br>$object The object to be decorated for escaping.</dd>
+					<dt><var>$quotes</var></dt>
+					<dd><code>string</code><br>$quotes The type of quotes for htmlspecialchars().</dd>
+					<dt><var>$charset</var></dt>
+					<dd><code>string</code><br>$charset The character set to use for htmlspecialchars().</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__get" id="___get">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___get">#</a>
+		<code><a href="source-class-Aura.View.Escaper.Object.html#81-93" title="Go to source code">__get</a>( <span>string <var>$prop</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns an escaped property from the underlying object.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$prop</var></dt>
+					<dd><code>string</code><br>$prop The underlying object property.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__set" id="___set">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___set">#</a>
+		<code><a href="source-class-Aura.View.Escaper.Object.html#95-109" title="Go to source code">__set</a>( <span>string <var>$prop</var></span>, <span>mixed <var>$spec</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets a property on the underlying object.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$prop</var></dt>
+					<dd><code>string</code><br>$prop The underlying object property.</dd>
+					<dt><var>$spec</var></dt>
+					<dd><code>mixed</code><br>$spec Set the property to this value.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__isset" id="___isset">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___isset">#</a>
+		<code><a href="source-class-Aura.View.Escaper.Object.html#111-123" title="Go to source code">__isset</a>( <span>string <var>$prop</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Is the underlying object property set?</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$prop</var></dt>
+					<dd><code>string</code><br>$prop The underlying object property.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__unset" id="___unset">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___unset">#</a>
+		<code><a href="source-class-Aura.View.Escaper.Object.html#125-137" title="Go to source code">__unset</a>( <span>string <var>$prop</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Unsets the underlying object property.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$prop</var></dt>
+					<dd><code>string</code><br>$prop The underlying object property.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__call" id="___call">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___call">#</a>
+		<code><a href="source-class-Aura.View.Escaper.Object.html#139-158" title="Go to source code">__call</a>( <span>string <var>$method</var></span>, <span>array <var>$params</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Calls an underlying object method and escapes the return value.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$method</var></dt>
+					<dd><code>string</code><br>$method The underlying object method.</dd>
+					<dt><var>$params</var></dt>
+					<dd><code>array</code><br>$params Params to pass to the method.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__raw" id="___raw">
+
+		<td class="attributes"><code>
+			 public 
+			object
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___raw">#</a>
+		<code><a href="source-class-Aura.View.Escaper.Object.html#160-170" title="Go to source code">__raw</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the underlying object.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>object</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__escape" id="___escape">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___escape">#</a>
+		<code><a href="source-class-Aura.View.Escaper.Object.html#172-209" title="Go to source code">__escape</a>( <span>mixed <var>$raw</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns an escaped value.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$raw</var></dt>
+					<dd><code>mixed</code><br>$raw The value to escape. If a string, uses htmlspecialchars(); if an array,
+recursively escapes keys and values; if an object, wraps it in an escaper;
+otherwise, does not escape (e.g. numerics, resources, bools, nulls, etc.).</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="offsetExists" id="_offsetExists">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_offsetExists">#</a>
+		<code><a href="source-class-Aura.View.Escaper.Object.html#211-223" title="Go to source code">offsetExists</a>( <span>string <var>$prop</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ArrayAccess: does the requested property exist?</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$prop</var></dt>
+					<dd><code>string</code><br>$prop The requested property.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-ArrayAccess.html#_offsetExists">ArrayAccess::offsetExists()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="offsetGet" id="_offsetGet">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_offsetGet">#</a>
+		<code><a href="source-class-Aura.View.Escaper.Object.html#225-237" title="Go to source code">offsetGet</a>( <span>string <var>$prop</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ArrayAccess: get a property value.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$prop</var></dt>
+					<dd><code>string</code><br>$prop The requested property.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-ArrayAccess.html#_offsetGet">ArrayAccess::offsetGet()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="offsetSet" id="_offsetSet">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_offsetSet">#</a>
+		<code><a href="source-class-Aura.View.Escaper.Object.html#239-253" title="Go to source code">offsetSet</a>( <span>string <var>$prop</var></span>, <span>mixed <var>$spec</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ArrayAccess: sets a property value.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$prop</var></dt>
+					<dd><code>string</code><br>$prop The requested property.</dd>
+					<dt><var>$spec</var></dt>
+					<dd><code>mixed</code><br>$spec The value to set it to.</dd>
+				</dl></div>
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-ArrayAccess.html#_offsetSet">ArrayAccess::offsetSet()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="offsetUnset" id="_offsetUnset">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_offsetUnset">#</a>
+		<code><a href="source-class-Aura.View.Escaper.Object.html#255-267" title="Go to source code">offsetUnset</a>( <span>string <var>$prop</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ArrayAccess: unset a property.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$prop</var></dt>
+					<dd><code>string</code><br>$prop The requested property.</dd>
+				</dl></div>
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-ArrayAccess.html#_offsetUnset">ArrayAccess::offsetUnset()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="factory" id="$factory">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.View.EscaperFactory.html">Aura\View\EscaperFactory</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.View.Escaper.Object.html#24-31" title="Go to source code"><var>$factory</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$factory" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>An escaper factory.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="object" id="$object">
+		<td class="attributes"><code>
+			protected  
+			object
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.View.Escaper.Object.html#33-40" title="Go to source code"><var>$object</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$object" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The object being decorated (wrapped) for escaping.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="quotes" id="$quotes">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.View.Escaper.Object.html#42-49" title="Go to source code"><var>$quotes</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$quotes" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The type of quoting to use for htmlspecialchars(), e.g. ENT_QUOTES.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="charset" id="$charset">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.View.Escaper.Object.html#51-58" title="Go to source code"><var>$charset</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$charset" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The character set to use for htmlspecialchars(), e.g. 'UTF-8'.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

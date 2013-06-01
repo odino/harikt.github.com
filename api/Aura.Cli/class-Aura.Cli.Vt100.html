@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\Cli\Vt100</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?1198500403"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Cli.html">Cli<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.Cli.Exception.html">Exception</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Aura.Cli.AbstractCommand.html">AbstractCommand</a></li>
+				<li><a href="class-Aura.Cli.Context.html">Context</a></li>
+				<li><a href="class-Aura.Cli.ExceptionFactory.html">ExceptionFactory</a></li>
+				<li><a href="class-Aura.Cli.Getopt.html">Getopt</a></li>
+				<li><a href="class-Aura.Cli.Option.html">Option</a></li>
+				<li><a href="class-Aura.Cli.OptionFactory.html">OptionFactory</a></li>
+				<li><a href="class-Aura.Cli.Signal.html">Signal</a></li>
+				<li><a href="class-Aura.Cli.Stdio.html">Stdio</a></li>
+				<li><a href="class-Aura.Cli.StdioResource.html">StdioResource</a></li>
+				<li><a href="class-Aura.Cli.Translator.html">Translator</a></li>
+				<li class="active"><a href="class-Aura.Cli.Vt100.html">Vt100</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aura.Cli.SignalInterface.html">SignalInterface</a></li>
+				<li><a href="class-Aura.Cli.TranslatorInterface.html">TranslatorInterface</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Aura.Cli.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.Cli.html" title="Summary of Aura\Cli"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Vt100</h1>
+
+
+	<div class="description">
+	
+<p>Text formatting for VT100 terminals.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.Cli.html">Cli</a><br />
+		<b>Package:</b> Aura\Cli<br />
+
+				<b>Author:</b>
+				Clay Loveless &lt;<a
+href="mailto:clay&#64;killersoft.com">clay&#64;<!---->killersoft.com</a>&gt;<br />
+				<b>Author:</b>
+				Paul M. Jones &lt;<a
+href="mailto:pmjones&#64;paul-m-jones.com">pmjones&#64;<!---->paul-m-jones.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-class-Aura.Cli.Vt100.html#13-273" title="Go to source code">Aura/Cli/Vt100.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="setPosix" id="_setPosix">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setPosix">#</a>
+		<code><a href="source-class-Aura.Cli.Vt100.html#110-128" title="Go to source code">setPosix</a>( <span>boolean <var>$flag</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Forces output to format for POSIX terminals, or to strip for non-POSIX
+terminals; when null, will auto-determine if the terminal is POSIX.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$flag</var></dt>
+					<dd><code>boolean</code><br>$flag True to force formatting, false to force stripping, or null to
+auto-determine.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPosix" id="_getPosix">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPosix">#</a>
+		<code><a href="source-class-Aura.Cli.Vt100.html#130-140" title="Go to source code">getPosix</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the value of the POSIX terminal flag.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setPhpOs" id="_setPhpOs">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setPhpOs">#</a>
+		<code><a href="source-class-Aura.Cli.Vt100.html#142-154" title="Go to source code">setPhpOs</a>( <span>string <var>$php_os</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the <code>$php_os</code> value.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$php_os</var></dt>
+					<dd><code>string</code><br>$php_os The new PHP OS value.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPhpOs" id="_getPhpOs">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPhpOs">#</a>
+		<code><a href="source-class-Aura.Cli.Vt100.html#156-166" title="Go to source code">getPhpOs</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the <code>$php_os</code> value.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="format" id="_format">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_format">#</a>
+		<code><a href="source-class-Aura.Cli.Vt100.html#168-180" title="Go to source code">format</a>( <span>string <var>$text</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Converts VT100 %-markup in text to control codes.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$text</var></dt>
+					<dd><code>string</code><br>$text The text to format.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The formatted text.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="strip" id="_strip">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_strip">#</a>
+		<code><a href="source-class-Aura.Cli.Vt100.html#182-202" title="Go to source code">strip</a>( <span>string <var>$text</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Strips VT100 %-markup from text.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$text</var></dt>
+					<dd><code>string</code><br>$text The text to strip %-markup from.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The plain text.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="write" id="_write">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_write">#</a>
+		<code><a href="source-class-Aura.Cli.Vt100.html#204-228" title="Go to source code">write</a>( <span><code><a href="class-Aura.Cli.StdioResource.html">Aura\Cli\StdioResource</a></code> <var>$resource</var></span>, <span>string <var>$text</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Writes text to a file handle, converting to control codes if the handle is a
+posix TTY, or to plain text if not.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$resource</var></dt>
+					<dd><code><code><a href="class-Aura.Cli.StdioResource.html">Aura\Cli\StdioResource</a></code></code><br>$resource The file handle.</dd>
+					<dt><var>$text</var></dt>
+					<dd><code>string</code><br>$text The text to write to the file handle, converting %-markup if the handle is
+a posix TTY, or stripping markup if not.</dd>
+				</dl></div>
+
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><code><a href="class-Aura.Cli.Vt100.html#_writeln">Aura\Cli\Vt100::writeln()</a></code></code><br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="writeln" id="_writeln">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_writeln">#</a>
+		<code><a href="source-class-Aura.Cli.Vt100.html#230-249" title="Go to source code">writeln</a>( <span><code><a href="class-Aura.Cli.StdioResource.html">Aura\Cli\StdioResource</a></code> <var>$resource</var></span>, <span>string <var>$text</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Writes text to a file handle, converting to control codes if the handle is a
+posix TTY, or to plain text if not, and then appends a newline.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$resource</var></dt>
+					<dd><code><code><a href="class-Aura.Cli.StdioResource.html">Aura\Cli\StdioResource</a></code></code><br>$resource The file handle.</dd>
+					<dt><var>$text</var></dt>
+					<dd><code>string</code><br>$text The text to write to the file handle, converting %-markup if the handle is
+a posix TTY, or stripping markup if not.</dd>
+				</dl></div>
+
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><code><a href="class-Aura.Cli.Vt100.html#_write">Aura\Cli\Vt100::write()</a></code></code><br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isPosix" id="_isPosix">
+
+		<td class="attributes"><code>
+			 protected 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isPosix">#</a>
+		<code><a href="source-class-Aura.Cli.Vt100.html#251-272" title="Go to source code">isPosix</a>( <span><code><a href="class-Aura.Cli.StdioResource.html">Aura\Cli\StdioResource</a></code> <var>$resource</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Determines if a stream handle should be treated as a POSIX terminal.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$resource</var></dt>
+					<dd><code><code><a href="class-Aura.Cli.StdioResource.html">Aura\Cli\StdioResource</a></code></code><br>$resource The stream handle.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="format" id="$format">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.Vt100.html#26-86" title="Go to source code"><var>$format</var></a>
+		</td>
+		<td class="value"><code>[
+
+    <span class="php-comment">// literal percent sign</span>
+    <span class="php-quote">'%%'</span>    =&gt; <span class="php-quote">'%'</span>,             <span class="php-comment">// percent-sign</span>
+
+    <span class="php-comment">// color, normal weight</span>
+    <span class="php-quote">'%k'</span>    =&gt; <span class="php-quote">&quot;\033[30m&quot;</span>,      <span class="php-comment">// black</span>
+    <span class="php-quote">'%r'</span>    =&gt; <span class="php-quote">&quot;\033[31m&quot;</span>,      <span class="php-comment">// red</span>
+    <span class="php-quote">'%g'</span>    =&gt; <span class="php-quote">&quot;\033[32m&quot;</span>,      <span class="php-comment">// green</span>
+    <span class="php-quote">'%y'</span>    =&gt; <span class="php-quote">&quot;\033[33m&quot;</span>,      <span class="php-comment">// yellow</span>
+    <span class="php-quote">'%b'</span>    =&gt; <span class="php-quote">&quot;\033[34m&quot;</span>,      <span class="php-comment">// blue</span>
+    <span class="php-quote">'%m'</span>    =&gt; <span class="php-quote">&quot;\033[35m&quot;</span>,      <span class="php-comment">// magenta/purple</span>
+    <span class="php-quote">'%p'</span>    =&gt; <span class="php-quote">&quot;\033[35m&quot;</span>,      <span class="php-comment">// magenta/purple</span>
+    <span class="php-quote">'%c'</span>    =&gt; <span class="php-quote">&quot;\033[36m&quot;</span>,      <span class="php-comment">// cyan/light blue</span>
+    <span class="php-quote">'%w'</span>    =&gt; <span class="php-quote">&quot;\033[37m&quot;</span>,      <span class="php-comment">// white</span>
+    <span class="php-quote">'%n'</span>    =&gt; <span class="php-quote">&quot;\033[0m&quot;</span>,       <span class="php-comment">// reset to terminal default</span>
+
+    <span class="php-comment">// color, bold</span>
+    <span class="php-quote">'%K'</span>    =&gt; <span class="php-quote">&quot;\033[30;1m&quot;</span>,    <span class="php-comment">// black, bold</span>
+    <span class="php-quote">'%R'</span>    =&gt; <span class="php-quote">&quot;\033[31;1m&quot;</span>,    <span class="php-comment">// red, bold</span>
+    <span class="php-quote">'%G'</span>    =&gt; <span class="php-quote">&quot;\033[32;1m&quot;</span>,    <span class="php-comment">// green, bold</span>
+    <span class="php-quote">'%Y'</span>    =&gt; <span class="php-quote">&quot;\033[33;1m&quot;</span>,    <span class="php-comment">// yellow, bold</span>
+    <span class="php-quote">'%B'</span>    =&gt; <span class="php-quote">&quot;\033[34;1m&quot;</span>,    <span class="php-comment">// blue, bold</span>
+    <span class="php-quote">'%M'</span>    =&gt; <span class="php-quote">&quot;\033[35;1m&quot;</span>,    <span class="php-comment">// magenta/purple, bold</span>
+    <span class="php-quote">'%P'</span>    =&gt; <span class="php-quote">&quot;\033[35;1m&quot;</span>,    <span class="php-comment">// magenta/purple, bold</span>
+    <span class="php-quote">'%C'</span>    =&gt; <span class="php-quote">&quot;\033[36;1m&quot;</span>,    <span class="php-comment">// cyan/light blue, bold</span>
+    <span class="php-quote">'%W'</span>    =&gt; <span class="php-quote">&quot;\033[37;1m&quot;</span>,    <span class="php-comment">// white, bold</span>
+    <span class="php-quote">'%N'</span>    =&gt; <span class="php-quote">&quot;\033[0;1m&quot;</span>,     <span class="php-comment">// terminal default, bold</span>
+
+    <span class="php-comment">// background color</span>
+    <span class="php-quote">'%0'</span>    =&gt; <span class="php-quote">&quot;\033[40m&quot;</span>,      <span class="php-comment">// black background</span>
+    <span class="php-quote">'%1'</span>    =&gt; <span class="php-quote">&quot;\033[41m&quot;</span>,      <span class="php-comment">// red background</span>
+    <span class="php-quote">'%2'</span>    =&gt; <span class="php-quote">&quot;\033[42m&quot;</span>,      <span class="php-comment">// green background</span>
+    <span class="php-quote">'%3'</span>    =&gt; <span class="php-quote">&quot;\033[43m&quot;</span>,      <span class="php-comment">// yellow background</span>
+    <span class="php-quote">'%4'</span>    =&gt; <span class="php-quote">&quot;\033[44m&quot;</span>,      <span class="php-comment">// blue background</span>
+    <span class="php-quote">'%5'</span>    =&gt; <span class="php-quote">&quot;\033[45m&quot;</span>,      <span class="php-comment">// magenta/purple background</span>
+    <span class="php-quote">'%6'</span>    =&gt; <span class="php-quote">&quot;\033[46m&quot;</span>,      <span class="php-comment">// cyan/light blue background</span>
+    <span class="php-quote">'%7'</span>    =&gt; <span class="php-quote">&quot;\033[47m&quot;</span>,      <span class="php-comment">// white background</span>
+
+    <span class="php-comment">// assorted style shortcuts</span>
+    <span class="php-quote">'%F'</span>    =&gt; <span class="php-quote">&quot;\033[5m&quot;</span>,       <span class="php-comment">// blink/flash</span>
+    <span class="php-quote">'%_'</span>    =&gt; <span class="php-quote">&quot;\033[5m&quot;</span>,       <span class="php-comment">// blink/flash</span>
+    <span class="php-quote">'%U'</span>    =&gt; <span class="php-quote">&quot;\033[4m&quot;</span>,       <span class="php-comment">// underline</span>
+    <span class="php-quote">'%I'</span>    =&gt; <span class="php-quote">&quot;\033[7m&quot;</span>,       <span class="php-comment">// reverse/inverse</span>
+    <span class="php-quote">'%*'</span>    =&gt; <span class="php-quote">&quot;\033[1m&quot;</span>,       <span class="php-comment">// bold</span>
+    <span class="php-quote">'%d'</span>    =&gt; <span class="php-quote">&quot;\033[2m&quot;</span>,       <span class="php-comment">// dim</span>
+]</code></td>
+		<td class="description"><div>
+			<a href="#$format" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Array of format conversions for use on a variety of pre-set console style
+combinations.</p>
+
+<p>Based on <code>ANSI VT100 Color/Style Codes</code> according to the [VT100
+User Guide](<a
+href="http://vt100.net/docs/vt100-ug">http://vt100.net/docs/vt100-ug</a>) and
+the [ANSI/VT100 Terminal Control reference]( <a
+href="http://www.termsys.demon.co.uk/vtansi.htm">http://www.termsys.demon.co.uk/vtansi.htm</a>).
+Inspired by [PEAR Console_Color](<a
+href="http://pear.php.net/Console_Color">http://pear.php.net/Console_Color</a>).</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="posix" id="$posix">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.Vt100.html#88-99" title="Go to source code"><var>$posix</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$posix" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The POSIX terminal flag.</p>
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Aura.Cli.Vt100.html#_setPosix">Aura\Cli\Vt100::setPosix()</a></code></code><br />
+							<code><code><a href="class-Aura.Cli.Vt100.html#_getPosix">Aura\Cli\Vt100::getPosix()</a></code></code><br />
+					</div>
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="php_os" id="$php_os">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.Vt100.html#101-108" title="Go to source code"><var>$php_os</var></a>
+		</td>
+		<td class="value"><code>PHP_OS</code></td>
+		<td class="description"><div>
+			<a href="#$php_os" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The PHP_OS value. Provided so we can fake the OS as needed.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

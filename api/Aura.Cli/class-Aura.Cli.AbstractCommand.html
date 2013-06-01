@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\Cli\AbstractCommand</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?1198500403"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Cli.html">Cli<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.Cli.Exception.html">Exception</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Aura.Cli.AbstractCommand.html">AbstractCommand</a></li>
+				<li><a href="class-Aura.Cli.Context.html">Context</a></li>
+				<li><a href="class-Aura.Cli.ExceptionFactory.html">ExceptionFactory</a></li>
+				<li><a href="class-Aura.Cli.Getopt.html">Getopt</a></li>
+				<li><a href="class-Aura.Cli.Option.html">Option</a></li>
+				<li><a href="class-Aura.Cli.OptionFactory.html">OptionFactory</a></li>
+				<li><a href="class-Aura.Cli.Signal.html">Signal</a></li>
+				<li><a href="class-Aura.Cli.Stdio.html">Stdio</a></li>
+				<li><a href="class-Aura.Cli.StdioResource.html">StdioResource</a></li>
+				<li><a href="class-Aura.Cli.Translator.html">Translator</a></li>
+				<li><a href="class-Aura.Cli.Vt100.html">Vt100</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aura.Cli.SignalInterface.html">SignalInterface</a></li>
+				<li><a href="class-Aura.Cli.TranslatorInterface.html">TranslatorInterface</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Aura.Cli.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.Cli.html" title="Summary of Aura\Cli"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AbstractCommand</h1>
+
+
+	<div class="description">
+	
+<p>The CLI equivalent of a page-controller to perform a single action.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br />
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.Cli.html">Cli</a><br />
+		<b>Package:</b> Aura\Cli<br />
+
+		<b>Located at</b> <a href="source-class-Aura.Cli.AbstractCommand.html#16-328" title="Go to source code">Aura/Cli/AbstractCommand.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.Cli.AbstractCommand.html#82-106" title="Go to source code">__construct</a>( <span><code><a href="class-Aura.Cli.Context.html">Aura\Cli\Context</a></code> <var>$context</var></span>, <span><code><a href="class-Aura.Cli.Stdio.html">Aura\Cli\Stdio</a></code> <var>$stdio</var></span>, <span><code><a href="class-Aura.Cli.Getopt.html">Aura\Cli\Getopt</a></code> <var>$getopt</var></span>, <span><code><a href="class-Aura.Cli.SignalInterface.html">Aura\Cli\SignalInterface</a></code> <var>$signal</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$context</var></dt>
+					<dd><code><code><a href="class-Aura.Cli.Context.html">Aura\Cli\Context</a></code></code><br>$context The command-line context.</dd>
+					<dt><var>$stdio</var></dt>
+					<dd><code><code><a href="class-Aura.Cli.Stdio.html">Aura\Cli\Stdio</a></code></code><br>$stdio Standard input/output streams.</dd>
+					<dt><var>$getopt</var></dt>
+					<dd><code><code><a href="class-Aura.Cli.Getopt.html">Aura\Cli\Getopt</a></code></code><br>$getopt An options processor and reader.</dd>
+					<dt><var>$signal</var></dt>
+					<dd><code><code><a href="class-Aura.Cli.SignalInterface.html">Aura\Cli\SignalInterface</a></code></code><br>$signal A signal manager.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="init" id="_init">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_init">#</a>
+		<code><a href="source-class-Aura.Cli.AbstractCommand.html#108-136" title="Go to source code">init</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Post-constructor initialization.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="exec" id="_exec">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_exec">#</a>
+		<code><a href="source-class-Aura.Cli.AbstractCommand.html#138-203" title="Go to source code">exec</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Executes the Command. In order, it does these things:</p>
+
+<ul>
+	<li>signals <code>pre_exec</code>, thereby calling <code>preExec()</code></li>
+
+	<li>loads $getopt and sets $params</li>
+
+	<li>signals <code>pre_action</code>, thereby calling
+	<code>preAction()</code></li>
+
+	<li>calls <code>action()</code></li>
+
+	<li>signals <code>post_action</code>, thereby calling
+	<code>postAction()</code></li>
+
+	<li>signals <code>post_exec</code>, thereby calling <code>postExec()</code></li>
+
+	<li>signals <code>catch_exception</code> when a exception is thrown, thereby
+	calling <code>catchException()</code></li>
+
+	<li>resets the terminal to normal</li>
+
+	<li>returns the <code>$return</code> code</li>
+</ul>
+
+
+
+
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><code><a href="class-Aura.Cli.AbstractCommand.html#_action">Aura\Cli\AbstractCommand::action()</a></code></code><br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getException" id="_getException">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Exception.html">Exception</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getException">#</a>
+		<code><a href="source-class-Aura.Cli.AbstractCommand.html#205-215" title="Go to source code">getException</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the exception caught in exec().</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setReturn" id="_setReturn">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setReturn">#</a>
+		<code><a href="source-class-Aura.Cli.AbstractCommand.html#217-229" title="Go to source code">setReturn</a>( <span>integer <var>$return</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the return (exit) code for exec().</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$return</var></dt>
+					<dd><code>integer</code><br>$return The return (exit) code.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getReturn" id="_getReturn">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getReturn">#</a>
+		<code><a href="source-class-Aura.Cli.AbstractCommand.html#231-241" title="Go to source code">getReturn</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the return (exit) code for exec().</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>The return (exit) code.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="preExec" id="_preExec">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_preExec">#</a>
+		<code><a href="source-class-Aura.Cli.AbstractCommand.html#243-252" title="Go to source code">preExec</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Runs at the beginning of <code>exec()</code> before
+<code>preAction()</code>.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="preAction" id="_preAction">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_preAction">#</a>
+		<code><a href="source-class-Aura.Cli.AbstractCommand.html#254-263" title="Go to source code">preAction</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Runs before <code>action()</code> but after <code>preExec()</code>.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="action" id="_action">
+
+		<td class="attributes"><code>
+			abstract protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_action">#</a>
+		<code><a href="source-class-Aura.Cli.AbstractCommand.html#265-272" title="Go to source code">action</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>The main logic for the Command.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="postAction" id="_postAction">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_postAction">#</a>
+		<code><a href="source-class-Aura.Cli.AbstractCommand.html#274-283" title="Go to source code">postAction</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Runs after <code>action()</code> but before <code>postExec()</code>.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="postExec" id="_postExec">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_postExec">#</a>
+		<code><a href="source-class-Aura.Cli.AbstractCommand.html#285-294" title="Go to source code">postExec</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Runs at the end of <code>exec()</code> after <code>postAction()</code>.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="catchException" id="_catchException">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_catchException">#</a>
+		<code><a href="source-class-Aura.Cli.AbstractCommand.html#296-327" title="Go to source code">catchException</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Runs when <code>exec()</code> catches an exception.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="getopt" id="$getopt">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Cli.Getopt.html">Aura\Cli\Getopt</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.AbstractCommand.html#25-33" title="Go to source code"><var>$getopt</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$getopt" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A Getopt object for the Command; retains the short and long options passed at
+the command line.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="options" id="$options">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.AbstractCommand.html#35-42" title="Go to source code"><var>$options</var></a>
+		</td>
+		<td class="value"><code>[]</code></td>
+		<td class="description"><div>
+			<a href="#$options" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The option definitions for the Getopt object.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="options_strict" id="$options_strict">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.AbstractCommand.html#44-53" title="Go to source code"><var>$options_strict</var></a>
+		</td>
+		<td class="value"><code><code><a href="class-Aura.Cli.Getopt.html#STRICT">Aura\Cli\Getopt::<b>STRICT</b></a></code></code></td>
+		<td class="description"><div>
+			<a href="#$options_strict" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Should Getopt be strict about how options are processed? In strict mode,
+passing an undefined option will throw an exception; in non-strict, it will
+not.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="params" id="$params">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.AbstractCommand.html#55-62" title="Go to source code"><var>$params</var></a>
+		</td>
+		<td class="value"><code>[]</code></td>
+		<td class="description"><div>
+			<a href="#$params" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The positional (numeric) arguments passed at the command line.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="return" id="$return">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.AbstractCommand.html#64-71" title="Go to source code"><var>$return</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">0</span></code></td>
+		<td class="description"><div>
+			<a href="#$return" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The return code when this command is done.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="exception" id="$exception">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Cli.Exception.html">Aura\Cli\Exception</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.AbstractCommand.html#73-80" title="Go to source code"><var>$exception</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$exception" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Exception caught in the exec() loop.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

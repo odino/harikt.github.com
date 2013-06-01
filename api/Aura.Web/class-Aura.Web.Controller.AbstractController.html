@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\Web\Controller\AbstractController</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?2006791772"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Web.html">Web<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Web.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-Aura.Web.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Aura.Web.Renderer.html">Renderer</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Aura.Web.Controller.AbstractController.html">AbstractController</a></li>
+				<li><a href="class-Aura.Web.Controller.AbstractPage.html">AbstractPage</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aura.Web.Controller.ControllerInterface.html">ControllerInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.Web.Controller.html" title="Summary of Aura\Web\Controller"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AbstractController</h1>
+
+
+	<div class="description">
+	
+<p>An abstract controller class, suitable for Page and Application
+controllers.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Aura\Web\Controller\AbstractController</span></b>			
+			 implements 
+				<a href="class-Aura.Web.Controller.ControllerInterface.html"><span>Aura\Web\Controller\ControllerInterface</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Aura.Web.Controller.AbstractPage.html">Aura\Web\Controller\AbstractPage</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br />
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.Web.html">Web</a>\<a href="namespace-Aura.Web.Controller.html">Controller</a><br />
+		<b>Package:</b> Aura\Web<br />
+
+		<b>Located at</b> <a href="source-class-Aura.Web.Controller.AbstractController.html#19-239" title="Go to source code">Aura/Web/Controller/AbstractController.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.Web.Controller.AbstractController.html#91-124" title="Go to source code">__construct</a>( <span><code><a href="class-Aura.Web.Context.html">Aura\Web\Context</a></code> <var>$context</var></span>, <span><code><a href="class-Aura.Web.Accept.html">Aura\Web\Accept</a></code> <var>$accept</var></span>, <span><code><a href="class-Aura.Web.Response.html">Aura\Web\Response</a></code> <var>$response</var></span>, <span><code><a href="class-Aura.Web.SignalInterface.html">Aura\Web\SignalInterface</a></code> <var>$signal</var></span>, <span><code><a href="class-Aura.Web.Renderer.RendererInterface.html">Aura\Web\Renderer\RendererInterface</a></code> <var>$renderer</var></span>, <span>array <var>$params</var> = [] </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$context</var></dt>
+					<dd><code><code><a href="class-Aura.Web.Context.html">Aura\Web\Context</a></code></code><br>$context The request environment.</dd>
+					<dt><var>$accept</var></dt>
+					<dd><code><code><a href="class-Aura.Web.Accept.html">Aura\Web\Accept</a></code></code><br>$accept The accept-headers object.</dd>
+					<dt><var>$response</var></dt>
+					<dd><code><code><a href="class-Aura.Web.Response.html">Aura\Web\Response</a></code></code><br>$response A response transfer object.</dd>
+					<dt><var>$signal</var></dt>
+					<dd><code><code><a href="class-Aura.Web.SignalInterface.html">Aura\Web\SignalInterface</a></code></code><br>$signal A signal manager.</dd>
+					<dt><var>$renderer</var></dt>
+					<dd><code><code><a href="class-Aura.Web.Renderer.RendererInterface.html">Aura\Web\Renderer\RendererInterface</a></code></code><br>$renderer A renderer strategy object.</dd>
+					<dt><var>$params</var></dt>
+					<dd><code>array</code><br>$params The path-info parameters.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="init" id="_init">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_init">#</a>
+		<code><a href="source-class-Aura.Web.Controller.AbstractController.html#126-136" title="Go to source code">init</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Post-constructor initialization.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAccept" id="_getAccept">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Web.Accept.html">Aura\Web\Accept</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAccept">#</a>
+		<code><a href="source-class-Aura.Web.Controller.AbstractController.html#138-148" title="Go to source code">getAccept</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the Accept object.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Web.Accept.html">Aura\Web\Accept</a></code></code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Web.Controller.ControllerInterface.html#_getAccept">Aura\Web\Controller\ControllerInterface::getAccept()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getContext" id="_getContext">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Web.Context.html">Aura\Web\Context</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getContext">#</a>
+		<code><a href="source-class-Aura.Web.Controller.AbstractController.html#150-160" title="Go to source code">getContext</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the Context object.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Web.Context.html">Aura\Web\Context</a></code></code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Web.Controller.ControllerInterface.html#_getContext">Aura\Web\Controller\ControllerInterface::getContext()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getData" id="_getData">
+
+		<td class="attributes"><code>
+			 public 
+			object
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getData">#</a>
+		<code><a href="source-class-Aura.Web.Controller.AbstractController.html#162-172" title="Go to source code">getData</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the data collection object.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>object</code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Web.Controller.ControllerInterface.html#_getData">Aura\Web\Controller\ControllerInterface::getData()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getParams" id="_getParams">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getParams">#</a>
+		<code><a href="source-class-Aura.Web.Controller.AbstractController.html#174-184" title="Go to source code">getParams</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the params.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Web.Controller.ControllerInterface.html#_getParams">Aura\Web\Controller\ControllerInterface::getParams()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getResponse" id="_getResponse">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Web.Response.html">Aura\Web\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getResponse">#</a>
+		<code><a href="source-class-Aura.Web.Controller.AbstractController.html#186-196" title="Go to source code">getResponse</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the Response object.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Web.Response.html">Aura\Web\Response</a></code></code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Web.Controller.ControllerInterface.html#_getResponse">Aura\Web\Controller\ControllerInterface::getResponse()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSignal" id="_getSignal">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Web.SignalInterface.html">Aura\Web\SignalInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSignal">#</a>
+		<code><a href="source-class-Aura.Web.Controller.AbstractController.html#198-208" title="Go to source code">getSignal</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the SignalInterface object.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Web.SignalInterface.html">Aura\Web\SignalInterface</a></code></code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Web.Controller.ControllerInterface.html#_getSignal">Aura\Web\Controller\ControllerInterface::getSignal()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRenderer" id="_getRenderer">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Web.Renderer.RendererInterface.html">Aura\Web\Renderer\RendererInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRenderer">#</a>
+		<code><a href="source-class-Aura.Web.Controller.AbstractController.html#210-220" title="Go to source code">getRenderer</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the RendererInterface object.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Web.Renderer.RendererInterface.html">Aura\Web\Renderer\RendererInterface</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="exec" id="_exec">
+
+		<td class="attributes"><code>
+			abstract public 
+			<code><a href="class-Aura.Web.Response.html">Aura\Web\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_exec">#</a>
+		<code><a href="source-class-Aura.Web.Controller.AbstractController.html#222-229" title="Go to source code">exec</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Executes the controller.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Web.Response.html">Aura\Web\Response</a></code></code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Web.Controller.ControllerInterface.html#_exec">Aura\Web\Controller\ControllerInterface::exec()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="render" id="_render">
+
+		<td class="attributes"><code>
+			abstract protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_render">#</a>
+		<code><a href="source-class-Aura.Web.Controller.AbstractController.html#231-238" title="Go to source code">render</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Renders the controller output, generally into the Response object.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="accept" id="$accept">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Web.Accept.html">Aura\Web\Accept</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Web.Controller.AbstractController.html#28-35" title="Go to source code"><var>$accept</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$accept" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The Accept object for tracking accept header values.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="context" id="$context">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Web.Context.html">Aura\Web\Context</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Web.Controller.AbstractController.html#37-44" title="Go to source code"><var>$context</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$context" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The context of the request environment.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="data" id="$data">
+		<td class="attributes"><code>
+			protected  
+			StdClass
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Web.Controller.AbstractController.html#46-53" title="Go to source code"><var>$data</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$data" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Collection point for data, typically for rendering the page.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="params" id="$params">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Web.Controller.AbstractController.html#55-62" title="Go to source code"><var>$params</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$params" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Path-info parameters, typically from the route.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="renderer" id="$renderer">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Web.Renderer.RendererInterface.html">Aura\Web\Renderer\RendererInterface</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Web.Controller.AbstractController.html#64-71" title="Go to source code"><var>$renderer</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$renderer" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A rendering strategy object.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="response" id="$response">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Web.Response.html">Aura\Web\Response</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Web.Controller.AbstractController.html#73-80" title="Go to source code"><var>$response</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$response" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A data transfer object for the eventual HTTP response.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="signal" id="$signal">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Web.SignalInterface.html">Aura\Web\SignalInterface</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Web.Controller.AbstractController.html#82-89" title="Go to source code"><var>$signal</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$signal" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A signal manager.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

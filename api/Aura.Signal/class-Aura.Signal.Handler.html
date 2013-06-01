@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\Signal\Handler</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?908100889"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Signal.html">Signal</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Aura.Signal.Handler.html">Handler</a></li>
+				<li><a href="class-Aura.Signal.HandlerFactory.html">HandlerFactory</a></li>
+				<li><a href="class-Aura.Signal.Manager.html">Manager</a></li>
+				<li><a href="class-Aura.Signal.Result.html">Result</a></li>
+				<li><a href="class-Aura.Signal.ResultCollection.html">ResultCollection</a></li>
+				<li><a href="class-Aura.Signal.ResultFactory.html">ResultFactory</a></li>
+			</ul>
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Aura.Signal.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.Signal.html" title="Summary of Aura\Signal"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Handler</h1>
+
+
+	<div class="description">
+	
+<p>A signal Handler definition.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.Signal.html">Signal</a><br />
+		<b>Package:</b> Aura\Signal<br />
+
+		<b>Located at</b> <a href="source-class-Aura.Signal.Handler.html#13-126" title="Go to source code">Aura/Signal/Handler.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.Signal.Handler.html#52-68" title="Go to source code">__construct</a>( <span>object|string <var>$sender</var></span>, <span>string <var>$signal</var></span>, <span>callable <var>$callback</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$sender</var></dt>
+					<dd><code>object|string</code><br>$sender Handle signals from this sender.</dd>
+					<dt><var>$signal</var></dt>
+					<dd><code>string</code><br>$signal Handle this specific signal.</dd>
+					<dt><var>$callback</var></dt>
+					<dd><code>callable</code><br>$callback Use this callback to handle the signal.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__get" id="___get">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___get">#</a>
+		<code><a href="source-class-Aura.Signal.Handler.html#70-82" title="Go to source code">__get</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Make properties available as magic read-only.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key The property name.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="exec" id="_exec">
+
+		<td class="attributes"><code>
+			 public 
+			null|array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_exec">#</a>
+		<code><a href="source-class-Aura.Signal.Handler.html#84-125" title="Go to source code">exec</a>( <span>object <var>$origin</var></span>, <span>string <var>$signal</var></span>, <span>array <var>$args</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Execute the handler: if the originating object matches the required sender,
+and the signal matches the required signal, then run the callback and return the
+results.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$origin</var></dt>
+					<dd><code>object</code><br>$origin The originating object that sent the signal.</dd>
+					<dt><var>$signal</var></dt>
+					<dd><code>string</code><br>$signal The signal sent by the originating object.</dd>
+					<dt><var>$args</var></dt>
+					<dd><code>array</code><br>$args Arguments for the callback, which will be invoked if the sender and signal
+match this Handler.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>null|array</code><br>An array of parameters suitable for creating a Result object, or null if the
+origin and signal did not match this Handler.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="sender" id="$sender">
+		<td class="attributes"><code>
+			protected  
+			object|string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Signal.Handler.html#22-32" title="Go to source code"><var>$sender</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$sender" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Handle signals from this sender. This can be an object, in which case the
+Handler will match only signals from that object, or a class name, in which case
+the Handler will match signals from any instance of that class.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="signal" id="$signal">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Signal.Handler.html#34-41" title="Go to source code"><var>$signal</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$signal" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Handle this signal from the sender.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="callback" id="$callback">
+		<td class="attributes"><code>
+			protected  
+			callable
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Signal.Handler.html#43-50" title="Go to source code"><var>$callback</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$callback" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Use this callback to handle the signal.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

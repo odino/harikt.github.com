@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\Session\Manager</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?1918578163"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Session.html">Session</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Aura.Session.CsrfToken.html">CsrfToken</a></li>
+				<li><a href="class-Aura.Session.CsrfTokenFactory.html">CsrfTokenFactory</a></li>
+				<li class="active"><a href="class-Aura.Session.Manager.html">Manager</a></li>
+				<li><a href="class-Aura.Session.Phpfunc.html">Phpfunc</a></li>
+				<li><a href="class-Aura.Session.Randval.html">Randval</a></li>
+				<li><a href="class-Aura.Session.Segment.html">Segment</a></li>
+				<li><a href="class-Aura.Session.SegmentFactory.html">SegmentFactory</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aura.Session.RandvalInterface.html">RandvalInterface</a></li>
+				<li><a href="class-Aura.Session.SegmentInterface.html">SegmentInterface</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Aura.Session.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.Session.html" title="Summary of Aura\Session"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Manager</h1>
+
+
+	<div class="description">
+	
+<p>A central control point for new session segments, PHP session management
+values, and CSRF token checking.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.Session.html">Session</a><br />
+		<b>Package:</b> Aura\Session<br />
+
+		<b>Located at</b> <a href="source-class-Aura.Session.Manager.html#13-420" title="Go to source code">Aura/Session/Manager.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#69-90" title="Go to source code">__construct</a>( <span><code><a href="class-Aura.Session.SegmentFactory.html">Aura\Session\SegmentFactory</a></code> <var>$segment_factory</var></span>, <span><code><a href="class-Aura.Session.CsrfTokenFactory.html">Aura\Session\CsrfTokenFactory</a></code> <var>$csrf_token_factory</var></span>, <span>array <var>$cookies</var> = [] </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$segment_factory</var></dt>
+					<dd><code><code><a href="class-Aura.Session.SegmentFactory.html">Aura\Session\SegmentFactory</a></code></code><br>$segment_factory A session segment factory.</dd>
+					<dt><var>$csrf_token_factory</var></dt>
+					<dd><code><code><a href="class-Aura.Session.CsrfTokenFactory.html">Aura\Session\CsrfTokenFactory</a></code></code><br>A CSRF token factory.</dd>
+					<dt><var>$cookies</var></dt>
+					<dd><code>array</code><br>$cookies An arry of cookies from the client, typically a copy of $_COOKIE.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="newSegment" id="_newSegment">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Session.Segment.html">Aura\Session\Segment</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_newSegment">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#92-108" title="Go to source code">newSegment</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets a new session segment instance by name. Segments with the same name will
+be different objects but will reference the same $_SESSION values, so it is
+possible to have two or more objects that share state. For good or bad, this a
+function of how $_SESSION works.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The name of the session segment, typically a fully-qualified class name.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Session.Segment.html">Aura\Session\Segment</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isAvailable" id="_isAvailable">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isAvailable">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#110-122" title="Go to source code">isAvailable</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Tells us if a session is available to be reactivated, but not if it has
+started yet.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isStarted" id="_isStarted">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isStarted">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#124-134" title="Go to source code">isStarted</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Tells us if a session has started.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="start" id="_start">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_start">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#136-146" title="Go to source code">start</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Starts a new session, or resumes an existing one.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="clear" id="_clear">
+
+		<td class="attributes"><code>
+			 public 
+			null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_clear">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#148-158" title="Go to source code">clear</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Clears all session variables across all segments.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>null</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="commit" id="_commit">
+
+		<td class="attributes"><code>
+			 public 
+			null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_commit">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#160-170" title="Go to source code">commit</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Writes session data from all segments and ends the session.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>null</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="destroy" id="_destroy">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_destroy">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#172-183" title="Go to source code">destroy</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Destroys the session entirely.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getCsrfToken" id="_getCsrfToken">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Session.CsrfToken.html">Aura\Session\CsrfToken</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getCsrfToken">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#185-200" title="Go to source code">getCsrfToken</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the CSRF token, creating it if needed (and thereby starting a
+session).</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Session.CsrfToken.html">Aura\Session\CsrfToken</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setCacheExpire" id="_setCacheExpire">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setCacheExpire">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#207-221" title="Go to source code">setCacheExpire</a>( <span>integer <var>$expire</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the session cache expire time.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$expire</var></dt>
+					<dd><code>integer</code><br>$expire The expiration time in seconds.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						session_cache_expire()<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getCacheExpire" id="_getCacheExpire">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getCacheExpire">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#223-235" title="Go to source code">getCacheExpire</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the session cache expire time.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>The cache expiration time in seconds.<br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						session_cache_expire()<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setCacheLimiter" id="_setCacheLimiter">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setCacheLimiter">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#237-251" title="Go to source code">setCacheLimiter</a>( <span>string <var>$limiter</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the session cache limiter value.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$limiter</var></dt>
+					<dd><code>string</code><br>$limiter The limiter value.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						session_cache_limiter()<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getCacheLimiter" id="_getCacheLimiter">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getCacheLimiter">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#253-265" title="Go to source code">getCacheLimiter</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the session cache limiter value.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The limiter value.<br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						session_cache_limiter()<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setCookieParams" id="_setCookieParams">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setCookieParams">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#267-302" title="Go to source code">setCookieParams</a>( <span>array <var>$params</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the session cookie params. Param array keys are:</p>
+
+<ul>
+	<li><code>lifetime</code> : Lifetime of the session cookie, defined in
+	seconds.</li>
+
+	<li><code>path</code> : Path on the domain where the cookie will work. Use a
+	single slash ('/') for all paths on the domain.</li>
+
+	<li><code>domain</code> : Cookie domain, for example 'www.php.net'. To make
+	cookies visible on all subdomains then the domain must be prefixed with a dot
+	like '.php.net'.</li>
+
+	<li><code>secure</code> : If TRUE cookie will only be sent over secure
+	connections.</li>
+
+	<li><code>httponly</code> : If set to TRUE then PHP will attempt to send the
+	httponly flag when setting the session cookie.</li>
+</ul>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$params</var></dt>
+					<dd><code>array</code><br>$params The array of session cookie param keys and values.</dd>
+				</dl></div>
+
+
+
+				<h4>See</h4>
+				<div class="list">
+						session_set_cookie_params()<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getCookieParams" id="_getCookieParams">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getCookieParams">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#304-314" title="Go to source code">getCookieParams</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the session cookie params.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getId" id="_getId">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getId">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#316-326" title="Go to source code">getId</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the current session id.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="regenerateId" id="_regenerateId">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_regenerateId">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#328-343" title="Go to source code">regenerateId</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Regenerates and replaces the current session id; also regenerates the CSRF
+token value if one exists.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True is regeneration worked, false if not.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setName" id="_setName">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setName">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#345-359" title="Go to source code">setName</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the current session name.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The session name to use.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						session_name()<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getName" id="_getName">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getName">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#361-371" title="Go to source code">getName</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the current session name.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setSavePath" id="_setSavePath">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setSavePath">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#373-387" title="Go to source code">setSavePath</a>( <span>string <var>$path</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the session save path.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$path</var></dt>
+					<dd><code>string</code><br>$path The new save path.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						session_save_path()<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSavePath" id="_getSavePath">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSavePath">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#389-401" title="Go to source code">getSavePath</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the session save path.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						session_save_path()<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getStatus" id="_getStatus">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getStatus">#</a>
+		<code><a href="source-class-Aura.Session.Manager.html#403-419" title="Go to source code">getStatus</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the current session status:</p>
+
+<ul>
+	<li><code>PHP_SESSION_DISABLED</code> if sessions are disabled.</li>
+
+	<li><code>PHP_SESSION_NONE</code> if sessions are enabled, but none exists.</li>
+
+	<li><code>PHP_SESSION_ACTIVE</code> if sessions are enabled, and one
+	exists.</li>
+</ul>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						session_status()<br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="segment_factory" id="$segment_factory">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Session.SegmentFactory.html">Aura\Session\SegmentFactory</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Session.Manager.html#23-30" title="Go to source code"><var>$segment_factory</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$segment_factory" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A session segment factory.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="csrf_token" id="$csrf_token">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Session.CsrfToken.html">Aura\Session\CsrfToken</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Session.Manager.html#32-39" title="Go to source code"><var>$csrf_token</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$csrf_token" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The CSRF token for this session.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="csrf_token_factory" id="$csrf_token_factory">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Session.CsrfTokenFactory.html">Aura\Session\CsrfTokenFactory</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Session.Manager.html#41-48" title="Go to source code"><var>$csrf_token_factory</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$csrf_token_factory" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A CSRF token factory, for lazy-creating the CSRF token.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="cookies" id="$cookies">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Session.Manager.html#50-58" title="Go to source code"><var>$cookies</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$cookies" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Incoming cookies from the client, typically a copy of the $_COOKIE
+superglobal.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="cookie_params" id="$cookie_params">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Session.Manager.html#60-67" title="Go to source code"><var>$cookie_params</var></a>
+		</td>
+		<td class="value"><code>[]</code></td>
+		<td class="description"><div>
+			<a href="#$cookie_params" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Session cookie parameters.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\Sql\Gateway</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?3992588417"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Sql.html">Sql<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.Sql.Connection.html">Connection</a>
+						</li>
+				<li><a href="namespace-Aura.Sql.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Aura.Sql.Query.html">Query</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Aura.Sql.AbstractMapper.html">AbstractMapper</a></li>
+				<li><a href="class-Aura.Sql.Column.html">Column</a></li>
+				<li><a href="class-Aura.Sql.ColumnFactory.html">ColumnFactory</a></li>
+				<li><a href="class-Aura.Sql.ConnectionFactory.html">ConnectionFactory</a></li>
+				<li><a href="class-Aura.Sql.ConnectionLocator.html">ConnectionLocator</a></li>
+				<li class="active"><a href="class-Aura.Sql.Gateway.html">Gateway</a></li>
+				<li><a href="class-Aura.Sql.GatewayIterator.html">GatewayIterator</a></li>
+				<li><a href="class-Aura.Sql.GatewayLocator.html">GatewayLocator</a></li>
+				<li><a href="class-Aura.Sql.Profiler.html">Profiler</a></li>
+				<li><a href="class-Aura.Sql.UnitOfWork.html">UnitOfWork</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aura.Sql.ProfilerInterface.html">ProfilerInterface</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Aura.Sql.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.Sql.html" title="Summary of Aura\Sql"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Gateway</h1>
+
+
+	<div class="description">
+	
+<p>A TableDataGateway implementation.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.Sql.html">Sql</a><br />
+		<b>Package:</b> Aura\Sql<br />
+
+		<b>Located at</b> <a href="source-class-Aura.Sql.Gateway.html#18-321" title="Go to source code">Aura/Sql/Gateway.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#45-61" title="Go to source code">__construct</a>( <span><code><a href="class-Aura.Sql.ConnectionLocator.html">Aura\Sql\ConnectionLocator</a></code> <var>$connections</var></span>, <span><code><a href="class-Aura.Sql.AbstractMapper.html">Aura\Sql\AbstractMapper</a></code> <var>$mapper</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$connections</var></dt>
+					<dd><code><code><a href="class-Aura.Sql.ConnectionLocator.html">Aura\Sql\ConnectionLocator</a></code></code><br>$connections A ConnectionLocator for database connections.</dd>
+					<dt><var>$mapper</var></dt>
+					<dd><code><code><a href="class-Aura.Sql.AbstractMapper.html">Aura\Sql\AbstractMapper</a></code></code><br>$mapper A table-to-entity mapper.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getConnections" id="_getConnections">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Sql.ConnectionLocator.html">Aura\Sql\ConnectionLocator</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getConnections">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#63-73" title="Go to source code">getConnections</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the connection locator.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Sql.ConnectionLocator.html">Aura\Sql\ConnectionLocator</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMapper" id="_getMapper">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Sql.ConnectionLocator.html">Aura\Sql\ConnectionLocator</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMapper">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#75-85" title="Go to source code">getMapper</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the mapper.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Sql.ConnectionLocator.html">Aura\Sql\ConnectionLocator</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="insert" id="_insert">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_insert">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#87-103" title="Go to source code">insert</a>( <span>object <var>$entity</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Inserts an entity into the mapped table using a write connection.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$entity</var></dt>
+					<dd><code>object</code><br>$entity The entity to insert.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>The last insert ID.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="update" id="_update">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_update">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#105-125" title="Go to source code">update</a>( <span>object <var>$entity</var></span>, <span>array <var>$initial_data</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Updates an entity in the mapped table using a write connection; if an array
+of initial data is present, updates only changed values.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$entity</var></dt>
+					<dd><code>object</code><br>$entity The entity to update.</dd>
+					<dt><var>$initial_data</var></dt>
+					<dd><code>array</code><br>$initial_data Initial data for the entity.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if the update succeeded, false if not. (This is determined by checking the
+number of rows affected by the query.)<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="delete" id="_delete">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_delete">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#127-144" title="Go to source code">delete</a>( <span>object <var>$entity</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Deletes an entity from the mapped table using a write connection.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$entity</var></dt>
+					<dd><code>object</code><br>$entity The entity to delete.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if the delete succeeded, false if not. (This is determined by checking the
+number of rows affected by the query.)<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="newSelect" id="_newSelect">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_newSelect">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#146-163" title="Go to source code">newSelect</a>( <span>array <var>$cols</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns a new Select object for the mapped table using a read connection.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$cols</var></dt>
+					<dd><code>array</code><br>$cols Select these columns from the table; when empty, selects all mapped
+columns.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchOneBy" id="_fetchOneBy">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchOneBy">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#165-181" title="Go to source code">fetchOneBy</a>( <span>string <var>$col</var></span>, <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Selects one row from the mapped table for a given column and value(s).</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$col</var></dt>
+					<dd><code>string</code><br>$col The column to use for matching.</dd>
+					<dt><var>$val</var></dt>
+					<dd><code>mixed</code><br>$val The value(s) to match against; this can be an array of values.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchAllBy" id="_fetchAllBy">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchAllBy">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#183-199" title="Go to source code">fetchAllBy</a>( <span>string <var>$col</var></span>, <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Selects all rows from the mapped table for a given column and value.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$col</var></dt>
+					<dd><code>string</code><br>$col The column to use for matching.</dd>
+					<dt><var>$val</var></dt>
+					<dd><code>mixed</code><br>$val The value(s) to match against; this can be an array of values.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="newSelectBy" id="_newSelectBy">
+
+		<td class="attributes"><code>
+			 protected 
+			<code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_newSelectBy">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#201-224" title="Go to source code">newSelectBy</a>( <span>string <var>$col</var></span>, <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Creates a Select object to match against a given column and value(s).</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$col</var></dt>
+					<dd><code>string</code><br>$col The column to use for matching.</dd>
+					<dt><var>$val</var></dt>
+					<dd><code>mixed</code><br>$val The value(s) to match against; this can be an array of values.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchAll" id="_fetchAll">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchAll">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#226-243" title="Go to source code">fetchAll</a>( <span><code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code> <var>$select</var></span>, <span>array <var>$bind</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Given a Select, fetches all rows.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$select</var></dt>
+					<dd><code><code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code></code><br>$select The Select query object.</dd>
+					<dt><var>$bind</var></dt>
+					<dd><code>array</code><br>$bind Data to bind to the query.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><code><a href="class-Aura.Sql.Connection.AbstractConnection.html#_fetchAll">Aura\Sql\Connection\AbstractConnection::fetchAll()</a></code></code><br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchCol" id="_fetchCol">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchCol">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#245-262" title="Go to source code">fetchCol</a>( <span><code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code> <var>$select</var></span>, <span>array <var>$bind</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Given a Select, fetches the first column of all rows.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$select</var></dt>
+					<dd><code><code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code></code><br>$select The Select query object.</dd>
+					<dt><var>$bind</var></dt>
+					<dd><code>array</code><br>$bind Data to bind to the query.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><code><a href="class-Aura.Sql.Connection.AbstractConnection.html#_fetchCol">Aura\Sql\Connection\AbstractConnection::fetchCol()</a></code></code><br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchOne" id="_fetchOne">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchOne">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#264-281" title="Go to source code">fetchOne</a>( <span><code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code> <var>$select</var></span>, <span>array <var>$bind</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Given a Select, fetches the first row.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$select</var></dt>
+					<dd><code><code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code></code><br>$select The Select query object.</dd>
+					<dt><var>$bind</var></dt>
+					<dd><code>array</code><br>$bind Data to bind to the query.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><code><a href="class-Aura.Sql.Connection.AbstractConnection.html#_fetchOne">Aura\Sql\Connection\AbstractConnection::fetchOne()</a></code></code><br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchPairs" id="_fetchPairs">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchPairs">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#283-301" title="Go to source code">fetchPairs</a>( <span><code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code> <var>$select</var></span>, <span>array <var>$bind</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Given a Select, fetches an array of key-value pairs where the first column is
+the key and the second column is the value.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$select</var></dt>
+					<dd><code><code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code></code><br>$select The Select query object.</dd>
+					<dt><var>$bind</var></dt>
+					<dd><code>array</code><br>$bind Data to bind to the query.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><code><a href="class-Aura.Sql.Connection.AbstractConnection.html#_fetchPairs">Aura\Sql\Connection\AbstractConnection::fetchPairs()</a></code></code><br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchValue" id="_fetchValue">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchValue">#</a>
+		<code><a href="source-class-Aura.Sql.Gateway.html#303-320" title="Go to source code">fetchValue</a>( <span><code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code> <var>$select</var></span>, <span>array <var>$bind</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Given a Select, fetches the first column of the first row.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$select</var></dt>
+					<dd><code><code><a href="class-Aura.Sql.Query.Select.html">Aura\Sql\Query\Select</a></code></code><br>$select The Select query object.</dd>
+					<dt><var>$bind</var></dt>
+					<dd><code>array</code><br>$bind Data to bind to the query.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><code><a href="class-Aura.Sql.Connection.AbstractConnection.html#_fetchValue">Aura\Sql\Connection\AbstractConnection::fetchValue()</a></code></code><br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="connections" id="$connections">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Sql.ConnectionLocator.html">Aura\Sql\ConnectionLocator</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Sql.Gateway.html#27-34" title="Go to source code"><var>$connections</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$connections" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A ConnectionLocator for database connections.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="mapper" id="$mapper">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Sql.AbstractMapper.html">Aura\Sql\AbstractMapper</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Sql.Gateway.html#36-43" title="Go to source code"><var>$mapper</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$mapper" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A mapper between this table gateway and entities.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\Cli\Option</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?1198500403"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Cli.html">Cli<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.Cli.Exception.html">Exception</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Aura.Cli.AbstractCommand.html">AbstractCommand</a></li>
+				<li><a href="class-Aura.Cli.Context.html">Context</a></li>
+				<li><a href="class-Aura.Cli.ExceptionFactory.html">ExceptionFactory</a></li>
+				<li><a href="class-Aura.Cli.Getopt.html">Getopt</a></li>
+				<li class="active"><a href="class-Aura.Cli.Option.html">Option</a></li>
+				<li><a href="class-Aura.Cli.OptionFactory.html">OptionFactory</a></li>
+				<li><a href="class-Aura.Cli.Signal.html">Signal</a></li>
+				<li><a href="class-Aura.Cli.Stdio.html">Stdio</a></li>
+				<li><a href="class-Aura.Cli.StdioResource.html">StdioResource</a></li>
+				<li><a href="class-Aura.Cli.Translator.html">Translator</a></li>
+				<li><a href="class-Aura.Cli.Vt100.html">Vt100</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aura.Cli.SignalInterface.html">SignalInterface</a></li>
+				<li><a href="class-Aura.Cli.TranslatorInterface.html">TranslatorInterface</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Aura.Cli.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.Cli.html" title="Summary of Aura\Cli"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Option</h1>
+
+
+	<div class="description">
+	
+<p>Defines a single command-line option.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.Cli.html">Cli</a><br />
+		<b>Package:</b> Aura\Cli<br />
+
+		<b>Located at</b> <a href="source-class-Aura.Cli.Option.html#13-286" title="Go to source code">Aura/Cli/Option.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.Cli.Option.html#113-154" title="Go to source code">__construct</a>( <span>string <var>$name</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$long</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$short</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$param</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$multi</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$default</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Initialized the object with an option definition array.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The option property name.</dd>
+					<dt><var>$long</var></dt>
+					<dd><code>string</code><br>$long The long form of the option flag.</dd>
+					<dt><var>$short</var></dt>
+					<dd><code>string</code><br>$short The short form of the option flag.</dd>
+					<dt><var>$param</var></dt>
+					<dd><code>string</code><br>$param Whether a param is required, optional, or rejected.</dd>
+					<dt><var>$multi</var></dt>
+					<dd><code>boolean</code><br>$multi Can the option be specified multiple times?</dd>
+					<dt><var>$default</var></dt>
+					<dd><code>string</code><br>$default The default value of the option param.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setValue" id="_setValue">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setValue">#</a>
+		<code><a href="source-class-Aura.Cli.Option.html#156-172" title="Go to source code">setValue</a>( <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the option value.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd><code>mixed</code><br>$value The value to set.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getValue" id="_getValue">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getValue">#</a>
+		<code><a href="source-class-Aura.Cli.Option.html#174-189" title="Go to source code">getValue</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the option value.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>The value as set from the command line, or the default value if not set from the
+command line.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getLong" id="_getLong">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getLong">#</a>
+		<code><a href="source-class-Aura.Cli.Option.html#191-201" title="Go to source code">getLong</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the long name for this option.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getShort" id="_getShort">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getShort">#</a>
+		<code><a href="source-class-Aura.Cli.Option.html#203-213" title="Go to source code">getShort</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the short name for this option.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getName" id="_getName">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getName">#</a>
+		<code><a href="source-class-Aura.Cli.Option.html#215-225" title="Go to source code">getName</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the property name for this option.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDefault" id="_getDefault">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDefault">#</a>
+		<code><a href="source-class-Aura.Cli.Option.html#227-237" title="Go to source code">getDefault</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the default value of this option.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isMulti" id="_isMulti">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isMulti">#</a>
+		<code><a href="source-class-Aura.Cli.Option.html#239-249" title="Go to source code">isMulti</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Can this option be present multiple times?</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isParamRequired" id="_isParamRequired">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isParamRequired">#</a>
+		<code><a href="source-class-Aura.Cli.Option.html#251-261" title="Go to source code">isParamRequired</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Is a param value required to be present on this option?</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isParamRejected" id="_isParamRejected">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isParamRejected">#</a>
+		<code><a href="source-class-Aura.Cli.Option.html#263-273" title="Go to source code">isParamRejected</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Is a param value required <em>not</em> to be present on this option?</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isParamOptional" id="_isParamOptional">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isParamOptional">#</a>
+		<code><a href="source-class-Aura.Cli.Option.html#275-285" title="Go to source code">isParamOptional</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Is a param value optional on this option?</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="PARAM_REQUIRED" id="PARAM_REQUIRED">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Aura.Cli.Option.html#22-29" title="Go to source code"><b>PARAM_REQUIRED</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">'required'</span></code></td>
+		<td class="description"><div>
+			<a href="#PARAM_REQUIRED" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A parameter value is required to be present for this option.</p>
+
+
+					<h4>Const</h4>
+					<div class="list">
+							string<br />
+					</div>
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="PARAM_REJECTED" id="PARAM_REJECTED">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Aura.Cli.Option.html#31-38" title="Go to source code"><b>PARAM_REJECTED</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">'rejected'</span></code></td>
+		<td class="description"><div>
+			<a href="#PARAM_REJECTED" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Any parameter value on this option will be rejected.</p>
+
+
+					<h4>Const</h4>
+					<div class="list">
+							string<br />
+					</div>
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="PARAM_OPTIONAL" id="PARAM_OPTIONAL">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Aura.Cli.Option.html#40-47" title="Go to source code"><b>PARAM_OPTIONAL</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">'optional'</span></code></td>
+		<td class="description"><div>
+			<a href="#PARAM_OPTIONAL" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A parameter value may or may not be present on this option.</p>
+
+
+					<h4>Const</h4>
+					<div class="list">
+							string<br />
+					</div>
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="name" id="$name">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.Option.html#49-56" title="Go to source code"><var>$name</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$name" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The property name of the option.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="long" id="$long">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.Option.html#58-65" title="Go to source code"><var>$long</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$long" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The long name of the option.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="short" id="$short">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.Option.html#67-74" title="Go to source code"><var>$short</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$short" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The short name of the option.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="param" id="$param">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.Option.html#76-84" title="Go to source code"><var>$param</var></a>
+		</td>
+		<td class="value"><code><code><a href="class-Aura.Cli.Option.html#PARAM_OPTIONAL">Aura\Cli\Option::<b>PARAM_OPTIONAL</b></a></code></code></td>
+		<td class="description"><div>
+			<a href="#$param" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>When the option is present, will a be parameter required, optional, or
+rejected (i.e., no param allowed) ?</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="multi" id="$multi">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.Option.html#86-93" title="Go to source code"><var>$multi</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$multi" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Can the option be specified multiple times?</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="default" id="$default">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.Option.html#95-102" title="Go to source code"><var>$default</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$default" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The default value for the option param.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="value" id="$value">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Cli.Option.html#104-111" title="Go to source code"><var>$value</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$value" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The option value as set from the command line.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

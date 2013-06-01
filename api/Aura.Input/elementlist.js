@@ -1,0 +1,3 @@
+
+var ApiGen = ApiGen || {};
+ApiGen.elements = [["c","ArrayAccess"],["c","ArrayIterator"],["c","Aura\\Input\\AbstractInput"],["c","Aura\\Input\\AntiCsrfInterface"],["c","Aura\\Input\\Builder"],["c","Aura\\Input\\BuilderInterface"],["c","Aura\\Input\\Collection"],["c","Aura\\Input\\CollectionIterator"],["c","Aura\\Input\\Exception"],["c","Aura\\Input\\Exception\\CsrfViolation"],["c","Aura\\Input\\Exception\\NoSuchInput"],["c","Aura\\Input\\Field"],["c","Aura\\Input\\Fieldset"],["c","Aura\\Input\\Filter"],["c","Aura\\Input\\FilterInterface"],["c","Aura\\Input\\Form"],["c","Closure"],["c","Countable"],["c","Exception"],["c","Iterator"],["c","IteratorAggregate"],["c","SeekableIterator"],["c","Serializable"],["c","Traversable"]];

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\Sql\ConnectionLocator</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?3992588417"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Sql.html">Sql<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.Sql.Connection.html">Connection</a>
+						</li>
+				<li><a href="namespace-Aura.Sql.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Aura.Sql.Query.html">Query</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Aura.Sql.AbstractMapper.html">AbstractMapper</a></li>
+				<li><a href="class-Aura.Sql.Column.html">Column</a></li>
+				<li><a href="class-Aura.Sql.ColumnFactory.html">ColumnFactory</a></li>
+				<li><a href="class-Aura.Sql.ConnectionFactory.html">ConnectionFactory</a></li>
+				<li class="active"><a href="class-Aura.Sql.ConnectionLocator.html">ConnectionLocator</a></li>
+				<li><a href="class-Aura.Sql.Gateway.html">Gateway</a></li>
+				<li><a href="class-Aura.Sql.GatewayIterator.html">GatewayIterator</a></li>
+				<li><a href="class-Aura.Sql.GatewayLocator.html">GatewayLocator</a></li>
+				<li><a href="class-Aura.Sql.Profiler.html">Profiler</a></li>
+				<li><a href="class-Aura.Sql.UnitOfWork.html">UnitOfWork</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aura.Sql.ProfilerInterface.html">ProfilerInterface</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Aura.Sql.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.Sql.html" title="Summary of Aura\Sql"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class ConnectionLocator</h1>
+
+
+	<div class="description">
+	
+<p>Manages connections to default, master, and slave databases.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.Sql.html">Sql</a><br />
+		<b>Package:</b> Aura\Sql<br />
+
+		<b>Located at</b> <a href="source-class-Aura.Sql.ConnectionLocator.html#15-320" title="Go to source code">Aura/Sql/ConnectionLocator.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.Sql.ConnectionLocator.html#83-114" title="Go to source code">__construct</a>( <span><code><a href="class-Aura.Sql.ConnectionFactory.html">Aura\Sql\ConnectionFactory</a></code> <var>$connection_factory</var></span>, <span>array <var>$default</var> = []</span>, <span>array <var>$masters</var> = []</span>, <span>array <var>$slaves</var> = [] </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$connection_factory</var></dt>
+					<dd><code><code><a href="class-Aura.Sql.ConnectionFactory.html">Aura\Sql\ConnectionFactory</a></code></code><br>$connection_factory An connection factory to create connection objects.</dd>
+					<dt><var>$default</var></dt>
+					<dd><code>array</code><br>$default An array of key-value pairs for the default connection.</dd>
+					<dt><var>$masters</var></dt>
+					<dd><code>array</code><br>$masters An array of key-value pairs where the key is the connection name and
+the value is an array of connection params.</dd>
+					<dt><var>$slaves</var></dt>
+					<dd><code>array</code><br>$slaves An array of key-value pairs where the key is the connection name and the
+value is an array of connection params.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setDefault" id="_setDefault">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setDefault">#</a>
+		<code><a href="source-class-Aura.Sql.ConnectionLocator.html#116-128" title="Go to source code">setDefault</a>( <span>array <var>$params</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the default connection params.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$params</var></dt>
+					<dd><code>array</code><br>$params The default connection params.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMaster" id="_setMaster">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMaster">#</a>
+		<code><a href="source-class-Aura.Sql.ConnectionLocator.html#130-144" title="Go to source code">setMaster</a>( <span>string <var>$name</var></span>, <span>array <var>$params</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the params for one master connection by name.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The master connection name.</dd>
+					<dt><var>$params</var></dt>
+					<dd><code>array</code><br>$params The master connection params.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setSlave" id="_setSlave">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setSlave">#</a>
+		<code><a href="source-class-Aura.Sql.ConnectionLocator.html#146-160" title="Go to source code">setSlave</a>( <span>string <var>$name</var></span>, <span>array <var>$params</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the params for one slave connection by name.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The slave connection name.</dd>
+					<dt><var>$params</var></dt>
+					<dd><code>array</code><br>$params The slave connection params.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRead" id="_getRead">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Sql.Connection.AbstractConnection.html">Aura\Sql\Connection\AbstractConnection</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRead">#</a>
+		<code><a href="source-class-Aura.Sql.ConnectionLocator.html#162-184" title="Go to source code">getRead</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns a "read" connection. Picks a connection in this order:</p>
+
+<ul>
+	<li>A random slave; or,</li>
+
+	<li>If there are no slaves, a random master; or,</li>
+
+	<li>If there are no masters, the default connection.</li>
+</ul>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Sql.Connection.AbstractConnection.html">Aura\Sql\Connection\AbstractConnection</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getWrite" id="_getWrite">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Sql.Connection.AbstractConnection.html">Aura\Sql\Connection\AbstractConnection</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getWrite">#</a>
+		<code><a href="source-class-Aura.Sql.ConnectionLocator.html#186-204" title="Go to source code">getWrite</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns a "write" connection. Picks a connection in this order:</p>
+
+<ul>
+	<li>A random master; or,</li>
+
+	<li>If there are no masters, the default connection.</li>
+</ul>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Sql.Connection.AbstractConnection.html">Aura\Sql\Connection\AbstractConnection</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDefault" id="_getDefault">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Sql.Connection.AbstractConnection.html">Aura\Sql\Connection\AbstractConnection</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDefault">#</a>
+		<code><a href="source-class-Aura.Sql.ConnectionLocator.html#206-225" title="Go to source code">getDefault</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the default connection object.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Sql.Connection.AbstractConnection.html">Aura\Sql\Connection\AbstractConnection</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMaster" id="_getMaster">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Sql.Connection.AbstractConnection.html">Aura\Sql\Connection\AbstractConnection</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMaster">#</a>
+		<code><a href="source-class-Aura.Sql.ConnectionLocator.html#227-260" title="Go to source code">getMaster</a>( <span>string <var>$name</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns a "master" connection object by name.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The master connection name; if not specified, returns a random master
+connection.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Sql.Connection.AbstractConnection.html">Aura\Sql\Connection\AbstractConnection</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSlave" id="_getSlave">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Sql.Connection.AbstractConnection.html">Aura\Sql\Connection\AbstractConnection</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSlave">#</a>
+		<code><a href="source-class-Aura.Sql.ConnectionLocator.html#262-294" title="Go to source code">getSlave</a>( <span>string <var>$name</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns a "slave" connection object by name.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The slave connection name; if not specified, returns a random slave.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Sql.Connection.AbstractConnection.html">Aura\Sql\Connection\AbstractConnection</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="merge" id="_merge">
+
+		<td class="attributes"><code>
+			 protected 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_merge">#</a>
+		<code><a href="source-class-Aura.Sql.ConnectionLocator.html#296-319" title="Go to source code">merge</a>( <span>array <var>$baseline</var></span>, <span>array <var>$override</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>A merge function somewhat more friendly than array_merge_recursive() (we need
+to override sequential values, not append them).</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$baseline</var></dt>
+					<dd><code>array</code><br>$baseline The baseline values.</dd>
+					<dt><var>$override</var></dt>
+					<dd><code>array</code><br>$override The override values.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="connection_factory" id="$connection_factory">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Sql.ConnectionFactory.html">Aura\Sql\ConnectionFactory</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Sql.ConnectionLocator.html#24-31" title="Go to source code"><var>$connection_factory</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$connection_factory" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>An SQL connection factory.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="connection" id="$connection">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Sql.ConnectionLocator.html#33-44" title="Go to source code"><var>$connection</var></a>
+		</td>
+		<td class="value"><code>[
+    <span class="php-quote">'default'</span> =&gt; <span class="php-keyword1">null</span>,
+    <span class="php-quote">'masters'</span> =&gt; [],
+    <span class="php-quote">'slaves'</span>  =&gt; [],
+]</code></td>
+		<td class="description"><div>
+			<a href="#$connection" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>SQL connection connection objects as constructed from their params.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="default" id="$default">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Sql.ConnectionLocator.html#46-59" title="Go to source code"><var>$default</var></a>
+		</td>
+		<td class="value"><code>[
+    <span class="php-quote">'adapter'</span>  =&gt; <span class="php-keyword1">null</span>,
+    <span class="php-quote">'dsn'</span>      =&gt; [],
+    <span class="php-quote">'username'</span> =&gt; <span class="php-keyword1">null</span>,
+    <span class="php-quote">'password'</span> =&gt; <span class="php-keyword1">null</span>,
+    <span class="php-quote">'options'</span>  =&gt; [],
+]</code></td>
+		<td class="description"><div>
+			<a href="#$default" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The default connection params.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="masters" id="$masters">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Sql.ConnectionLocator.html#61-70" title="Go to source code"><var>$masters</var></a>
+		</td>
+		<td class="value"><code>[]</code></td>
+		<td class="description"><div>
+			<a href="#$masters" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Params for one or more master connections. The key for each element in the
+array is a name for the connection, and each value is an array of connection
+params (cf. the <code>$default</code> array elements).</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="slaves" id="$slaves">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Sql.ConnectionLocator.html#72-81" title="Go to source code"><var>$slaves</var></a>
+		</td>
+		<td class="value"><code>[]</code></td>
+		<td class="description"><div>
+			<a href="#$slaves" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Params for one or more slave connections. The key for each element in the
+array is a name for the connection, and each value is an array of connection
+params (cf. the $default array elements).</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

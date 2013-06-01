@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\Session\CsrfToken</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?1918578163"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Session.html">Session</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Aura.Session.CsrfToken.html">CsrfToken</a></li>
+				<li><a href="class-Aura.Session.CsrfTokenFactory.html">CsrfTokenFactory</a></li>
+				<li><a href="class-Aura.Session.Manager.html">Manager</a></li>
+				<li><a href="class-Aura.Session.Phpfunc.html">Phpfunc</a></li>
+				<li><a href="class-Aura.Session.Randval.html">Randval</a></li>
+				<li><a href="class-Aura.Session.Segment.html">Segment</a></li>
+				<li><a href="class-Aura.Session.SegmentFactory.html">SegmentFactory</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aura.Session.RandvalInterface.html">RandvalInterface</a></li>
+				<li><a href="class-Aura.Session.SegmentInterface.html">SegmentInterface</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Aura.Session.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.Session.html" title="Summary of Aura\Session"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class CsrfToken</h1>
+
+
+	<div class="description">
+	
+<p>Cross-site request forgery token tools.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.Session.html">Session</a><br />
+		<b>Package:</b> Aura\Session<br />
+
+		<b>Located at</b> <a href="source-class-Aura.Session.CsrfToken.html#13-96" title="Go to source code">Aura/Session/CsrfToken.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.Session.CsrfToken.html#40-57" title="Go to source code">__construct</a>( <span><code><a href="class-Aura.Session.Segment.html">Aura\Session\Segment</a></code> <var>$segment</var></span>, <span><code><a href="class-Aura.Session.RandvalInterface.html">Aura\Session\RandvalInterface</a></code> <var>$randval</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$segment</var></dt>
+					<dd><code><code><a href="class-Aura.Session.Segment.html">Aura\Session\Segment</a></code></code><br>$segment A segment for values in this class.</dd>
+					<dt><var>$randval</var></dt>
+					<dd><code><code><a href="class-Aura.Session.RandvalInterface.html">Aura\Session\RandvalInterface</a></code></code><br>$randval A cryptographically-secure random value generator.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isValid" id="_isValid">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isValid">#</a>
+		<code><a href="source-class-Aura.Session.CsrfToken.html#59-71" title="Go to source code">isValid</a>( <span>string <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks whether an incoming CSRF token value is valid.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd><code>string</code><br>$value The incoming token value.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if valid, false if not.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getValue" id="_getValue">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getValue">#</a>
+		<code><a href="source-class-Aura.Session.CsrfToken.html#73-83" title="Go to source code">getValue</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the value of the outgoing CSRF token.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="regenerateValue" id="_regenerateValue">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_regenerateValue">#</a>
+		<code><a href="source-class-Aura.Session.CsrfToken.html#85-95" title="Go to source code">regenerateValue</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Regenerates the value of the outgoing CSRF token.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="randval" id="$randval">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Session.RandvalInterface.html">Aura\Session\RandvalInterface</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Session.CsrfToken.html#22-29" title="Go to source code"><var>$randval</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$randval" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A cryptographically-secure random value generator.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="segment" id="$segment">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Session.Segment.html">Aura\Session\Segment</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Session.CsrfToken.html#31-38" title="Go to source code"><var>$segment</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$segment" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Session segment for values in this class.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

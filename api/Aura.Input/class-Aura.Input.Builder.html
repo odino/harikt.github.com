@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\Input\Builder</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?2153578062"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Input.html">Input<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.Input.Exception.html">Exception</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Aura.Input.AbstractInput.html">AbstractInput</a></li>
+				<li class="active"><a href="class-Aura.Input.Builder.html">Builder</a></li>
+				<li><a href="class-Aura.Input.Collection.html">Collection</a></li>
+				<li><a href="class-Aura.Input.CollectionIterator.html">CollectionIterator</a></li>
+				<li><a href="class-Aura.Input.Field.html">Field</a></li>
+				<li><a href="class-Aura.Input.Fieldset.html">Fieldset</a></li>
+				<li><a href="class-Aura.Input.Filter.html">Filter</a></li>
+				<li><a href="class-Aura.Input.Form.html">Form</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aura.Input.AntiCsrfInterface.html">AntiCsrfInterface</a></li>
+				<li><a href="class-Aura.Input.BuilderInterface.html">BuilderInterface</a></li>
+				<li><a href="class-Aura.Input.FilterInterface.html">FilterInterface</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Aura.Input.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.Input.html" title="Summary of Aura\Input"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Builder</h1>
+
+
+	<div class="description">
+	
+<p>A builder to create Field, Fieldset, and fieldset Collection objects.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Aura\Input\Builder</span></b>			
+			 implements 
+				<a href="class-Aura.Input.BuilderInterface.html"><span>Aura\Input\BuilderInterface</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.Input.html">Input</a><br />
+		<b>Package:</b> Aura\Input<br />
+
+		<b>Located at</b> <a href="source-class-Aura.Input.Builder.html#13-128" title="Go to source code">Aura/Input/Builder.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.Input.Builder.html#50-61" title="Go to source code">__construct</a>( <span>array <var>$fieldset_map</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$fieldset_map</var></dt>
+					<dd><code>array</code><br>$fieldset_map A map of fieldset types to <em>callables that create objects</em>
+(as vs class names).</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="newField" id="_newField">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Input.Field.html">Aura\Input\Field</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_newField">#</a>
+		<code><a href="source-class-Aura.Input.Builder.html#63-83" title="Go to source code">newField</a>( <span>string <var>$name</var></span>, <span>string <var>$type</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Creates a new Field object.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The field name.</dd>
+					<dt><var>$type</var></dt>
+					<dd><code>string</code><br>$type The field type.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Input.Field.html">Aura\Input\Field</a></code></code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Input.BuilderInterface.html#_newField">Aura\Input\BuilderInterface::newField()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="newFieldset" id="_newFieldset">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Input.Fieldset.html">Aura\Input\Fieldset</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_newFieldset">#</a>
+		<code><a href="source-class-Aura.Input.Builder.html#85-105" title="Go to source code">newFieldset</a>( <span>string <var>$name</var></span>, <span>string <var>$type</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Creates a new Fieldset object.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The fieldset name.</dd>
+					<dt><var>$type</var></dt>
+					<dd><code>string</code><br>$type The fieldset type.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Input.Fieldset.html">Aura\Input\Fieldset</a></code></code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Input.BuilderInterface.html#_newFieldset">Aura\Input\BuilderInterface::newFieldset()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="newCollection" id="_newCollection">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Aura.Input.Collection.html">Aura\Input\Collection</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_newCollection">#</a>
+		<code><a href="source-class-Aura.Input.Builder.html#107-127" title="Go to source code">newCollection</a>( <span>string <var>$name</var></span>, <span>string <var>$type</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Creates a new Collection object.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The collection name.</dd>
+					<dt><var>$type</var></dt>
+					<dd><code>string</code><br>$type The collection type.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Aura.Input.Collection.html">Aura\Input\Collection</a></code></code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Input.BuilderInterface.html#_newCollection">Aura\Input\BuilderInterface::newCollection()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="collection_class" id="$collection_class">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Input.Builder.html#22-29" title="Go to source code"><var>$collection_class</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'Aura\Input\Collection'</span></code></td>
+		<td class="description"><div>
+			<a href="#$collection_class" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The class to use for creating fieldset collections.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="field_class" id="$field_class">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Input.Builder.html#31-38" title="Go to source code"><var>$field_class</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'Aura\Input\Field'</span></code></td>
+		<td class="description"><div>
+			<a href="#$field_class" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The class to use for creating fields.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="fieldset_map" id="$fieldset_map">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Input.Builder.html#40-48" title="Go to source code"><var>$fieldset_map</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$fieldset_map" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A map of fieldset types to <em>callables that create objects</em> (as vs
+class names).</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

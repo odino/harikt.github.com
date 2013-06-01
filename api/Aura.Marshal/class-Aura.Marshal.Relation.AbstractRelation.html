@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\Marshal\Relation\AbstractRelation</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?3985229954"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Marshal.html">Marshal<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.Marshal.Collection.html">Collection</a>
+						</li>
+				<li><a href="namespace-Aura.Marshal.Entity.html">Entity</a>
+						</li>
+				<li><a href="namespace-Aura.Marshal.Lazy.html">Lazy</a>
+						</li>
+				<li class="active"><a href="namespace-Aura.Marshal.Relation.html">Relation</a>
+						</li>
+				<li><a href="namespace-Aura.Marshal.Type.html">Type</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Aura.Marshal.Relation.AbstractRelation.html">AbstractRelation</a></li>
+				<li><a href="class-Aura.Marshal.Relation.BelongsTo.html">BelongsTo</a></li>
+				<li><a href="class-Aura.Marshal.Relation.Builder.html">Builder</a></li>
+				<li><a href="class-Aura.Marshal.Relation.HasMany.html">HasMany</a></li>
+				<li><a href="class-Aura.Marshal.Relation.HasManyThrough.html">HasManyThrough</a></li>
+				<li><a href="class-Aura.Marshal.Relation.HasOne.html">HasOne</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aura.Marshal.Relation.RelationInterface.html">RelationInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.Marshal.Relation.html" title="Summary of Aura\Marshal\Relation"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AbstractRelation</h1>
+
+
+	<div class="description">
+	
+<p>Represents a relationship definition between two types.</p>
+
+	</div>
+
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Aura.Marshal.Relation.BelongsTo.html">Aura\Marshal\Relation\BelongsTo</a>, 
+			<a href="class-Aura.Marshal.Relation.HasMany.html">Aura\Marshal\Relation\HasMany</a>, 
+			<a href="class-Aura.Marshal.Relation.HasManyThrough.html">Aura\Marshal\Relation\HasManyThrough</a>, 
+			<a href="class-Aura.Marshal.Relation.HasOne.html">Aura\Marshal\Relation\HasOne</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br />
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.Marshal.html">Marshal</a>\<a href="namespace-Aura.Marshal.Relation.html">Relation</a><br />
+		<b>Package:</b> Aura\Marshal<br />
+
+		<b>Located at</b> <a href="source-class-Aura.Marshal.Relation.AbstractRelation.html#17-155" title="Go to source code">Aura/Marshal/Relation/AbstractRelation.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.Marshal.Relation.AbstractRelation.html#101-142" title="Go to source code">__construct</a>( <span>string <var>$native_field</var></span>, <span><code><a href="class-Aura.Marshal.Type.GenericType.html">Aura\Marshal\Type\GenericType</a></code> <var>$foreign</var></span>, <span>string <var>$foreign_type</var></span>, <span>string <var>$foreign_field</var></span>, <span><code><a href="class-Aura.Marshal.Type.GenericType.html">Aura\Marshal\Type\GenericType</a></code> <var>$through</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$through_type</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$through_native_field</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$through_foreign_field</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$native_field</var></dt>
+					<dd><code>string</code><br>$native_field The name of the native field.</dd>
+					<dt><var>$foreign</var></dt>
+					<dd><code><code><a href="class-Aura.Marshal.Type.GenericType.html">Aura\Marshal\Type\GenericType</a></code></code><br>$foreign The foreign type object.</dd>
+					<dt><var>$foreign_type</var></dt>
+					<dd><code>string</code><br>$foreign_type The manager name of the foreign type.</dd>
+					<dt><var>$foreign_field</var></dt>
+					<dd><code>string</code><br>$foreign_field The name of the foreign field.</dd>
+					<dt><var>$through</var></dt>
+					<dd><code><code><a href="class-Aura.Marshal.Type.GenericType.html">Aura\Marshal\Type\GenericType</a></code></code><br>$through The through type object.</dd>
+					<dt><var>$through_type</var></dt>
+					<dd><code>string</code><br>$through_type The manager name of the through type.</dd>
+					<dt><var>$through_native_field</var></dt>
+					<dd><code>string</code><br>$through_native_field The name of the native field in the through type.</dd>
+					<dt><var>$through_foreign_field</var></dt>
+					<dd><code>string</code><br>$through_foreign_field The name of the foreign field in the through type.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getForeignType" id="_getForeignType">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getForeignType">#</a>
+		<code><a href="source-class-Aura.Marshal.Relation.AbstractRelation.html#144-154" title="Go to source code">getForeignType</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the name of the foreign type in the manager.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="native_field" id="$native_field">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Marshal.Relation.AbstractRelation.html#26-33" title="Go to source code"><var>$native_field</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$native_field" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The field in the native entity to match against.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="foreign" id="$foreign">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Marshal.Type.GenericType.html">Aura\Marshal\Type\GenericType</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Marshal.Relation.AbstractRelation.html#35-42" title="Go to source code"><var>$foreign</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$foreign" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The foreign type object.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="foreign_type" id="$foreign_type">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Marshal.Relation.AbstractRelation.html#44-51" title="Go to source code"><var>$foreign_type</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$foreign_type" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The name of the foreign type.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="foreign_field" id="$foreign_field">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Marshal.Relation.AbstractRelation.html#53-60" title="Go to source code"><var>$foreign_field</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$foreign_field" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The field in the foreign entity to match against.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="through" id="$through">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Aura.Marshal.Type.GenericType.html">Aura\Marshal\Type\GenericType</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Marshal.Relation.AbstractRelation.html#62-69" title="Go to source code"><var>$through</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$through" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The through type object.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="through_type" id="$through_type">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Marshal.Relation.AbstractRelation.html#71-79" title="Go to source code"><var>$through_type</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$through_type" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Native and foreign entities are mapped to each other through this association
+type.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="through_native_field" id="$through_native_field">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Marshal.Relation.AbstractRelation.html#81-89" title="Go to source code"><var>$through_native_field</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$through_native_field" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The field name for the native side of the association mapping in the
+"through" type.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="through_foreign_field" id="$through_foreign_field">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Marshal.Relation.AbstractRelation.html#91-99" title="Go to source code"><var>$through_foreign_field</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$through_foreign_field" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The field name for the foreign side of the association mapping in the
+"through" type.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

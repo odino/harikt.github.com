@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\View\FormatTypes</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?1794506513"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.View.html">View<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.View.Escaper.html">Escaper</a>
+						</li>
+				<li><a href="namespace-Aura.View.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Aura.View.Helper.html">Helper<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.View.Helper.Form.html">Form<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.View.Helper.Form.Input.html">Input</a>
+						</li>
+							</ul></li></ul></li></ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Aura.View.AbstractTemplate.html">AbstractTemplate</a></li>
+				<li><a href="class-Aura.View.EscaperFactory.html">EscaperFactory</a></li>
+				<li class="active"><a href="class-Aura.View.FormatTypes.html">FormatTypes</a></li>
+				<li><a href="class-Aura.View.HelperLocator.html">HelperLocator</a></li>
+				<li><a href="class-Aura.View.Template.html">Template</a></li>
+				<li><a href="class-Aura.View.TemplateFinder.html">TemplateFinder</a></li>
+				<li><a href="class-Aura.View.TwoStep.html">TwoStep</a></li>
+			</ul>
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Aura.View.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.View.html" title="Summary of Aura\View"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class FormatTypes</h1>
+
+
+	<div class="description">
+	
+<p>Provides a mapping between .format file extensions and their Content-Type
+values. Also handles negotiation between an array of Accept headers and a list
+of available .format views to be rendered.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.View.html">View</a><br />
+		<b>Package:</b> Aura\View<br />
+
+		<b>Located at</b> <a href="source-class-Aura.View.FormatTypes.html#13-173" title="Go to source code">Aura/View/FormatTypes.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Aura.View.FormatTypes.html#115-126" title="Go to source code">__construct</a>( <span>array <var>$map</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$map</var></dt>
+					<dd><code>array</code><br>$map An array of additional or override .format mappings to Content-Type values.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="matchAcceptFormats" id="_matchAcceptFormats">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_matchAcceptFormats">#</a>
+		<code><a href="source-class-Aura.View.FormatTypes.html#128-156" title="Go to source code">matchAcceptFormats</a>( <span>array <var>$accept</var></span>, <span>array <var>$formats</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Given an array of acceptable Content-Type values and an array of available
+.format views, picks an acceptable .format view.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$accept</var></dt>
+					<dd><code>array</code><br>$accept An array of acceptable Content-Type values.</dd>
+					<dt><var>$formats</var></dt>
+					<dd><code>array</code><br>$formats An array of available .format views.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>An acceptable .format view matching one of the Content-Type values.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getContentType" id="_getContentType">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getContentType">#</a>
+		<code><a href="source-class-Aura.View.FormatTypes.html#158-172" title="Go to source code">getContentType</a>( <span>string <var>$format</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the Content-Type for a particular .format file extension.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$format</var></dt>
+					<dd><code>string</code><br>$format The .format file extension.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The mapped Content-Type value.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="map" id="$map">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.View.FormatTypes.html#24-113" title="Go to source code"><var>$map</var></a>
+		</td>
+		<td class="value"><code>[
+    <span class="php-quote">'.aif'</span>      =&gt; <span class="php-quote">'audio/x-aiff'</span>,
+    <span class="php-quote">'.aifc'</span>     =&gt; <span class="php-quote">'audio/x-aiff'</span>,
+    <span class="php-quote">'.aiff'</span>     =&gt; <span class="php-quote">'audio/x-aiff'</span>,
+    <span class="php-quote">'.asf'</span>      =&gt; <span class="php-quote">'video/x-ms-asf'</span>,
+    <span class="php-quote">'.asr'</span>      =&gt; <span class="php-quote">'video/x-ms-asf'</span>,
+    <span class="php-quote">'.asx'</span>      =&gt; <span class="php-quote">'video/x-ms-asf'</span>,
+    <span class="php-quote">'.atom'</span>     =&gt; <span class="php-quote">'application/atom+xml'</span>,
+    <span class="php-quote">'.au'</span>       =&gt; <span class="php-quote">'audio/basic'</span>,
+    <span class="php-quote">'.avi'</span>      =&gt; <span class="php-quote">'video/x-msvideo'</span>,
+    <span class="php-quote">'.bas'</span>      =&gt; <span class="php-quote">'text/plain'</span>,
+    <span class="php-quote">'.bmp'</span>      =&gt; <span class="php-quote">'image/bmp'</span>,
+    <span class="php-quote">'.c'</span>        =&gt; <span class="php-quote">'text/plain'</span>,
+    <span class="php-quote">'.css'</span>      =&gt; <span class="php-quote">'text/css'</span>,
+    <span class="php-quote">'.csv'</span>      =&gt; <span class="php-quote">'text/plain'</span>,
+    <span class="php-quote">'.dtd'</span>      =&gt; <span class="php-quote">'application/xml-dtd'</span>,
+    <span class="php-quote">'.etx'</span>      =&gt; <span class="php-quote">'text/x-setext'</span>,
+    <span class="php-quote">'.flr'</span>      =&gt; <span class="php-quote">'x-world/x-vrml'</span>,
+    <span class="php-quote">'.gif'</span>      =&gt; <span class="php-quote">'image/gif'</span>,
+    <span class="php-quote">'.gz'</span>       =&gt; <span class="php-quote">'application/x-gzip'</span>,
+    <span class="php-quote">'.h'</span>        =&gt; <span class="php-quote">'text/plain'</span>,
+    <span class="php-quote">'.htm'</span>      =&gt; <span class="php-quote">'text/html'</span>,
+    <span class="php-quote">'.html'</span>     =&gt; <span class="php-quote">'text/html'</span>,
+    <span class="php-quote">'.ico'</span>      =&gt; <span class="php-quote">'image/x-icon'</span>,
+    <span class="php-quote">'.jfif'</span>     =&gt; <span class="php-quote">'image/pipeg'</span>,
+    <span class="php-quote">'.jpe'</span>      =&gt; <span class="php-quote">'image/jpeg'</span>,
+    <span class="php-quote">'.jpeg'</span>     =&gt; <span class="php-quote">'image/jpeg'</span>,
+    <span class="php-quote">'.jpg'</span>      =&gt; <span class="php-quote">'image/jpeg'</span>,
+    <span class="php-quote">'.js'</span>       =&gt; <span class="php-quote">'text/javascript'</span>,
+    <span class="php-quote">'.json'</span>     =&gt; <span class="php-quote">'application/json'</span>,
+    <span class="php-quote">'.lsf'</span>      =&gt; <span class="php-quote">'video/x-la-asf'</span>,
+    <span class="php-quote">'.lsx'</span>      =&gt; <span class="php-quote">'video/x-la-asf'</span>,
+    <span class="php-quote">'.m3u'</span>      =&gt; <span class="php-quote">'audio/x-mpegurl'</span>,
+    <span class="php-quote">'.mid'</span>      =&gt; <span class="php-quote">'audio/mid'</span>,
+    <span class="php-quote">'.mov'</span>      =&gt; <span class="php-quote">'video/quicktime'</span>,
+    <span class="php-quote">'.movie'</span>    =&gt; <span class="php-quote">'video/x-sgi-movie'</span>,
+    <span class="php-quote">'.mp2'</span>      =&gt; <span class="php-quote">'video/mpeg'</span>,
+    <span class="php-quote">'.mp3'</span>      =&gt; <span class="php-quote">'audio/mpeg'</span>,
+    <span class="php-quote">'.mpa'</span>      =&gt; <span class="php-quote">'video/mpeg'</span>,
+    <span class="php-quote">'.mpe'</span>      =&gt; <span class="php-quote">'video/mpeg'</span>,
+    <span class="php-quote">'.mpeg'</span>     =&gt; <span class="php-quote">'video/mpeg'</span>,
+    <span class="php-quote">'.mpg'</span>      =&gt; <span class="php-quote">'video/mpeg'</span>,
+    <span class="php-quote">'.mpv2'</span>     =&gt; <span class="php-quote">'video/mpeg'</span>,
+    <span class="php-quote">'.ogg'</span>      =&gt; <span class="php-quote">'application/ogg'</span>,
+    <span class="php-quote">'.pbm'</span>      =&gt; <span class="php-quote">'image/x-portable-bitmap'</span>,
+    <span class="php-quote">'.pdf'</span>      =&gt; <span class="php-quote">'application/pdf'</span>,
+    <span class="php-quote">'.pgm'</span>      =&gt; <span class="php-quote">'image/x-portable-graymap'</span>,
+    <span class="php-quote">'.png'</span>      =&gt; <span class="php-quote">'image/png'</span>,
+    <span class="php-quote">'.pnm'</span>      =&gt; <span class="php-quote">'image/x-portable-anymap'</span>,
+    <span class="php-quote">'.ppm'</span>      =&gt; <span class="php-quote">'image/x-portable-pixmap'</span>,
+    <span class="php-quote">'.ps'</span>       =&gt; <span class="php-quote">'application/postscript'</span>,
+    <span class="php-quote">'.qt'</span>       =&gt; <span class="php-quote">'video/quicktime'</span>,
+    <span class="php-quote">'.ra'</span>       =&gt; <span class="php-quote">'audio/x-pn-realaudio'</span>,
+    <span class="php-quote">'.ram'</span>      =&gt; <span class="php-quote">'audio/x-pn-realaudio'</span>,
+    <span class="php-quote">'.ras'</span>      =&gt; <span class="php-quote">'image/x-cmu-raster'</span>,
+    <span class="php-quote">'.rdf'</span>      =&gt; <span class="php-quote">'application/rdf+xml'</span>,
+    <span class="php-quote">'.rgb'</span>      =&gt; <span class="php-quote">'image/x-rgb'</span>,
+    <span class="php-quote">'.rmi'</span>      =&gt; <span class="php-quote">'audio/mid'</span>,
+    <span class="php-quote">'.rss'</span>      =&gt; <span class="php-quote">'application/rss+xml'</span>,
+    <span class="php-quote">'.rss2'</span>     =&gt; <span class="php-quote">'application/rss+xml'</span>,
+    <span class="php-quote">'.rtf'</span>      =&gt; <span class="php-quote">'application/rtf'</span>,
+    <span class="php-quote">'.snd'</span>      =&gt; <span class="php-quote">'audio/basic'</span>,
+    <span class="php-quote">'.svg'</span>      =&gt; <span class="php-quote">'image/svg+xml'</span>,
+    <span class="php-quote">'.text'</span>     =&gt; <span class="php-quote">'text/plain'</span>,
+    <span class="php-quote">'.tif'</span>      =&gt; <span class="php-quote">'image/tiff'</span>,
+    <span class="php-quote">'.tiff'</span>     =&gt; <span class="php-quote">'image/tiff'</span>,
+    <span class="php-quote">'.tsv'</span>      =&gt; <span class="php-quote">'text/plain'</span>,
+    <span class="php-quote">'.txt'</span>      =&gt; <span class="php-quote">'text/plain'</span>,
+    <span class="php-quote">'.vcf'</span>      =&gt; <span class="php-quote">'text/x-vcard'</span>,
+    <span class="php-quote">'.vrml'</span>     =&gt; <span class="php-quote">'x-world/x-vrml'</span>,
+    <span class="php-quote">'.wav'</span>      =&gt; <span class="php-quote">'audio/x-wav'</span>,
+    <span class="php-quote">'.wrl'</span>      =&gt; <span class="php-quote">'x-world/x-vrml'</span>,
+    <span class="php-quote">'.wrz'</span>      =&gt; <span class="php-quote">'x-world/x-vrml'</span>,
+    <span class="php-quote">'.xaf'</span>      =&gt; <span class="php-quote">'x-world/x-vrml'</span>,
+    <span class="php-quote">'.xbm'</span>      =&gt; <span class="php-quote">'image/x-xbitmap'</span>,
+    <span class="php-quote">'.xht'</span>      =&gt; <span class="php-quote">'application/xhtml+xml'</span>,
+    <span class="php-quote">'.xhtml'</span>    =&gt; <span class="php-quote">'application/xhtml+xml'</span>,
+    <span class="php-quote">'.xml'</span>      =&gt; <span class="php-quote">'application/xml'</span>,
+    <span class="php-quote">'.xof'</span>      =&gt; <span class="php-quote">'x-world/x-vrml'</span>,
+    <span class="php-quote">'.xpm'</span>      =&gt; <span class="php-quote">'image/x-xpixmap'</span>,
+    <span class="php-quote">'.xwd'</span>      =&gt; <span class="php-quote">'image/x-xwindowdump'</span>,
+    <span class="php-quote">'.zip'</span>      =&gt; <span class="php-quote">'application/zip'</span>,
+]</code></td>
+		<td class="description"><div>
+			<a href="#$map" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>An array of <code>.format</code> extensions to Content-Type mappings.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

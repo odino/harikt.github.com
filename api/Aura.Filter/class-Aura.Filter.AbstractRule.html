@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Aura\Filter\AbstractRule</title>
+
+	<script type="text/javascript" src="resources/combined.js?1007750752"></script>
+	<script type="text/javascript" src="elementlist.js?162513507"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Aura.html">Aura<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Aura.Filter.html">Filter<span></span></a>
+						<ul>
+				<li><a href="namespace-Aura.Filter.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Aura.Filter.Rule.html">Rule</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Aura.Filter.AbstractRule.html">AbstractRule</a></li>
+				<li><a href="class-Aura.Filter.RuleCollection.html">RuleCollection</a></li>
+				<li><a href="class-Aura.Filter.RuleLocator.html">RuleLocator</a></li>
+				<li><a href="class-Aura.Filter.Translator.html">Translator</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aura.Filter.RuleInterface.html">RuleInterface</a></li>
+				<li><a href="class-Aura.Filter.TranslatorInterface.html">TranslatorInterface</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Aura.Filter.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Aura.Filter.html" title="Summary of Aura\Filter"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AbstractRule</h1>
+
+
+	<div class="description">
+	
+<p>Abstract Rule</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Aura\Filter\AbstractRule</span></b>			
+			 implements 
+				<a href="class-Aura.Filter.RuleInterface.html"><span>Aura\Filter\RuleInterface</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Aura.Filter.Rule.All.html">Aura\Filter\Rule\All</a>, 
+			<a href="class-Aura.Filter.Rule.Alpha.html">Aura\Filter\Rule\Alpha</a>, 
+			<a href="class-Aura.Filter.Rule.EqualToField.html">Aura\Filter\Rule\EqualToField</a>, 
+			<a href="class-Aura.Filter.Rule.EqualToValue.html">Aura\Filter\Rule\EqualToValue</a>, 
+			<a href="class-Aura.Filter.Rule.Float.html">Aura\Filter\Rule\Float</a>, 
+			<a href="class-Aura.Filter.Rule.InKeys.html">Aura\Filter\Rule\InKeys</a>, 
+			<a href="class-Aura.Filter.Rule.Int.html">Aura\Filter\Rule\Int</a>, 
+			<a href="class-Aura.Filter.Rule.InValues.html">Aura\Filter\Rule\InValues</a>, 
+			<a href="class-Aura.Filter.Rule.Ipv4.html">Aura\Filter\Rule\Ipv4</a>, 
+			<a href="class-Aura.Filter.Rule.Isbn.html">Aura\Filter\Rule\Isbn</a>, 
+			<a href="class-Aura.Filter.Rule.Locale.html">Aura\Filter\Rule\Locale</a>, 
+			<a href="class-Aura.Filter.Rule.Max.html">Aura\Filter\Rule\Max</a>, 
+			<a href="class-Aura.Filter.Rule.Any.html">Aura\Filter\Rule\Any</a>, 
+			<a href="class-Aura.Filter.Rule.Method.html">Aura\Filter\Rule\Method</a>, 
+			<a href="class-Aura.Filter.Rule.Min.html">Aura\Filter\Rule\Min</a>, 
+			<a href="class-Aura.Filter.Rule.Regex.html">Aura\Filter\Rule\Regex</a>, 
+			<a href="class-Aura.Filter.Rule.StrictEqualToField.html">Aura\Filter\Rule\StrictEqualToField</a>, 
+			<a href="class-Aura.Filter.Rule.StrictEqualToValue.html">Aura\Filter\Rule\StrictEqualToValue</a>, 
+			<a href="class-Aura.Filter.Rule.String.html">Aura\Filter\Rule\String</a>, 
+			<a href="class-Aura.Filter.Rule.Strlen.html">Aura\Filter\Rule\Strlen</a>, 
+			<a href="class-Aura.Filter.Rule.StrlenBetween.html">Aura\Filter\Rule\StrlenBetween</a>, 
+			<a href="class-Aura.Filter.Rule.StrlenMax.html">Aura\Filter\Rule\StrlenMax</a>, 
+			<a href="class-Aura.Filter.Rule.StrlenMin.html">Aura\Filter\Rule\StrlenMin</a>, 
+			<a href="class-Aura.Filter.Rule.Between.html">Aura\Filter\Rule\Between</a>, 
+			<a href="class-Aura.Filter.Rule.Trim.html">Aura\Filter\Rule\Trim</a>, 
+			<a href="class-Aura.Filter.Rule.Upload.html">Aura\Filter\Rule\Upload</a>, 
+			<a href="class-Aura.Filter.Rule.Url.html">Aura\Filter\Rule\Url</a>, 
+			<a href="class-Aura.Filter.Rule.Word.html">Aura\Filter\Rule\Word</a>, 
+			<a href="class-Aura.Filter.Rule.Blank.html">Aura\Filter\Rule\Blank</a>, 
+			<a href="class-Aura.Filter.Rule.Bool.html">Aura\Filter\Rule\Bool</a>, 
+			<a href="class-Aura.Filter.Rule.Closure.html">Aura\Filter\Rule\Closure</a>, 
+			<a href="class-Aura.Filter.Rule.CreditCard.html">Aura\Filter\Rule\CreditCard</a>, 
+			<a href="class-Aura.Filter.Rule.DateTime.html">Aura\Filter\Rule\DateTime</a>, 
+			<a href="class-Aura.Filter.Rule.Email.html">Aura\Filter\Rule\Email</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br />
+		
+		<b>Namespace:</b> <a href="namespace-Aura.html">Aura</a>\<a href="namespace-Aura.Filter.html">Filter</a><br />
+		<b>Package:</b> Aura\Filter<br />
+
+		<b>Located at</b> <a href="source-class-Aura.Filter.AbstractRule.html#13-282" title="Go to source code">Aura/Filter/AbstractRule.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="prep" id="_prep">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_prep">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#74-89" title="Go to source code">prep</a>( <span>object <var>$data</var></span>, <span>string <var>$field</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Prepare the rule for reuse.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>object</code><br>$data The full set of data to be filtered.</dd>
+					<dt><var>$field</var></dt>
+					<dd><code>string</code><br>$field The field to be filtered within the data.</dd>
+				</dl></div>
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Filter.RuleInterface.html#_prep">Aura\Filter\RuleInterface::prep()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMessage" id="_getMessage">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMessage">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#91-102" title="Go to source code">getMessage</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the error message; note that this returns the message whether or not
+there was an error when validating or sanitizing.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Filter.RuleInterface.html#_getMessage">Aura\Filter\RuleInterface::getMessage()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getParams" id="_getParams">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getParams">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#104-114" title="Go to source code">getParams</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the params passed into the filter.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Filter.RuleInterface.html#_getParams">Aura\Filter\RuleInterface::getParams()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setParams" id="_setParams">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setParams">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#116-128" title="Go to source code">setParams</a>( <span>array <var>$params</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the params passed into the filter.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$params</var></dt>
+					<dd><code>array</code><br>$params The params passed into the filter.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMessageKey" id="_setMessageKey">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMessageKey">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#130-142" title="Go to source code">setMessageKey</a>( <span>string <var>$message_key</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the message key to be used.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$message_key</var></dt>
+					<dd><code>string</code><br>$message_key The message key to be used.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getValue" id="_getValue">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getValue">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#144-160" title="Go to source code">getValue</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the value of the field being filtered, or null if the field is not set in
+the data.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Filter.RuleInterface.html#_getValue">Aura\Filter\RuleInterface::getValue()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setValue" id="_setValue">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setValue">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#162-175" title="Go to source code">setValue</a>( <span>string <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set value of field, creating it in the data if needed.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd><code>string</code><br>$value The new value of the field.</dd>
+				</dl></div>
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Filter.RuleInterface.html#_setValue">Aura\Filter\RuleInterface::setValue()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="is" id="_is">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_is">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#177-188" title="Go to source code">is</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Is the value valid?</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if valid, false if not valid.<br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Filter.RuleInterface.html#_is">Aura\Filter\RuleInterface::is()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isNot" id="_isNot">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isNot">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#190-201" title="Go to source code">isNot</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Is the value <em>not</em> valid?</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if not valid, false if valid.<br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Filter.RuleInterface.html#_isNot">Aura\Filter\RuleInterface::isNot()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isBlankOr" id="_isBlankOr">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isBlankOr">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#203-218" title="Go to source code">isBlankOr</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Is the value blank, or otherwise valid?</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if blank or valid, false if not.<br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Filter.RuleInterface.html#_isBlankOr">Aura\Filter\RuleInterface::isBlankOr()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fix" id="_fix">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fix">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#220-231" title="Go to source code">fix</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sanitize the value, transforming it as needed.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if the value was sanitized, false if not.<br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Filter.RuleInterface.html#_fix">Aura\Filter\RuleInterface::fix()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fixBlankOr" id="_fixBlankOr">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fixBlankOr">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#233-252" title="Go to source code">fixBlankOr</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>If the value is blank, set to null; sanitize if not blank, transforming it as
+needed.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if the value was set to null or sanitized, false if not.<br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Aura.Filter.RuleInterface.html#_fixBlankOr">Aura\Filter\RuleInterface::fixBlankOr()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isBlank" id="_isBlank">
+
+		<td class="attributes"><code>
+			 protected 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isBlank">#</a>
+		<code><a href="source-class-Aura.Filter.AbstractRule.html#254-281" title="Go to source code">isBlank</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Is the value blank?</p>
+
+<p>Blank is null, empty string, or a string of only whitespace. Non-null
+non-string values are not blank; e.g., integer zero, float zero, an empty array,
+boolean false, etc. are not blank.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if blank, false if not.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="data" id="$data">
+		<td class="attributes"><code>
+			protected  
+			object
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Filter.AbstractRule.html#22-29" title="Go to source code"><var>$data</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$data" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The full set of data to be filtered.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="field" id="$field">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Filter.AbstractRule.html#31-38" title="Go to source code"><var>$field</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$field" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The field to be filtered within the data.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="message_map" id="$message_map">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Filter.AbstractRule.html#40-53" title="Go to source code"><var>$message_map</var></a>
+		</td>
+		<td class="value"><code>[
+    <span class="php-quote">'failure_is'</span>            =&gt; <span class="php-quote">''</span>,
+    <span class="php-quote">'failure_is_not'</span>        =&gt; <span class="php-quote">''</span>,
+    <span class="php-quote">'failure_is_blank_or'</span>   =&gt; <span class="php-quote">''</span>,
+    <span class="php-quote">'failure_fix'</span>           =&gt; <span class="php-quote">''</span>,
+    <span class="php-quote">'failure_fix_blank_or'</span>  =&gt; <span class="php-quote">''</span>,
+]</code></td>
+		<td class="description"><div>
+			<a href="#$message_map" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Messages to use when validate or sanitize fails.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="message_key" id="$message_key">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Filter.AbstractRule.html#55-62" title="Go to source code"><var>$message_key</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'failure_is'</span></code></td>
+		<td class="description"><div>
+			<a href="#$message_key" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The message key to use.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="params" id="$params">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Aura.Filter.AbstractRule.html#64-72" title="Go to source code"><var>$params</var></a>
+		</td>
+		<td class="value"><code>[]</code></td>
+		<td class="description"><div>
+			<a href="#$params" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Params passed into the filter for validate/sanitize; generally used by the
+message.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
