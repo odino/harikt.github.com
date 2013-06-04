@@ -4,7 +4,7 @@
   <title><![CDATA[Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-05-26T12:28:45+05:30</updated>
+  <updated>2013-06-04T07:56:49+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Aura.Web, build your own controller class]]></title>
+    <link href="http://harikt.com/blog/2013/06/04/aura-dot-web/"/>
+    <updated>2013-06-04T07:47:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/06/04/aura-dot-web</id>
+    <content type="html"><![CDATA[<p>If you are new to the concept of MVC, or if you are planning to build your
+own framework, probably Aura.Web help you to do the same.</p>
+
+<p>Here is the article in phpmaster.com <a href="http://phpmaster.com/aura-web-auras-page-controller-for-mvc/">Aura.Web: Aura’s Page Controller for MVC</a>.</p>
+
+<p>Probably you may also like the article <a href="http://phpmaster.com/web-routing-in-php-with-aura-router/">Web Routing in PHP with Aura.Router</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Aura System released beta5]]></title>
@@ -2117,15 +2131,6 @@ I am planning to start a series of posts to get started with using the component
     <updated>2012-10-28T11:21:00+05:30</updated>
     <id>http://harikt.com/blog/2012/10/28/node-220</id>
     <content type="html"><![CDATA[<p>The 13th edition of Barcamp kerala is on November 4th. This time I am going to talk on Dependency Management with Composer. In the 12th Barcamp I talked about Aura , and it was a bit technical , so Kenny was making sure, not to go for intensive code. So the talk will not be limited to composer. I will be giving you an introduction to Eath , and also a small project which I have done for my personal use fbsearch. The tool is used to search your own status messages you have posted some months back. Its still on alpha for I didn&#8217;t get enough time to move on to make it much more better. It has some issues which I am already aware of. So if you are interested , be there :) . For more information : <a href="http://barcampkerala.org">barcampkerala.org</a> <a href="http://getcomposer.org">composer.org</a> <a href="https://github.com/crodas/Eath">Eath</a> <a href="http://harikt.com/fbsearch">fbsearch</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Why apigen matters ?]]></title>
-    <link href="http://harikt.com/blog/2012/10/20/node-219/"/>
-    <updated>2012-10-20T22:03:00+05:30</updated>
-    <id>http://harikt.com/blog/2012/10/20/node-219</id>
-    <content type="html"><![CDATA[<p>I have been working with different open-source projects for a while. Most of them utilizes phpdocumentator2 . I liked it for a while. But I have been looking at apigen, swami etc. Recently I started to make use of apigen extensively. What made me comfortable with apigen than phpdocumentator ? Certain times we may want to look into the code also to see the implementation . I am not sure may be there is an option in phpdocumentator that it can show the code when we click on a function / method. The code highlighting and is shown once we click on it. I like this feature the most. If you haven&#8217;t yet checked how the apigen generated api looks have a look into the one for the <a href="https://github.com/auraphp">aura project</a> which is at <a href="http://harikt.github.com/api">http://harikt.github.com/api</a> More information on a href=&#8221;http://apigen.org>apigen.org</p>
 ]]></content>
   </entry>
   

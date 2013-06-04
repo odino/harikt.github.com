@@ -1,3 +1,0 @@
-
-var ApiGen = ApiGen || {};
-ApiGen.elements = [["c","Aura\\Intl\\BasicFormatter"],["c","Aura\\Intl\\Exception"],["c","Aura\\Intl\\Exception\\CannotFormat"],["c","Aura\\Intl\\Exception\\CannotInstantiateFormatter"],["c","Aura\\Intl\\Exception\\FormatterNotMapped"],["c","Aura\\Intl\\Exception\\IcuVersionTooLow"],["c","Aura\\Intl\\FormatterInterface"],["c","Aura\\Intl\\FormatterLocator"],["c","Aura\\Intl\\IntlFormatter"],["c","Aura\\Intl\\Package"],["c","Aura\\Intl\\PackageFactory"],["c","Aura\\Intl\\PackageLocator"],["c","Aura\\Intl\\PackageLocatorInterface"],["c","Aura\\Intl\\Translator"],["c","Aura\\Intl\\TranslatorFactory"],["c","Aura\\Intl\\TranslatorInterface"],["c","Aura\\Intl\\TranslatorLocator"],["c","Exception"]];

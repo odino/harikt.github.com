@@ -1,3 +1,0 @@
-
-var ApiGen = ApiGen || {};
-ApiGen.elements = [["c","ArrayAccess"],["c","ArrayObject"],["c","Aura\\Di\\Config"],["c","Aura\\Di\\ConfigInterface"],["c","Aura\\Di\\Container"],["c","Aura\\Di\\ContainerInterface"],["c","Aura\\Di\\Exception"],["c","Aura\\Di\\Exception\\ContainerExists"],["c","Aura\\Di\\Exception\\ContainerLocked"],["c","Aura\\Di\\Exception\\ContainerNotFound"],["c","Aura\\Di\\Exception\\ServiceInvalid"],["c","Aura\\Di\\Exception\\ServiceNotFound"],["c","Aura\\Di\\Factory"],["c","Aura\\Di\\Forge"],["c","Aura\\Di\\ForgeInterface"],["c","Aura\\Di\\Lazy"],["c","Countable"],["c","Exception"],["c","IteratorAggregate"],["c","ReflectionClass"],["c","Reflector"],["c","Serializable"],["c","Traversable"]];
